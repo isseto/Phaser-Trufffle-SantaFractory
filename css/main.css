@@ -1,0 +1,156 @@
+body {
+	background: #222;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+.bottomMenu {
+	position: fixed;
+	bottom: 0;
+	background: #ff6b79;
+	width: 100%;
+	padding: .75em;
+	text-align: center;
+  z-index: 9999999;
+}
+.bottomMenu a {color: #FFF}
+
+#menuSvg {
+  z-index: 999;
+  position: absolute;
+  width: 1440px;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.menuContent {
+  z-index: 9999;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.menuButton {
+  padding: .25em;
+}
+.menuButton:hover {
+  background: #FF828F;
+}
+
+
+
+
+
+/* Modal */
+.modal {
+  position: fixed;
+  bottom: 4.5em;
+  left: 0;
+  right: 0;
+  z-index: 99;
+  background: #D4B5EB;
+  margin: auto;
+  padding: 2em 2em 2.5em 2em;
+  border-radius: 6px;
+}
+
+.modal-content p,
+.modal-content h3,
+.modal-content h5 {
+  color: #FFF;
+}
+.modal-content h3 {font-family: "Shrikhand", "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif; margin-bottom: .4em}
+.modal-content p {margin-bottom: 0em}
+.modal-content h5 {font-size: .85rem;}
+
+/* The Close Button */
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+
+/* Library */
+/* Card Library */
+.svgLibrarySnow {
+  position: fixed;
+  display: block;
+  margin: auto;
+  left: -1%;
+  top: -1em;
+  width: 102%
+}
+
+.libraryContainer {
+	background: #91E3CC;
+  position: fixed;
+  /*bottom: 4.5em;*/
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 9;
+  margin: auto;
+  border-radius: 6px;
+}
+.libraryContainer p,
+.libraryContainer h3 {
+  color: #FFF;
+}
+
+.library-content {padding: 0em;}
+.library-title {margin-top: 1em;}
+
+.libraryList {
+  overflow: scroll;
+  height: 22em;
+}
+
+.badgeLibrary {
+  background: #82A3F5;
+  padding: .5em;
+  padding-bottom: 1em;
+}
+.badgeLibrary .badgeList {
+  padding: .5em 0em;
+}
+
+.libraryCard {
+	background: #D4B5EB;
+	padding: 1em;
+  list-style: none;
+}
+
+.libraryCard p,
+.libraryCard h2,
+.libraryCard h3,
+.libraryCard h5 {
+  color: #FFF;
+}
+.libraryCard h3,
+.libraryCard h2 {
+  font-family: "Shrikhand", "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif; margin-bottom: .4em
+}
+.libraryCard p {margin-bottom: 0em}
+.libraryCard h5 {font-size: .85rem;}
+
+.libraryCard-purple{
+	border-top: 6px solid #8098cc;
+}
+.libraryCard-yellow{
+	border-top: 6px solid #fee841;
+}
+.libraryCard-green{
+	border-top: 6px solid #6ac8c5;
+}
