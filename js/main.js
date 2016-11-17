@@ -59,7 +59,7 @@ modalBtn.onclick = function() {
 }
 
 // When the user clicks on <span> (x), close the modal
-modalSpan.onclick = function() {
+modalSpan.onclick = function modalTrigger() {
     modaltl
       .fromTo(modalContent, .3, {y:0}, {y:300})
       .fromTo(modal, .5, {

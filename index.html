@@ -103,8 +103,8 @@
         <!-- Volume Button -->
         <div class="small-3 columns menuButton">
            <audio id="audio" preload="auto" volume="0.1"  loop>
-             <source src="audio/sweetgame.mp3" type="audio/mp3" />
-             <source src="audio/christmas-game-theme.mp3" type="audio/mp3" />
+             <source src="assets/audio/sweetgame.mp3" type="audio/mp3" />
+             <source src="assets/audio/christmas-game-theme.mp3" type="audio/mp3" />
              <p>Your browser does not support the <code>audio</code> element.</p>
             </audio>
           <button onclick="toggleSound()"><img src="img/button4.png"></button>
@@ -114,7 +114,7 @@
   </div>
   
   <!-- Menu Content: Single Card -->
-  <!--<div class="row">
+  <div class="row">
     <div id="modalCard" class="modal small-12 large-4 small-centered columns">
       <div class="modal-content">
         <div id="modalSpan" class="close">x</div>
@@ -132,7 +132,7 @@ the last line of the paragraph.</p>
   </div>
   
   <!-- Menu Content: Library -->
-  <!--<div class="row">
+  <div class="row">
     <div id="library" class="libraryContainer small-12 large-5 small-centered columns">
       <svg class="svgLibrarySnow" version="1.1"
          x="0px" y="0px" width="621.5px" height="31.8px" viewBox="0 0 621.5 31.8" style="enable-background:new 0 0 621.5 31.8;"
@@ -177,38 +177,38 @@ the last line of the paragraph.</p>
         
 
         <!-- Card Library List -->
-        <!--<div class="row">
+        <div class="row">
           <div id="libraryList" class="small-12 small-centered columns libraryList"></div>
         </div>
 
         </div><!-- End Library Content -->
         
         <!-- Badges Library -->
-        <!--<div class="row">
+        <div class="row">
           <div class="badgeLibrary small-12 columns">
             <div class="small-12 small-centered columns badgeList">
-              <img src="img/emptyBadge.png">
-              <img src="img/emptyBadge.png">
-              <img src="img/emptyBadge.png">
-              <img src="img/emptyBadge.png">
-              <img src="img/emptyBadge.png">
-              <img src="img/emptyBadge.png">
-              <img src="img/emptyBadge.png">
-              <img src="img/emptyBadge.png">
-              <img src="img/emptyBadge.png">
-              <img src="img/emptyBadge.png">
+              <img src="assets/images/emptyBadge.png">
+              <img src="assets/images/emptyBadge.png">
+              <img src="assets/images/emptyBadge.png">
+              <img src="assets/images/emptyBadge.png">
+              <img src="assets/images/emptyBadge.png">
+              <img src="assets/images/emptyBadge.png">
+              <img src="assets/images/emptyBadge.png">
+              <img src="assets/images/emptyBadge.png">
+              <img src="assets/images/emptyBadge.png">
+              <img src="assets/images/emptyBadge.png">
             </div>
             <div class="small-12 small-centered columns badgeList">
-              <img src="img/emptyBadge.png">
-              <img src="img/emptyBadge.png">
-              <img src="img/emptyBadge.png">
-              <img src="img/emptyBadge.png">
-              <img src="img/emptyBadge.png">
-              <img src="img/emptyBadge.png">
-              <img src="img/emptyBadge.png">
-              <img src="img/emptyBadge.png">
-              <img src="img/emptyBadge.png">
-              <img src="img/emptyBadge.png">
+              <img src="assets/images/emptyBadge.png">
+              <img src="assets/images/emptyBadge.png">
+              <img src="assets/images/emptyBadge.png">
+              <img src="assets/images/emptyBadge.png">
+              <img src="assets/images/emptyBadge.png">
+              <img src="assets/images/emptyBadge.png">
+              <img src="assets/images/emptyBadge.png">
+              <img src="assets/images/emptyBadge.png">
+              <img src="assets/images/emptyBadge.png">
+              <img src="assets/images/emptyBadge.png">
             </div>
           </div>
         </div>
@@ -232,6 +232,9 @@ the last line of the paragraph.</p>
 	<!-- Foundation -->
   <script src="js/vendor/jquery.js"></script>
 	<script src="js/vendor/foundation.js"></script>
+	
+	<!-- Greensock -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.0/TweenMax.min.js"></script>
 	
 	<!-- JSON Card Library -->
   <script src="js/cardslibrary.js"></script>
