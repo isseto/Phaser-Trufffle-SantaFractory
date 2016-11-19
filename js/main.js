@@ -34,7 +34,7 @@ var modalBtn = document.getElementsByClassName("modalBtn")[0];
 var modalSpan = document.getElementById("modalSpan");
 
 // When the user clicks on the button, open the modal 
-modalBtn.onclick = function() {
+modalBtn.onclick = function displayModal() {
     modal.style.display = "block";
       modaltl
         .fromTo(modal, .5, {

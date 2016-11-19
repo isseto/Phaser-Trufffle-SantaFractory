@@ -1,5 +1,12 @@
 var game = new Phaser.Game(window.innerWidth, window.innerHeight, Phaser.AUTO, '', { preload: preload, create: create, update: update });
 
+//Get Global Date
+var date = new Date();
+    userDate = date.getDate();
+document.getElementById("userDate").innerHTML = userDate;
+console.log("Current date: December " + userDate);
+
+
 // BASEMAP Speed and Friction
 var speedMult = 0.7;
 var friction = 0.99
@@ -10,6 +17,12 @@ function preload() {
   game.load.image('star', 'assets/images/star.png');
   game.load.image('emptyBadge', 'assets/images/emptyBadge.png');
   game.load.spritesheet('dude', 'assets/sprites/SantaF_test1.png', 32, 48);
+  game.load.atlasJSONHash('elfhat', 'assets/sprites/elfhat0.png', 'assets/sprites/elfhat0.json');
+  game.load.atlasJSONHash('elfhat1', 'assets/sprites/elfhat1.png', 'assets/sprites/elfhat1.json');
+  game.load.atlasJSONHash('elfhat2', 'assets/sprites/elfhat2.png', 'assets/sprites/elfhat2.json');
+  game.load.atlasJSONHash('elfhat3', 'assets/sprites/elfhat3.png', 'assets/sprites/elfhat3.json');
+  
+  game.load.spritesheet('ms', 'assets/sprites/elfmotion.png', 400, 400, 120);
   
   //Audio
   // game.load.audio('sfx', [ 'assets/audio/SoundEffects/fx_mixdown.mp3', 'assets/audio/SoundEffects/fx_mixdown.ogg' ]);
@@ -54,7 +67,14 @@ function create() {
   var star = game.add.sprite(200, 200, 'star');
   star.inputEnabled = true;
   star.input.useHandCursor = true;
-  star.events.onInputDown.add(removeStar, this);  
+  star.events.onInputDown.add(starClick, this); 
+  
+  //Testing Elf Spritesheet
+  sprite = game.add.sprite(40, 100, 'ms');
+  sprite.scale.setTo(0.16,0.16);
+  sprite.animations.add('walk');
+  sprite.animations.play('walk', 50, true);
+  game.add.tween(sprite).to({ x: 300 }, 5000, Phaser.Easing.Linear.None, true);
   
   //Link Star sound to preload
   staraudio = game.add.audio('blop');
@@ -70,7 +90,8 @@ function create() {
   starGroup.setAll('input.useHandCursor', true);
   // Call all in group
   //starGroup.callAll('events.onInputDown.add', 'events.onInputDown', removeStar);
-  starGroup.callAll('events.onInputDown.add', 'events.onInputDown', removeStar);
+  starGroup.callAll('events.onInputDown.add', 'events.onInputDown', starClick);
+  starGroup.callAll('events.onInputDown.add', 'events.onInputDown', displayModal);
   //  And allow them all to be dragged
   //world.callAll('input.enableDrag', 'input');
   // Animate each Star to pulse scale
@@ -81,17 +102,17 @@ function create() {
   
 }//***End create function
 
-function removeStar (star) {
+function starClick (star) {
   this.staraudio.play('',0,1);
-  removeStartween = game.add.tween(star)
-    removeStartween.to( { x: 400, y: 100 }, 2000);
-    removeStartween.to( { x: 700, y: 200 }, 2000);
-    removeStartween.to( { x: 600, y: 300 }, 2000);
-  game.add.tween(star.scale)
-    .to( {x:2, y:2}, 800, "Sine.easeInOut", true, 0, 0);
+
+  starRemoveTweenA = game.add.tween(star.scale).to( { x:2, y:2 }, 800, "Elastic.easeOut");
+  starRemoveTweenB = game.add.tween(star.scale).to( { x:0, y:0 }, 800, "Elastic");
+  starRemoveTweenA.chain(starRemoveTweenB);
+  starRemoveTweenA.start();
   //game.add.tween(star).to( { alpha: 0 }, 100, Phaser.Easing.Linear.None, true, 0, 0);
   //star.destroy();
-  
+  //game.time.events.add(2000, functionDestroy, this);
+  game.time.events.add(1000, star.destroy, star);
   
 }//***End removeStar function
 
@@ -151,3 +172,41 @@ function update() {
   
   
 }//***End update function
+
+var modal = document.getElementById('modalCard');
+var modalContent = document.getElementsByClassName('modal-content');
+var modaltl = new TimelineMax();
+modaltl
+  .set(modal, {
+    rotationX:90,
+    transformPerspective: 100,
+    transformStyle:"preserve-3d",
+    transformOrigin:"50% 100%",
+  })
+  .set(modalContent, {
+    y:300
+  })
+function displayModal() {
+    modal.style.display = "block";
+      modaltl
+        .fromTo(modal, .5, {
+          rotationX:90,
+          transformPerspective: 100,
+          transformStyle:"preserve-3d",
+          transformOrigin:"50% 100%",
+        },{
+          rotationX:0, 
+          ease: Back.easeOut.config(.8),
+          delay:1
+        })
+        .fromTo(modalContent, .4, {y:300}, {y:0}, '-=.3')
+
+    for (var i = 0; i < modalBtn.length; i++) {
+        var thismodalBtn = modalBtn[i];
+        thismodalBtn.addEventListener("click", function () {
+            var modal = document.getElementById(this.dataset.modal);
+            //modal.style.display = "block";
+            modal.addEventListener("click", function () { modal.style.display = "none"; modal.removeEventListener("click"); });
+        }, false);
+    }
+}
