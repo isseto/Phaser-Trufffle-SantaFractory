@@ -97,7 +97,7 @@ body {
 	background: #91E3CC;
   position: fixed;
   /*bottom: 4.5em;*/
-  bottom: 0;
+  bottom: 4.5em;
   left: 0;
   right: 0;
   z-index: 9;
@@ -120,11 +120,27 @@ body {
 .badgeLibrary {
   background: #82A3F5;
   padding: .5em;
-  padding-bottom: 1em;
+  padding-bottom: 1.5em;
 }
-.badgeLibrary .badgeList {
-  padding: .5em 0em;
+.badgeLibrary ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background: ;
 }
+.badgeLibrary li {
+  float: left;
+  background: ;
+}
+.badgeLibrary li a {
+  display: block;
+  text-align: center;
+  padding: .2em;
+  text-decoration: none;
+}
+
+
 
 .libraryCard {
 	background: #D4B5EB;

@@ -1,62 +1,50 @@
 {
 	"cards": [{
-			"date": "Dec01",
+			"day": 1,
       "category": "Culture",
 			"title": "The Netherlands",
       "fact": "The peopleof the Netherlands, who celebrate the holiday on December 6th, await the arrival of Sinterklaas and his sidekick Black Pete to leave candy and nuts for good little boys and girls, who have filled their choes with hay and sugar for his horse.",
 			"colour": "purple",
 			"opened": true
 		}, {
-      
-			"date": "Dec01",
+			"day": 1,
       "category": "Culture",
 			"title": "Germany",
       "fact": "It is Nikolaustag, St. Claus day. Children leave out a shoe or boot outside their the eve of that day, and the next morning candies and/or small toys appear in them for those who have been good.",
 			"colour": "yellow",
 			"opened": true
     }, {
-			"date": "Dec01",
+			"day": 1,
 			"title": "What are elves?",
 			"colour": "yellow",
 			"opened": true
 		}, {
-			"date": "Dec01",
-			"title": "What is Christmas?",
-			"colour": "green",
-			"opened": true
-		},
-
-		{
-			"date": "Dec02",
-			"title": "Who Celebrates Christmas?",
-			"colour": "green",
-			"opened": false
-		}, {
-			"date": "Dec02",
-			"title": "Where is Santa's Factory?",
+			"day": 2,
+      "category": "Culture",
+			"title": "The Netherlands",
+      "fact": "The peopleof the Netherlands, who celebrate the holiday on December 6th, await the arrival of Sinterklaas and his sidekick Black Pete to leave candy and nuts for good little boys and girls, who have filled their choes with hay and sugar for his horse.",
 			"colour": "purple",
-			"opened": false
-		}, {
-			"date": "Dec02",
-			"title": "Who are Santa's elves?",
-			"colour": "yellow",
-			"opened": true
-		},
-
-		{
-			"date": "Dec03",
-			"title": "Where is Mrs. Claus?",
-			"colour": "yellow",
 			"opened": true
 		}, {
-			"date": "Dec03",
-			"title": "Who is Rudolph?",
-			"colour": "yellow",
-			"opened": false
+      "day": 2,
+      "category": "Culture",
+			"title": "The Netherlands",
+      "fact": "The peopleof the Netherlands, who celebrate the holiday on December 6th, await the arrival of Sinterklaas and his sidekick Black Pete to leave candy and nuts for good little boys and girls, who have filled their choes with hay and sugar for his horse.",
+			"colour": "purple",
+			"opened": true
 		}, {
-			"date": "Dec03",
-			"title": "Is Santa nice?",
-			"colour": "green",
+      "day": 2,
+      "category": "Culture",
+			"title": "The Netherlands",
+      "fact": "The peopleof the Netherlands, who celebrate the holiday on December 6th, await the arrival of Sinterklaas and his sidekick Black Pete to leave candy and nuts for good little boys and girls, who have filled their choes with hay and sugar for his horse.",
+			"colour": "purple",
+			"opened": true
+		}, {
+      "day": 2,
+      "category": "Culture",
+			"title": "The Netherlands",
+      "fact": "The peopleof the Netherlands, who celebrate the holiday on December 6th, await the arrival of Sinterklaas and his sidekick Black Pete to leave candy and nuts for good little boys and girls, who have filled their choes with hay and sugar for his horse.",
+			"colour": "purple",
 			"opened": true
 		}
 	]
