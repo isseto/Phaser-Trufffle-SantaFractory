@@ -8,14 +8,19 @@ console.log("Current date: December " + userDate);
 
 // Get saved score
 var starScore = localStorage.getItem('starScore');
-
+var badgeScore = localStorage.getItem('badgeScore');
 // If there is no highScore (game is started for the first time on this device) 
   if(starScore  === null) {
     localStorage.setItem('starScore', 0);    
     starScore = 0;
   }
+
+  if(badgeScore  === null) {
+    localStorage.setItem('badgeScore', 0);    
+    badgeScore = 0;
+  }
 // Log saved score from local Storage
-console.log('Starting StarScore: '+ localStorage.getItem("starScore"))
+console.log('Last Save // Stars('+ localStorage.getItem("starScore") + '), Badges(' + localStorage.getItem("badgeScore") + ')')
 
 
 
@@ -156,18 +161,31 @@ function collectStar (star) {
 function upScore () {
   // Add and update the score
   starScore = JSON.parse(localStorage.getItem('starScore'));
+  badgeScore = JSON.parse(localStorage.getItem('badgeScore'));
   
   // Add 10 to starScore var
   starScore += 10;
   // Update the text with new score
   scoreText.text = 'starScore: ' + starScore;
   // Add new score to console
-  console.log('new starScore +10: ' + starScore)
+  console.log('+10 ! new Stars (' + starScore + ')')
     
+  // Check for Badges
+  if(starScore % 3 == 0) {
+    badgeScore += 1;   
+    console.log('Holy! You got a new badge! You now have ' + badgeScore + ' badges.')
+  }
+  
   // Update new score to localStorage
   localStorage.setItem("starScore", JSON.stringify(starScore));
+  localStorage.setItem("badgeScore", JSON.stringify(badgeScore));
   // Console log new stored score
-  console.log('new localStorage: ' + localStorage.getItem("starScore"))
+  console.log(
+    'Saved Stars (' 
+    + localStorage.getItem("starScore") 
+    + '), Badges (' 
+    + localStorage.getItem("badgeScore") 
+    + ') !')
   
 }//***End collectStar function
 
