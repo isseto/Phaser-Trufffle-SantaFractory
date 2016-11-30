@@ -14,7 +14,6 @@ var badgeScore = localStorage.getItem('badgeScore');
     localStorage.setItem('starScore', 0);    
     starScore = 0;
   }
-
   if(badgeScore  === null) {
     localStorage.setItem('badgeScore', 0);    
     badgeScore = 0;
@@ -37,10 +36,14 @@ function preload() {
 
   
   //BACKGROUND IMAGES
-  //game.load.image('map', 'assets/images/baseMap.png');
-  game.load.image('map', 'assets/images/baseMap_start.png');
+  game.load.image('map', 'assets/images/baseMap.png');
+  //game.load.image('map', 'assets/images/baseMap_start.png');
   game.load.image('star', 'assets/images/star.png');
-  game.load.image('emptybadge', 'assets/images/emptybadge.png');
+  game.load.image('lockedLetter', 'assets/images/locks/locked_letter.png');
+  
+  // ROOMS
+  game.load.image('RoomReception', 'assets/images/rooms/reception/reception.png');
+  game.load.image('RoomLetter', 'assets/images/rooms/letter/letterRoom.png');
   
   //ELF SPRITESHEETS
   game.load.spritesheet('ms', 'assets/sprites/elfmotion2048.png', 170.7, 170.7, 100);
@@ -50,6 +53,9 @@ function preload() {
   //AUDIO
   // game.load.audio('sfx', [ 'assets/audio/SoundEffects/fx_mixdown.mp3', 'assets/audio/SoundEffects/fx_mixdown.ogg' ]);
   game.load.audio('blop', ['assets/audio/blop.mp3', 'assets/audio/blop.wav']);
+  game.load.audio('win', 'assets/audio/gamewin.mp3');
+  game.load.audio('unlock', 'assets/audio/unlock.mp3');
+
 
 }//***End preload function
 
@@ -61,9 +67,6 @@ function create() {
   //WORLDMAP TEST
   // the big map to scroll
     scrollingMap = game.add.image(0, 0, "map");
-    hi = game.add.image(100, 100, "emptybadge");
-    scrollingMap.addChild(hi);
-
     scrollingMap.anchor.set(0.05,0.5);
     // map will accept inputs
     scrollingMap.inputEnabled = true;
@@ -92,20 +95,46 @@ function create() {
     }, this);
   
   
-  //Temporary Score text
-  var scoretext;
-  scoreText = game.add.text(16, 16, 'starScore: ', { fontSize: '24px', fill: '#222' });
-
-
-  //Create Single Star
-  //var star = game.add.sprite(200, 200, 'star');
-  //star.inputEnabled = true;
-  //star.input.useHandCursor = true;
-  //star.events.onInputDown.add(collectStar, this); 
+  //*** Setting Rooms
+  RoomLetter = game.add.image(347, 74, 'RoomLetter')
+    RoomLetter.visible = false;
+    scrollingMap.addChild(RoomLetter);
+  RoomReception = game.add.image(210, 232, 'RoomReception')
+    scrollingMap.addChild(RoomReception);
   
+  
+  //*** Creating Lock Group
+  var lockGroup = game.add.group();
+  // Adding lockGroup to Map
+  scrollingMap.addChild(lockGroup);
+  //  Make Lock all input enabled
+  lockGroup.setAll('inputEnabled', true);
+  lockGroup.setAll('input.useHandCursor', true);
+  // Animate each Lock to pulse scale
+  
+  //Creating 10 locks one by one
+  locked_one = game.add.sprite(695,350, 'lockedLetter');
+    locked_one.scale.setTo(1.2,1.2);
+    //Add locked_one to lockGroup  
+    lockGroup.addChild(locked_one);
+    locked_one.inputEnabled = true;
+    locked_one.input.useHandCursor = true;
+    //locked_one.events.onInputDown.add(openBadge, this);
+    //Animating single lock for now
+    locked_one.anchor.set(0.5, 1);
+    var lockedTween = game.add.tween(locked_one)
+      lockedTween.to( {y:360}, 600, Phaser.Easing.Out, true, 0, -1, true);
+  
+  //Preparing unlock sound
+  unlockSound = game.add.audio('unlock');
+  winSound = game.add.audio('win');
+  //On Click event 
+  lockGroup.callAll('events.onInputDown.add', 'events.onInputDown', unlockEvent);
+  
+  
+  //*** Creating Stars
   //Link Star sound to preload
   staraudio = game.add.audio('blop');
-  
   //Create random Star group
   starGroup = game.add.group();
   scrollingMap.addChild(starGroup);
@@ -123,7 +152,6 @@ function create() {
   }, this);
   // Animate and destroy on star click
   starGroup.callAll('events.onInputDown.add', 'events.onInputDown', collectStar);
-  starGroup.callAll('events.onInputDown.add', 'events.onInputDown', upScore);
   // Open modal on star click
   starGroup.callAll('events.onInputDown.add', 'events.onInputDown', displayModal);
   //  And allow them all to be dragged
@@ -132,7 +160,6 @@ function create() {
   
   // Elf Spritesheets
   library_desk_s = game.add.sprite(370, 130, 'desk');
-  
   library_desk_s.scale.setTo(0.55,0.55);
   library_desk_s.animations.add('library_desk_anim');
   library_desk_s.animations.play('library_desk_anim', 25, true);
@@ -140,8 +167,19 @@ function create() {
   
 }//***End create function
 
-
-
+//Unlock Event for daily Locks
+function unlockEvent(locked_one) {
+  // Play star pop sound
+  this.unlockSound.play('',0,1);
+  this.winSound.play('',0,1);
+  
+  //Stop bouncing tween
+  unlockTweenA = game.add.tween(locked_one.scale).to( { x:.95, y:.95 }, 500, "Elastic.easeOut");
+  unlockTweenB = game.add.tween(locked_one.scale).to( { x:2, y:2 }, 800, "Elastic.easeOut");
+  unlockTweenC = game.add.tween(locked_one.scale).to( { x:0, y:0 }, 800, "Elastic");
+  unlockTweenA.chain(unlockTweenB, unlockTweenC);
+  unlockTweenA.start();
+}
 
 function collectStar (star) {
   // Play star pop sound
@@ -156,17 +194,12 @@ function collectStar (star) {
   // Add a timer before destroying star
   game.time.events.add(1000, star.destroy, star);
   
-}//***End collectStar function
-
-function upScore () {
   // Add and update the score
   starScore = JSON.parse(localStorage.getItem('starScore'));
   badgeScore = JSON.parse(localStorage.getItem('badgeScore'));
   
   // Add 10 to starScore var
   starScore += 10;
-  // Update the text with new score
-  scoreText.text = 'starScore: ' + starScore;
   // Add new score to console
   console.log('+10 ! new Stars (' + starScore + ')')
     
@@ -188,6 +221,8 @@ function upScore () {
     + ') !')
   
 }//***End collectStar function
+
+
 
 
 function update() {
@@ -249,6 +284,7 @@ function update() {
 
 
 
+//*** Modals Animation
 
 var modal = document.getElementById('modalCard');
 var modalContent = document.getElementsByClassName('modal-content');
