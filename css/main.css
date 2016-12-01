@@ -57,11 +57,13 @@ body {
   border-radius: 6px;
 }
 
+.infoModal {
+  background: #B2CDFA;
+}
+
 .modal-content p,
 .modal-content h3,
-.modal-content h5 {
-  color: #FFF;
-}
+.modal-content h5 {color: #FFF;}
 .modal-content h3 {font-family: "Shrikhand", "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif; margin-bottom: .4em}
 .modal-content p {margin-bottom: 0em}
 .modal-content h5 {font-size: .85rem;}

@@ -36,10 +36,16 @@ function preload() {
 
   
   //BACKGROUND IMAGES
-  game.load.image('map', 'assets/images/baseMap.png');
+  game.load.image('map', 'assets/images/baseMap/basemap_empty.png');
+  game.load.image('infoBtn', 'assets/images/infoButton.png');
   //game.load.image('map', 'assets/images/baseMap_start.png');
   game.load.image('star', 'assets/images/star.png');
+  game.load.image('emptybadge', 'assets/images/emptybadge.png');
+  
+  //LOCKS
+  game.load.image('lockShadow', 'assets/images/locks/lockShadow.png');
   game.load.image('lockedLetter', 'assets/images/locks/locked_letter.png');
+  game.load.spritesheet('badgeWin', 'assets/sprites/elf_badgeWin200100.png', 200, 100);
   
   // ROOMS
   game.load.image('RoomReception', 'assets/images/rooms/reception/reception.png');
@@ -53,8 +59,10 @@ function preload() {
   //AUDIO
   // game.load.audio('sfx', [ 'assets/audio/SoundEffects/fx_mixdown.mp3', 'assets/audio/SoundEffects/fx_mixdown.ogg' ]);
   game.load.audio('blop', ['assets/audio/blop.mp3', 'assets/audio/blop.wav']);
-  game.load.audio('win', 'assets/audio/gamewin.mp3');
+  game.load.audio('lockwin', 'assets/audio/gamewin.mp3');
   game.load.audio('unlock', 'assets/audio/unlock.mp3');
+  game.load.audio('badgewin', 'assets/audio/badgewin.mp3');
+  game.load.audio('jinglebells', 'assets/audio/jinglebells.mp3');
 
 
 }//***End preload function
@@ -96,11 +104,21 @@ function create() {
   
   
   //*** Setting Rooms
-  RoomLetter = game.add.image(347, 74, 'RoomLetter')
-    RoomLetter.visible = false;
+  //Add Letter room
+  RoomLetter = game.add.sprite(700, 310, 'RoomLetter')
+    RoomLetter.anchor.set(0.5);
+    RoomLetter.alpha = 0;
     scrollingMap.addChild(RoomLetter);
+  // Clone bounds from letter room sprite
+  var roomBounds1 = Phaser.Rectangle.clone(RoomLetter);
   RoomReception = game.add.image(210, 232, 'RoomReception')
     scrollingMap.addChild(RoomReception);
+  // Make bounds from polygon around letter room
+  polyLetter = new Phaser.Polygon([ new Phaser.Point(625, 140), new Phaser.Point(1055, 390), new Phaser.Point(780, 550), new Phaser.Point(350, 300) ]);
+    boundsLetter = game.add.graphics(0,0);
+    boundsLetter.lineStyle(4, 0xffd900, 1);
+    boundsLetter.drawPolygon(polyLetter.points);
+    scrollingMap.addChild(boundsLetter);
   
   
   //*** Creating Lock Group
@@ -113,7 +131,11 @@ function create() {
   // Animate each Lock to pulse scale
   
   //Creating 10 locks one by one
+  //lockShadow = game.add.sprite(695,368, 'lockShadow');
+    //lockShadow.anchor.set(0.5);
+    //lockShadow.scale.setTo(.7);
   locked_one = game.add.sprite(695,350, 'lockedLetter');
+    locked_one.anchor.set(0.5, 1);
     locked_one.scale.setTo(1.2,1.2);
     //Add locked_one to lockGroup  
     lockGroup.addChild(locked_one);
@@ -121,16 +143,24 @@ function create() {
     locked_one.input.useHandCursor = true;
     //locked_one.events.onInputDown.add(openBadge, this);
     //Animating single lock for now
-    locked_one.anchor.set(0.5, 1);
-    var lockedTween = game.add.tween(locked_one)
+    lockedTween = game.add.tween(locked_one)
       lockedTween.to( {y:360}, 600, Phaser.Easing.Out, true, 0, -1, true);
+    //lockShadowTween = game.add.tween(lockShadow.scale)
+      //lockShadowTween.to( {x:.9}, 600, Phaser.Easing.Out, true, 0, -1, true);
   
   //Preparing unlock sound
   unlockSound = game.add.audio('unlock');
-  winSound = game.add.audio('win');
+  winSound = game.add.audio('lockwin');
   //On Click event 
   lockGroup.callAll('events.onInputDown.add', 'events.onInputDown', unlockEvent);
   
+  // Badge Win Sprite Animation
+  badgeWinSprite = game.add.sprite(game.world.centerX, game.world.centerY - 50, 'badgeWin');
+  badgeWinSprite.anchor.set(0.5);
+  badgeWinSprite.scale.setTo(4);
+  badgeWinSprite.alpha = 0;
+  badgeWinSprite.animations.add('badgeWinSprite_anim');
+  badgeWinSprite.animations.play('badgeWinSprite_anim', 25, true);
   
   //*** Creating Stars
   //Link Star sound to preload
@@ -138,10 +168,9 @@ function create() {
   //Create random Star group
   starGroup = game.add.group();
   scrollingMap.addChild(starGroup);
-  //starGroup.create(0, 0, 'map');
   //  And add 3 sprites to it
   for (var i = 0; i < 3; i++)
-  {starGroup.create(game.world.randomX, game.world.randomY, 'star');}
+  {starGroup.create(boundsLetter.randomX, boundsLetter.randomY, 'star');}
   //  Make them all input enabled
   starGroup.setAll('inputEnabled', true);
   starGroup.setAll('input.useHandCursor', true);
@@ -154,8 +183,6 @@ function create() {
   starGroup.callAll('events.onInputDown.add', 'events.onInputDown', collectStar);
   // Open modal on star click
   starGroup.callAll('events.onInputDown.add', 'events.onInputDown', displayModal);
-  //  And allow them all to be dragged
-  //world.callAll('input.enableDrag', 'input');
   
   
   // Elf Spritesheets
@@ -165,10 +192,33 @@ function create() {
   library_desk_s.animations.play('library_desk_anim', 25, true);
   scrollingMap.addChild(library_desk_s);
   
+  //** Adding Info Button
+  infoBtn = game.add.sprite(477,443, 'infoBtn');
+    infoBtn.anchor.set(0.5, 1);
+    infoBtn.scale.setTo(1.2,1.2);
+    //Add locked_one to scrollingMap  
+    scrollingMap.addChild(infoBtn);
+    infoBtn.inputEnabled = true;
+    infoBtn.input.useHandCursor = true;
+    //Animating single lock for now
+    infoBtnTween = game.add.tween(infoBtn)
+      infoBtnTween.to( {y:448}, 1200, Phaser.Easing.Out, true, 0, -1, true);
+  infoBtn.events.onInputDown.add(infoBtnModal, this);
+  infoBtn.events.onInputDown.add(displayModal, this);
+  
+  
 }//***End create function
 
+//Info Button click
+function infoBtnModal() {
+  infoBtnTweenA = game.add.tween(infoBtn.scale).to( { x:1.4, y:1.4 }, 500, "Elastic.easeOut");
+  infoBtnTweenB = game.add.tween(infoBtn.scale).to( { x:1.2, y:1.2 }, 500, "Elastic.easeOut");
+  infoBtnTweenA.chain(infoBtnTweenB);
+  infoBtnTweenA.start();
+}
+
 //Unlock Event for daily Locks
-function unlockEvent(locked_one) {
+function unlockEvent(locked_one, roomBounds1) {
   // Play star pop sound
   this.unlockSound.play('',0,1);
   this.winSound.play('',0,1);
@@ -179,8 +229,36 @@ function unlockEvent(locked_one) {
   unlockTweenC = game.add.tween(locked_one.scale).to( { x:0, y:0 }, 800, "Elastic");
   unlockTweenA.chain(unlockTweenB, unlockTweenC);
   unlockTweenA.start();
+  // Add a timer before destroying star
+  game.time.events.add(2000, locked_one.destroy, locked_one);
+  
+  // Room drop down animation tween
+  RoomLetter.alpha = 1;
+  roomDropTweenA = game.add.tween(RoomLetter).from( { y:10 }, 1100, "Elastic.easeOut");
+  roomDropTweenA.start();
+  
+  //  And add 3 sprites to it
+  for (var i = 0; i < 3; i++)
+  {starGroup.create( roomBounds1.randomX, roomBounds1.randomY, 'star');}
+  starGroup.forEach(makeStarClick);
 }
 
+//Make stars clickable and animated
+function makeStarClick() {
+  starGroup.setAll('inputEnabled', true);
+  starGroup.setAll('input.useHandCursor', true);
+  // Animate each Star to pulse scale
+  starGroup.forEach(function(star) {
+    star.anchor.set(0.5);
+    game.add.tween(star.scale).to( {x:1.05, y:1.05}, 800, "Sine.easeInOut", true, 0, -1, true);
+  }, this);
+  // Animate and destroy on star click
+  starGroup.callAll('events.onInputDown.add', 'events.onInputDown', collectStar);
+  // Open modal on star click
+  starGroup.callAll('events.onInputDown.add', 'events.onInputDown', displayModal);
+}
+
+//Star click animation and destroy
 function collectStar (star) {
   // Play star pop sound
   this.staraudio.play('',0,1);
@@ -206,6 +284,11 @@ function collectStar (star) {
   // Check for Badges
   if(starScore % 3 == 0) {
     badgeScore += 1;   
+    
+    // Play badge win audio
+    badgewin.play('',0,1);
+    jinglebells.play('',0,1);
+    badgeWinSprite.alpha = 1;
     console.log('Holy! You got a new badge! You now have ' + badgeScore + ' badges.')
   }
   
@@ -221,8 +304,6 @@ function collectStar (star) {
     + ') !')
   
 }//***End collectStar function
-
-
 
 
 function update() {
@@ -285,8 +366,8 @@ function update() {
 
 
 //*** Modals Animation
-
 var modal = document.getElementById('modalCard');
+var infoModal = document.getElementById('infoModalCard');
 var modalContent = document.getElementsByClassName('modal-content');
 var modaltl = new TimelineMax();
 modaltl
@@ -296,9 +377,16 @@ modaltl
     transformStyle:"preserve-3d",
     transformOrigin:"50% 100%",
   })
+  .set(infoModal, {
+    rotationX:90,
+    transformPerspective: 100,
+    transformStyle:"preserve-3d",
+    transformOrigin:"50% 100%",
+  })
   .set(modalContent, {
     y:300
   })
+
 function displayModal() {
     modal.style.display = "block";
       modaltl
