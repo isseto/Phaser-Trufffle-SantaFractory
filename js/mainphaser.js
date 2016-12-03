@@ -13,6 +13,7 @@ var badgeScore = localStorage.getItem('badgeScore');
   if(starScore  === null) {
     localStorage.setItem('starScore', 0);    
     starScore = 0;
+    introModal;
   }
   if(badgeScore  === null) {
     localStorage.setItem('badgeScore', 0);    
@@ -20,7 +21,8 @@ var badgeScore = localStorage.getItem('badgeScore');
   }
 // Log saved score from local Storage
 console.log('Last Save // Stars('+ localStorage.getItem("starScore") + '), Badges(' + localStorage.getItem("badgeScore") + ')')
-
+localStorage.clear();
+starScore = 0;
 
 // BASEMAP Speed and Friction
 var speedMult = 0.7;
@@ -213,6 +215,10 @@ function create() {
   
   
 }//***End create function
+
+function introModal() {
+  var infoModal = document.getElementById(infoModal)
+}
 
 //Info Button click
 function infoBtnModal() {

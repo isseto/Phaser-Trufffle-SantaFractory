@@ -58,6 +58,14 @@ body {
 
 
 /* Modal */
+.bubbleStroke{
+  position: absolute;
+  top: .5em;
+  right: 1em;
+  z-index: 999999;
+  opacity: .75;
+}
+
 .modal {
   position: fixed;
   bottom: 5.1em;
@@ -72,7 +80,17 @@ body {
 }
 
 .infoModal {
+  position: absolute;
+  left: 0;
+  right: 0;
+  z-index: 9999999;
   background: #B2CDFA;
+  margin: auto;
+  padding: 3em 2em 5.5em 2em;
+  border-radius: 6px;
+  border: 12px solid rgba(255,255,255,.35);
+  top: 5em;
+  text-align: center;
 }
 
 .modal-content p,
@@ -81,6 +99,21 @@ body {
 .modal-content h3 {font-family: "Shrikhand", "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif; margin-bottom: .4em}
 .modal-content p {margin-bottom: 0em}
 .modal-content h5 {font-size: .85rem;}
+
+.infoModal-content p,
+.infoModal-content h3 {color: #FFF;}
+.infoModal-content h3 {font-family: "Shrikhand", "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif; margin-bottom: 1em}
+.infoModal-content p {font-size: 1.1rem;}
+
+.infoModal-content button {
+  background: #FF757C;
+  padding: 1em 2em;;
+  margin-top: 1em;
+  border-radius: 8px;
+}
+.infoModal-content button p {
+  margin: 0;
+}
 
 /* The Close Button */
 .close {
