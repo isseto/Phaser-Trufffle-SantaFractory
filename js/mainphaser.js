@@ -3,8 +3,8 @@ var game = new Phaser.Game(window.innerWidth, window.innerHeight, Phaser.AUTO, '
 //Get Global Date
 var date = new Date();
     userDate = date.getDate();
-document.getElementById("userDate").innerHTML = userDate;
-console.log("Current date: December " + userDate);
+//document.getElementById("userDate").innerHTML = userDate;
+//console.log("Current date: December " + userDate);
 
 // Get saved score
 var starScore = localStorage.getItem('starScore');
@@ -13,7 +13,6 @@ var badgeScore = localStorage.getItem('badgeScore');
   if(starScore  === null) {
     localStorage.setItem('starScore', 0);    
     starScore = 0;
-    introModal;
   }
   if(badgeScore  === null) {
     localStorage.setItem('badgeScore', 0);    
@@ -216,8 +215,28 @@ function create() {
   
 }//***End create function
 
-function introModal() {
-  var infoModal = document.getElementById(infoModal)
+var infoModal = document.getElementById('infoModal');
+var introModalBtn = document.getElementById('introModalBtn');
+//Open Intro Modal
+function introModalOpen() {
+  
+  var tlinfoModal = new TimelineMax({repeat:-1});
+  tlinfoModal.to(infoModal, 1, {scale:2})
+}
+//Close Intro Modal
+introModalBtn.onclick = function(infoModal) {
+  var introModaltl = new TimelineMax();
+    introModaltl
+      .fromTo(infoModal, .5, {
+        rotationX:0, 
+        toLocaleStringransformPerspective: 100,
+        transformStyle:"preserve-3d",
+        transformOrigin:"50% 100%",
+      },{
+        rotationX:90,
+        ease: Back.easeIn.config(.8)
+      }, "-=.5")
+  //library.style.display = "none";
 }
 
 //Info Button click
@@ -265,6 +284,7 @@ function makeStarClick() {
   }, this);
   // Animate and destroy on star click
   starGroup.callAll('events.onInputDown.add', 'events.onInputDown', collectStar);
+  starGroup.callAll('events.onInputDown.add', 'events.onInputDown', iconCollectStar);
   // Open modal on star click
   starGroup.callAll('events.onInputDown.add', 'events.onInputDown', displayModal);
 }
@@ -386,13 +406,14 @@ var mouthClosed = document.getElementsByClassName("mouthClosed");
 var mouthOpen = document.getElementsByClassName("mouthOpen");
 var mouthO = document.getElementsByClassName("mouthO");
 
-var hellotimeline = new TimelineMax({repeat:-1});
-hellotimeline.set(eyesClosed, {opacity: 0})
-hellotimeline.to(eyesOpen, .2, {opacity: 0}, 1.5)
-hellotimeline.to(eyesOpen, .2, {opacity: 1})
+var leftEar= document.getElementsByClassName("leftEar");
+var rightEar= document.getElementsByClassName("rightEar");
+var circleElf= document.getElementsByClassName("circleElf");
+var elfHat= document.getElementsByClassName("elfHat");
+var hatrim= document.getElementsByClassName("hatrim");
 
 //Elf Icon Blink
-var tlblink = new TimelineMax();
+var tlblink = new TimelineMax({repeat:-1});
 tlblink.set(eyesClosed, {opacity: 0})
 tlblink.to(eyesOpen, .2, {opacity: 0}, 1.5)
 tlblink.to(eyesOpen, .2, {opacity: 1})
@@ -414,10 +435,10 @@ function iconCollectStar() {
   tliconCollectStar.to(eyesClosed, .01, {opacity: 1},'-=.1')
   
   //Move eyesClosed and mouthClosed down and scale down
-  tliconCollectStar.to([eyesClosed, mouthClosed, headmovement], .5, {y:2, scale:.95})
+  tliconCollectStar.to([eyesClosed, mouthClosed, hatrim, elfHat], .5, {y:2, scale:.95})
   
   //Move eyesClosed and mouthOpen up and scale up
-  tliconCollectStar.to([eyesClosed, mouthClosed, mouthOpen, headmovement], 1, {y:-5, scale:1})
+  tliconCollectStar.to([eyesClosed, mouthClosed, mouthOpen, hatrim, elfHat], 1, {y:-5, scale:1})
   
   //Change from mouthClosed to mouthOpen
   tliconCollectStar.to(mouthClosed, .1, {opacity:0}, '-=1')
@@ -428,10 +449,10 @@ function iconCollectStar() {
   tliconCollectStar.fromTo(mouthOpen, .2, {scaleY:1}, {scaleY:.9, yoyo:true, repeat:8}, '-=.2')
   
   //Close mouth as head goes back down a bit lower than original
-  tliconCollectStar.to([eyesClosed, mouthClosed, mouthOpen, headmovement], .7, {y:1, scale:.98}, '-=.5')
+  tliconCollectStar.to([eyesClosed, mouthClosed, mouthOpen, hatrim, elfHat], .7, {y:1, scale:.98}, '-=.5')
   
   //Open eyes back to original
-  tliconCollectStar.to([eyesClosed, mouthClosed, mouthOpen, headmovement], .3, {y:0, scale:1})
+  tliconCollectStar.to([eyesClosed, mouthClosed, mouthOpen, hatrim, elfHat], .3, {y:0, scale:1})
   tliconCollectStar.to(mouthClosed, .2, {opacity:1}, '-=.1')
   tliconCollectStar.to(mouthOpen, .2, {scaleY:0}, '-=.2')
   tliconCollectStar.to(mouthOpen, .01, {opacity: 0})
