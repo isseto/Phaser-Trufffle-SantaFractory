@@ -22,10 +22,11 @@ var badgeScore = localStorage.getItem('badgeScore');
 console.log('Last Save // Stars('+ localStorage.getItem("starScore") + '), Badges(' + localStorage.getItem("badgeScore") + ')')
 
 
-
 // BASEMAP Speed and Friction
 var speedMult = 0.7;
 var friction = 0.99;
+
+var roomBounds1;
 
 function preload() {
   //Spritesheet Guide
@@ -44,8 +45,8 @@ function preload() {
   
   //LOCKS
   game.load.image('lockShadow', 'assets/images/locks/lockShadow.png');
-  game.load.image('lockedLetter', 'assets/images/locks/locked_letter.png');
-  game.load.spritesheet('badgeWin', 'assets/sprites/elf_badgeWin200100.png', 200, 100);
+  game.load.image('lockedLetter', 'assets/images/locks/locked_100x100.png');
+  //game.load.spritesheet('badgeWin', 'assets/sprites/elf_badgeWin200100.png', 200, 100);
   
   // ROOMS
   game.load.image('RoomReception', 'assets/images/rooms/reception/reception.png');
@@ -63,6 +64,8 @@ function preload() {
   game.load.audio('unlock', 'assets/audio/unlock.mp3');
   game.load.audio('badgewin', 'assets/audio/badgewin.mp3');
   game.load.audio('jinglebells', 'assets/audio/jinglebells.mp3');
+  game.load.audio('woohoo', 'assets/audio/woohoo.mp3');
+  game.load.audio('chime', 'assets/audio/chime.mp3');
 
 
 }//***End preload function
@@ -105,20 +108,25 @@ function create() {
   
   //*** Setting Rooms
   //Add Letter room
-  RoomLetter = game.add.sprite(700, 310, 'RoomLetter')
-    RoomLetter.anchor.set(0.5);
+  RoomLetter = game.add.sprite(350, 73, 'RoomLetter')
     RoomLetter.alpha = 0;
     scrollingMap.addChild(RoomLetter);
   // Clone bounds from letter room sprite
-  var roomBounds1 = Phaser.Rectangle.clone(RoomLetter);
+  roomBounds1 = Phaser.Rectangle.clone(RoomLetter);
+  
+  //var roomBounds1line = game.add.graphics(roomBounds1.x, roomBounds1.y);
+    //roomBounds1line.lineStyle(4, 0xffd900, 1);
+    //roomBounds1line.drawRect(0, 0, roomBounds1.width, roomBounds1.height);
+  
+  
   RoomReception = game.add.image(210, 232, 'RoomReception')
     scrollingMap.addChild(RoomReception);
   // Make bounds from polygon around letter room
-  polyLetter = new Phaser.Polygon([ new Phaser.Point(625, 140), new Phaser.Point(1055, 390), new Phaser.Point(780, 550), new Phaser.Point(350, 300) ]);
-    boundsLetter = game.add.graphics(0,0);
-    boundsLetter.lineStyle(4, 0xffd900, 1);
-    boundsLetter.drawPolygon(polyLetter.points);
-    scrollingMap.addChild(boundsLetter);
+  //polyLetter = new Phaser.Polygon([ new Phaser.Point(625, 140), new Phaser.Point(1055, 390), new Phaser.Point(780, 550), new Phaser.Point(350, 300) ]);
+   // boundsLetter = game.add.graphics(0,0);
+    //boundsLetter.lineStyle(4, 0xffd900, 1);
+    //boundsLetter.drawPolygon(polyLetter.points);
+    //scrollingMap.addChild(boundsLetter);
   
   
   //*** Creating Lock Group
@@ -136,7 +144,7 @@ function create() {
     //lockShadow.scale.setTo(.7);
   locked_one = game.add.sprite(695,350, 'lockedLetter');
     locked_one.anchor.set(0.5, 1);
-    locked_one.scale.setTo(1.2,1.2);
+    locked_one.scale.setTo(.6,.6);
     //Add locked_one to lockGroup  
     lockGroup.addChild(locked_one);
     locked_one.inputEnabled = true;
@@ -154,23 +162,18 @@ function create() {
   //On Click event 
   lockGroup.callAll('events.onInputDown.add', 'events.onInputDown', unlockEvent);
   
-  // Badge Win Sprite Animation
-  badgeWinSprite = game.add.sprite(game.world.centerX, game.world.centerY - 50, 'badgeWin');
-  badgeWinSprite.anchor.set(0.5);
-  badgeWinSprite.scale.setTo(4);
-  badgeWinSprite.alpha = 0;
-  badgeWinSprite.animations.add('badgeWinSprite_anim');
-  badgeWinSprite.animations.play('badgeWinSprite_anim', 25, true);
   
   //*** Creating Stars
   //Link Star sound to preload
   staraudio = game.add.audio('blop');
+  woohoo = game.add.audio('woohoo');
+  chime = game.add.audio('chime');
   //Create random Star group
   starGroup = game.add.group();
   scrollingMap.addChild(starGroup);
   //  And add 3 sprites to it
-  for (var i = 0; i < 3; i++)
-  {starGroup.create(boundsLetter.randomX, boundsLetter.randomY, 'star');}
+  //for (var i = 0; i < 3; i++)
+  //{starGroup.create(roomBounds1.randomX, roomBounds1.randomY, 'star');}
   //  Make them all input enabled
   starGroup.setAll('inputEnabled', true);
   starGroup.setAll('input.useHandCursor', true);
@@ -181,6 +184,8 @@ function create() {
   }, this);
   // Animate and destroy on star click
   starGroup.callAll('events.onInputDown.add', 'events.onInputDown', collectStar);
+  // Animate elf icon
+  starGroup.callAll('events.onInputDown.add', 'events.onInputDown', iconCollectStar);
   // Open modal on star click
   starGroup.callAll('events.onInputDown.add', 'events.onInputDown', displayModal);
   
@@ -218,14 +223,14 @@ function infoBtnModal() {
 }
 
 //Unlock Event for daily Locks
-function unlockEvent(locked_one, roomBounds1) {
+function unlockEvent(locked_one) {
   // Play star pop sound
   this.unlockSound.play('',0,1);
   this.winSound.play('',0,1);
   
   //Stop bouncing tween
-  unlockTweenA = game.add.tween(locked_one.scale).to( { x:.95, y:.95 }, 500, "Elastic.easeOut");
-  unlockTweenB = game.add.tween(locked_one.scale).to( { x:2, y:2 }, 800, "Elastic.easeOut");
+  unlockTweenA = game.add.tween(locked_one.scale).to( { x:.5, y:.5 }, 500, "Elastic.easeOut");
+  unlockTweenB = game.add.tween(locked_one.scale).to( { x:1.2, y:1.2 }, 800, "Elastic.easeOut");
   unlockTweenC = game.add.tween(locked_one.scale).to( { x:0, y:0 }, 800, "Elastic");
   unlockTweenA.chain(unlockTweenB, unlockTweenC);
   unlockTweenA.start();
@@ -262,6 +267,8 @@ function makeStarClick() {
 function collectStar (star) {
   // Play star pop sound
   this.staraudio.play('',0,1);
+  this.chime.play('',0,1);
+  this.woohoo.play('',0,1);
 
   // Add animation to star before destroying
   starRemoveTweenA = game.add.tween(star.scale).to( { x:2, y:2 }, 800, "Elastic.easeOut");
@@ -280,15 +287,15 @@ function collectStar (star) {
   starScore += 10;
   // Add new score to console
   console.log('+10 ! new Stars (' + starScore + ')')
+  
     
   // Check for Badges
   if(starScore % 3 == 0) {
     badgeScore += 1;   
     
     // Play badge win audio
-    badgewin.play('',0,1);
-    jinglebells.play('',0,1);
-    badgeWinSprite.alpha = 1;
+    //badgewin.play('',0,1);
+    //jinglebells.play('',0,1);
     console.log('Holy! You got a new badge! You now have ' + badgeScore + ' badges.')
   }
   
@@ -365,6 +372,72 @@ function update() {
 
 
 
+//******* Elf Icon ********
+var eyesOpen = document.getElementsByClassName("eyesOpenGroup");
+var eyesClosed = document.getElementsByClassName("eyesClosed");
+
+var mouthClosed = document.getElementsByClassName("mouthClosed");
+var mouthOpen = document.getElementsByClassName("mouthOpen");
+var mouthO = document.getElementsByClassName("mouthO");
+
+var hellotimeline = new TimelineMax({repeat:-1});
+hellotimeline.set(eyesClosed, {opacity: 0})
+hellotimeline.to(eyesOpen, .2, {opacity: 0}, 1.5)
+hellotimeline.to(eyesOpen, .2, {opacity: 1})
+
+//Elf Icon Blink
+var tlblink = new TimelineMax();
+tlblink.set(eyesClosed, {opacity: 0})
+tlblink.to(eyesOpen, .2, {opacity: 0}, 1.5)
+tlblink.to(eyesOpen, .2, {opacity: 1})
+
+var tlmouthOpen = new TimelineMax();
+tlmouthOpen.set([mouthO, mouthOpen], {opacity:0})
+
+
+//Star Click Elf Icon Animation
+function iconCollectStar() {
+  tlblink.pause();
+  
+  var tliconCollectStar = new TimelineMax();
+  //Set transform Origins
+  tliconCollectStar.set(mouthOpen, {transformOrigin:"50% 20%"})
+  
+  //Change from eyesOpen to eyesClosed
+  tliconCollectStar.to(eyesOpen, .2, {opacity:0})
+  tliconCollectStar.to(eyesClosed, .01, {opacity: 1},'-=.1')
+  
+  //Move eyesClosed and mouthClosed down and scale down
+  tliconCollectStar.to([eyesClosed, mouthClosed, headmovement], .5, {y:2, scale:.95})
+  
+  //Move eyesClosed and mouthOpen up and scale up
+  tliconCollectStar.to([eyesClosed, mouthClosed, mouthOpen, headmovement], 1, {y:-5, scale:1})
+  
+  //Change from mouthClosed to mouthOpen
+  tliconCollectStar.to(mouthClosed, .1, {opacity:0}, '-=1')
+  tliconCollectStar.to(mouthOpen, .01, {opacity: 1, scaleY:0},'-=1')
+  tliconCollectStar.fromTo(mouthOpen, .5, {scaleY:0}, {scaleY:1}, '-=.8')
+  
+  //Make openMouth laugh with scaleY
+  tliconCollectStar.fromTo(mouthOpen, .2, {scaleY:1}, {scaleY:.9, yoyo:true, repeat:8}, '-=.2')
+  
+  //Close mouth as head goes back down a bit lower than original
+  tliconCollectStar.to([eyesClosed, mouthClosed, mouthOpen, headmovement], .7, {y:1, scale:.98}, '-=.5')
+  
+  //Open eyes back to original
+  tliconCollectStar.to([eyesClosed, mouthClosed, mouthOpen, headmovement], .3, {y:0, scale:1})
+  tliconCollectStar.to(mouthClosed, .2, {opacity:1}, '-=.1')
+  tliconCollectStar.to(mouthOpen, .2, {scaleY:0}, '-=.2')
+  tliconCollectStar.to(mouthOpen, .01, {opacity: 0})
+  tliconCollectStar.to(eyesOpen, .2, {opacity:1}, '+=.3')
+  tliconCollectStar.to(eyesClosed, .01, {opacity:0})
+  
+  //Return to blink setting
+}
+
+
+
+
 //*** Modals Animation
 var modal = document.getElementById('modalCard');
 var infoModal = document.getElementById('infoModalCard');
@@ -398,7 +471,7 @@ function displayModal() {
         },{
           rotationX:0, 
           ease: Back.easeOut.config(.8),
-          delay:1
+          delay:.1
         })
         .fromTo(modalContent, .4, {y:300}, {y:0}, '-=.3')
 
