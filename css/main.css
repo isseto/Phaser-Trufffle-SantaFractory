@@ -40,12 +40,13 @@ body {
   background: #FF828F;
 }
 
+.menuDate {
+  padding: .25em;
+}
+.menuDate h4 {color: #fff; font-weight: 600;}
+
 
 /* Elf Icon */
-.elficonContainer {
-  
-}
-
 .elficon {
   margin: auto;
   position: fixed;
@@ -53,6 +54,7 @@ body {
   left: 0;
   right: 0;
   height: 28%;
+  cursor: pointer;
 }
 
 
@@ -80,7 +82,6 @@ body {
 }
 
 .infoModal {
-  visibility: hidden;
   position: absolute;
   left: 0;
   right: 0;
@@ -109,8 +110,8 @@ body {
 .infoModal-content button {
   background: #FF757C;
   padding: 1em 2em;;
-  margin-top: 1em;
-  border-radius: 8px;
+  margin-top: 2em;
+  border-radius: 32px;
 }
 .infoModal-content button p {
   margin: 0;
@@ -151,8 +152,11 @@ body {
   left: 0;
   right: 0;
   z-index: 9;
+  margin-top: 0;
   margin: auto;
   border-radius: 6px;
+  overflow: scroll;
+  height: 100vw;
 }
 .libraryContainer p,
 .libraryContainer h3 {
@@ -219,4 +223,12 @@ body {
 }
 .libraryCard-green{
 	border-top: 6px solid #6ac8c5;
+}
+
+
+/* Instructions Card Icons */
+.instructions-icon {
+  height: 5em;
+  margin-top: 1em;
+  margin-bottom: .5em;
 }

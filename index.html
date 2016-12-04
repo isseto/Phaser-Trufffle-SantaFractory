@@ -4,7 +4,10 @@
 	<meta charset="utf-8">
 	<meta http-equiv="x-ua-compatible" content="ie=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>❄️🎄 Santa Factory by Trufffle</title>
+	<title>❄️ Santa Factory by Trufffle</title>
+	
+	<!-- Favicon -->
+	<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
 	
   <!-- CSS Stylesheets -->
   <link rel="stylesheet" href="css/foundation.min.css">
@@ -59,26 +62,9 @@
     <div class="small-11 large-5 small-centered columns menuContent">
       
         <!-- First Button Alpha -->
-        <!--<div class="small-3 columns menuButton">
-          <button class="">
-            <!-- Test Delete After-->
-            <!--<p>Dec <span id="userDate"></span></p>
-            <!--<svg version="1.1"
-               x="0px" y="0px" width="47.7px" height="47.7px" viewBox="0 0 47.7 47.7" style="enable-background:new 0 0 47.7 47.7;"
-               xml:space="preserve">
-            <style type="text/css">
-              .whiteoff{opacity:0.2;fill:#FFFFFF;}
-              .whitepure{fill:#FFFFFF;}
-            </style>
-            <defs>
-            </defs>
-            <circle class="whiteoff" cx="23.9" cy="23.9" r="23.9"/>
-            <path class="whitepure" d="M25,11.5l3.2,6.4c0.2,0.4,0.5,0.6,0.9,0.7l7,1c1,0.1,1.4,1.4,0.7,2.1l-5.1,5c-0.3,0.3-0.4,0.7-0.4,1.1l1.2,7
-              c0.2,1-0.9,1.8-1.8,1.3l-6.3-3.3c-0.4-0.2-0.8-0.2-1.2,0L17,36.1c-0.9,0.5-2-0.3-1.8-1.3l1.2-7c0.1-0.4-0.1-0.8-0.4-1.1l-5.1-5
-              c-0.7-0.7-0.3-2,0.7-2.1l7-1c0.4-0.1,0.8-0.3,0.9-0.7l3.2-6.4C23.2,10.6,24.5,10.6,25,11.5z"/>
-            </svg>-->
-          <!--</button>
-        </div>-->
+        <div class="small-3 columns menuDate ">
+            <h4>Dec. <span id="userDate"></span></h4>
+        </div>
         <!-- Second Button Alpha -->
         <div class="small-3 columns menuButton">
           <button class="modalBtn">
@@ -98,14 +84,10 @@
             </svg>
           </button>
         </div>
-        <!-- First Button -->
-        <div class="small-4 columns menuButton">
-          <button id="libraryBtn"><img src="img/button3.png"></button>
-        </div>
         
         <!-- Elf Icon -->
-        <div class=" elficonContainer">
-          <svg class="elficon" version="1.1"
+        <div>
+          <svg id="libraryBtn" class="elficon" version="1.1"
              viewBox="95 0 302.2 201.2" preserveAspectRatio="xMinYMin meet">
           <style type="text/css">
             .white{fill:#FFFFFF;}
@@ -330,7 +312,7 @@
         
         <!-- Volume Button -->
         <div class="small-4 columns menuButton">
-           <audio id="audio" preload="auto" volume="0.1" loop>
+           <audio id="audio" preload="auto" volume="0.1"  loop>
              <source src="assets/audio/christmas-waiting.mp3" type="audio/mp3" />
              <source src="assets/audio/christmas-game-theme.mp3" type="audio/mp3" />
              <p>Your browser does not support the <code>audio</code> element.</p>
@@ -369,6 +351,200 @@ the last line of the paragraph.</p>
         <p>For the very first time, Santa’s Factory is opening its doors to the public, and <span>YOU</span> are one of the lucky few to get an exclusive tour and a firsthand elf training!</p><p>
 Explore your surroundings as we unveil new rooms daily, and learn about the workings behind the jolliest time of the year. </p><p>
 We’ll see if you have what it takes to work for the one and only, Santa!</p>
+        <div class="row">
+            <div class="small-4 columns">
+              <svg class="instructions-icon instructions-drag" version="1.1" viewBox="0 0 48.8 48.9" preserveAspectRatio="xMinYMin meet">
+              <style type="text/css">
+                .instwhite{fill:#FFFFFF;}
+              </style>
+              <defs>
+              </defs>
+              <path class="instwhite" d="M48.4,23.5l-8.5-7.6c-0.7-0.6-1.7-0.1-1.7,0.8v4.5H27.7V10.6h4.4c0.9,0,1.4-1.1,0.8-1.8l-7.4-8.5
+                c-0.5-0.5-1.3-0.5-1.8,0l-7.6,8.5c-0.6,0.7-0.1,1.7,0.8,1.7h4.5v10.5H10.6v-4.4c0-0.9-1.1-1.4-1.8-0.8l-8.5,7.4
+                c-0.5,0.5-0.5,1.3,0,1.8l8.5,7.6c0.7,0.6,1.7,0.1,1.7-0.8v-4.5h10.7v10.8h-4.5c-0.9,0-1.4,1.1-0.8,1.8l7.4,8.5
+                c0.5,0.5,1.3,0.5,1.8,0l7.6-8.5c0.6-0.7,0.1-1.7-0.8-1.7h-4.5V27.5h10.5v4.4c0,0.9,1.1,1.4,1.8,0.8l8.5-7.4
+                C48.9,24.8,48.9,24,48.4,23.5z"/>
+              </svg>
+              <p>Click &amp; Drag to explore</p>
+            </div>
+            <div class="small-4 columns">
+              <svg class="instructions-icon instructions-lockGroup" version="1.1"
+                 viewBox="0 0 35.6 49.7" preserveAspectRatio="xMinYMin meet">
+              <style type="text/css">
+                .inst2st0{fill:#F3F3F5;}
+                .inst2st1{fill:#FF4D56;}
+                .inst2st2{fill:#FF757C;}
+                .inst2st3{fill:#BCC7DB;}
+                .inst2st4{fill:#EAF0FF;}
+              </style>
+              <defs>
+              </defs>
+              <g>
+                <g>
+                  <path class="inst2st0" d="M6.8,17.9c-0.7,0-1.5,0.1-2.1,0.5c0,0,0,0,0,0c-0.5,0.2-0.9,0.6-1.3,0.9c-0.4,0.4-0.7,0.8-0.9,1.2
+                    C2,21.2,1.8,22.1,1.8,23v10.2c0,8,6.5,14.5,14.5,14.5h4.8c4,0,7.7-1.7,10.3-4.3c0.3-0.3,0.5-0.5,0.7-0.8c2.2-2.5,3.5-5.8,3.5-9.4
+                    V23c0-1.1-0.4-2.2-1-3c-1-1.4-2.6-2.1-4.3-2.1L6.8,17.9z"/>
+                </g>
+                <g  class="instructions-lockTop">
+                  <g>
+                    <path class="inst2st0" d="M28.8,35.3c-1.4,0-2.5-1.1-2.5-2.5V12.7c0-0.9-0.2-1.8-0.5-2.6c-0.9-2.4-3.5-5-6.9-5c0,0-0.1,0-0.1,0
+                      c-3.5,0-6.3,2.7-7.2,5.3c-0.2,0.7-0.4,1.5-0.3,2.4l0,0.1l0,5.7c0,1.4-1.1,2.5-2.5,2.5c0,0,0,0,0,0c-1.4,0-2.5-1.1-2.5-2.5l0-5.6
+                      c0-1.4,0.2-2.8,0.6-4C8.3,4.3,12.9-0.1,18.9,0c5.8,0.1,10,4.2,11.6,8.2c0.5,1.4,0.8,2.8,0.8,4.4l0,0v20.1
+                      C31.3,34.2,30.2,35.3,28.8,35.3z"/>
+                  </g>
+                  <g>
+                    <path class="inst2st1" d="M26.9,37.5c-1.4,0-2.5-1.1-2.5-2.5V14.9c0-0.9-0.2-1.8-0.5-2.6c-0.9-2.4-3.5-5-6.9-5c0,0-0.1,0-0.1,0
+                      c-3.5,0-6.3,2.7-7.2,5.3c-0.2,0.7-0.4,1.5-0.3,2.4l0,0.1l0,5.7c0,1.4-1.1,2.5-2.5,2.5c0,0,0,0,0,0c-1.4,0-2.5-1.1-2.5-2.5l0-5.6
+                      c0-1.4,0.2-2.8,0.6-4C6.4,6.5,11,2.1,17,2.2c5.8,0.1,10,4.2,11.6,8.2c0.5,1.4,0.8,2.8,0.8,4.4l0,0V35
+                      C29.4,36.4,28.3,37.5,26.9,37.5z"/>
+                  </g>
+                  <g>
+                    <path class="inst2st2" d="M28.4,35.7c-1.4,0-2.5-1.1-2.5-2.5V13.1c0-0.9-0.2-1.8-0.5-2.6c-0.9-2.4-3.5-5-6.9-5c0,0-0.1,0-0.1,0
+                      c-3.5,0-6.3,2.7-7.2,5.3c-0.2,0.7-0.4,1.5-0.3,2.4l0,0.1l0,5.7c0,1.4-1.1,2.5-2.5,2.5c0,0,0,0,0,0c-1.4,0-2.5-1.1-2.5-2.5l0-5.6
+                      c0-1.4,0.2-2.8,0.6-4c1.5-4.4,6.1-8.8,12.1-8.7c5.8,0.1,10,4.2,11.6,8.2c0.5,1.4,0.8,2.8,0.8,4.4l0,0v20.1
+                      C30.9,34.6,29.8,35.7,28.4,35.7z"/>
+                  </g>
+                  <g>
+                    <path class="inst2st0" d="M27,9c-0.4,0-0.7-0.2-0.8-0.6c-0.3-0.8-0.8-1.9-1.8-2.8c-1.4-1.3-2.9-1.7-3.7-1.9c-0.5-0.1-0.8-0.5-0.7-1
+                      c0.1-0.5,0.5-0.8,1-0.7c1.2,0.2,3,0.8,4.6,2.3c1,1,1.8,2.2,2.2,3.5c0.1,0.4-0.1,0.9-0.5,1.1C27.2,9,27.1,9,27,9z"/>
+                  </g>
+                </g>
+                <g  class="instructions-lockBase">
+                  <g>
+                    <path class="inst2st1" d="M24.5,19.8H9.3 M4.3,19.9c-0.7,0.1-1.3,0.4-1.9,0.8c-0.1,0.1-0.2,0.1-0.3,0.2c-1.2,1-2,2.4-2,4.1v10.2
+                      c0,8,6.5,14.5,14.5,14.5h4.8c4.8,0,9.1-2.4,11.7-6c0.1-0.1,0.1-0.2,0.2-0.2c1.7-2.3,2.6-5.2,2.6-8.3V25c0-0.8-0.2-1.5-0.5-2.1
+                      c-0.2-0.4-0.5-0.9-0.8-1.2c-0.8-0.9-1.8-1.5-3-1.8L4.3,19.9z"/>
+                  </g>
+                  <g>
+                    <path class="inst2st2" d="M6.4,18.3c-0.7,0-1.5,0.1-2.1,0.5c0,0,0,0,0,0C3.8,19,3.3,19.3,3,19.7c-0.4,0.4-0.7,0.8-0.9,1.2
+                      c-0.4,0.7-0.6,1.6-0.6,2.5v10.2c0,8,6.5,14.5,14.5,14.5h4.8c4,0,7.7-1.7,10.3-4.3c0.3-0.3,0.5-0.5,0.7-0.8
+                      c2.2-2.5,3.5-5.8,3.5-9.4V23.4c0-1.1-0.4-2.2-1-3c-1-1.4-2.6-2.1-4.3-2.1L6.4,18.3z"/>
+                  </g>
+                  <g>
+                    <g>
+                      <g>
+                        <g>
+                          <polygon class="inst2st3" points="18.4,25.4 18.3,25.6 18.2,25.4 						"/>
+                        </g>
+                      </g>
+                    </g>
+                  </g>
+                  <g>
+                    <g>
+                      <g>
+                        <path class="inst2st0" d="M32.5,32.8c-0.5,0-0.8-0.4-0.8-0.8v-9.4c0-0.5,0.4-0.8,0.8-0.8c0.5,0,0.8,0.4,0.8,0.8V32
+                          C33.3,32.4,32.9,32.8,32.5,32.8z"/>
+                      </g>
+                      <g>
+                        <path class="inst2st0" d="M32.5,36.5c-0.5,0-0.8-0.4-0.8-0.8v-0.5c0-0.5,0.4-0.8,0.8-0.8c0.5,0,0.8,0.4,0.8,0.8v0.5
+                          C33.3,36.1,32.9,36.5,32.5,36.5z"/>
+                      </g>
+                    </g>
+                  </g>
+                  <g>
+                    <g>
+                      <g>
+                        <path class="inst2st4" d="M23.1,32c-0.1,0.5-0.2,0.7-0.4,1.3c0,0-0.1,0.5-0.3,1.1c-0.1,0.5-0.2,1.5,0,2.6l-1.9,0
+                          c0-1-0.2-1.8-0.2-1.8c0-0.1-0.1-0.8-0.7-1.2c-0.1-0.1-0.4-0.3-0.9-0.3c-0.1,0-0.5,0-0.9,0.3c-0.7,0.5-0.6,1.4-0.6,1.5l0,1.5
+                          L15,37c0-0.5,0.1-1.6,0.1-2.7c0-0.3,0-0.6,0-0.9c-0.1-0.6-0.1-0.6-0.2-1.2c0-0.4,0-0.5,0-1c0-0.5-0.1-0.7-0.2-0.9
+                          c-0.2-0.2-0.4-0.3-0.9-0.4c-0.8-0.2-1-0.1-1.5-0.3c-0.2-0.1-0.5-0.3-0.5-0.5c0-0.2,0.2-0.4,0.5-0.6c0.5-0.4,0.8-0.3,1.1-0.7
+                          c0.1-0.1,0.3-0.3,0.2-0.5c-0.1-0.3-0.5-0.4-0.8-0.4c-0.4-0.1-0.6-0.1-1.3-0.2c-0.2,0-0.4-0.1-0.4-0.2c-0.1-0.1,0-0.3,0.1-0.5
+                          c0.1-0.2,0.2-0.3,0.2-0.4c0-0.1-0.1-0.2-0.2-0.3c-0.2-0.2-0.2-0.2-0.3-0.3c0-0.1,0-0.2,0.1-0.3c0.1-0.1,0.3-0.1,0.4-0.1
+                          c0.1,0,0.1,0.1,0.3,0.2c0.2,0.2,0.3,0.3,0.4,0.3c0.1,0,0.1-0.1,0.4-0.2c0.2-0.1,0.4-0.2,0.5-0.2c0.1,0.1,0.1,0.2,0.2,0.5
+                          c0,0.3,0,0.4,0.1,0.6c0,0.1,0.1,0.2,0.3,0.4c0.3,0.4,0.5,0.6,0.8,0.7c0.3,0.1,0.6,0.3,0.9,0.2c0.3-0.1,0.5-0.3,0.6-0.4
+                          c0.1-0.1,0.2-0.3,0.2-0.6c0-0.3-0.2-0.7-0.2-0.7c-0.1-0.1-0.1-0.2-0.1-0.3c0-0.2,0.1-0.3,0.2-0.3c0.1-0.1,0.3-0.1,0.4-0.1
+                          c0.1,0,0.1,0.1,0.3,0.3c0.2,0.4,0.3,0.4,0.4,0.5c0,0,0.2,0.1,0.3,0c0,0,0.1-0.1,0.2-0.3c0.1-0.3,0.1-0.5,0.1-0.9
+                          c0-0.1,0-0.2,0.1-0.4c0-0.1,0.1-0.2,0.2-0.3c0.1,0,0.2,0,0.3,0.1c0.2,0.2,0.2,0.3,0.5,0.5c0.1,0,0.1,0.1,0.2,0.1
+                          c0.1,0,0.2,0,0.4,0.1c0.2,0,0.4,0.1,0.4,0.2c0.1,0.1,0,0.3,0,0.3c-0.1,0.1-0.2,0.1-0.4,0.3c-0.1,0.1-0.2,0.1-0.3,0.2
+                          c-0.4,0.3-0.7,0.5-1.3,0.9c-0.1,0.1-0.4,0.3-0.9,0.8c-0.1,0.1-0.2,0.2-0.3,0.4c0,0.1,0,0.2,0.1,0.5c0.1,0.3,0.1,0.5,0.3,0.7
+                          c0.3,0.5,0.7,0.7,1,0.8c0.5,0.2,1.2,0.2,2.5,0.2c0.4,0,0.7-0.1,1.3,0c0.6,0.1,0.9,0.2,1,0.3c0.1,0.1,0.4,0.3,0.6,0.7
+                          C23.3,31.2,23.2,31.5,23.1,32z"/>
+                      </g>
+                    </g>
+                  </g>
+                  <rect x="24.4" y="17.3" class="inst2st1" width="5" height="1"/>
+                  <rect x="25.9" y="17.3" class="inst2st2" width="5" height="1.5"/>
+                </g>
+              </g>
+              </svg>
+              <p>Unlock new rooms!</p>
+            </div>
+            <div class="small-4 columns">
+            <svg class="instructions-icon instructions-starGroup" version="1.1" viewBox="0 0 75.7 49.2" preserveAspectRatio="xMinYMin meet">
+            <style type="text/css">
+              .inst3st0{fill:#FCD575;}
+              .inst3st1{fill:#FCDE95;}
+              .inst3st2{fill:#FFF4D9;}
+            </style>
+            <defs>
+            </defs>
+            <g>
+              <g class="instructions-star1">
+                <path class="inst3st0" d="M40,2l1.6,3.3c0.3,0.7,1,1.2,1.7,1.3l3.6,0.6c1.9,0.3,2.6,2.6,1.2,3.9l-2.7,2.6c-0.5,0.5-0.8,1.3-0.7,2
+                  l0.6,3.6c0.3,1.9-1.7,3.3-3.4,2.4l-3.3-1.7c-0.7-0.4-1.5-0.4-2.1,0l-3.3,1.7c-1.7,0.9-3.6-0.6-3.3-2.4l0.7-3.6
+                  c0.1-0.7-0.1-1.5-0.6-2l-2.6-2.6c-1.4-1.3-0.6-3.6,1.3-3.9l3.7-0.5c0.7-0.1,1.4-0.6,1.7-1.2L35.9,2C36.7,0.3,39.1,0.3,40,2z"/>
+                <path class="inst3st1" d="M40.7,1.3l1.6,3.3c0.3,0.7,1,1.2,1.7,1.3l3.6,0.6c1.9,0.3,2.6,2.6,1.2,3.9l-2.7,2.6c-0.5,0.5-0.8,1.3-0.7,2
+                  l0.6,3.6c0.3,1.9-1.7,3.3-3.4,2.4l-3.3-1.7c-0.7-0.4-1.5-0.4-2.1,0l-3.3,1.7c-1.7,0.9-3.6-0.6-3.3-2.4l0.7-3.6
+                  c0.1-0.7-0.1-1.5-0.6-2l-2.6-2.6c-1.4-1.3-0.6-3.6,1.3-3.9l3.7-0.5c0.7-0.1,1.4-0.6,1.7-1.2l1.7-3.3C37.4-0.4,39.8-0.4,40.7,1.3z"
+                  />
+                <path class="inst3st2" d="M38.9,4.2c0.6,1.3,1.2,3.2,2.6,3.9C42.7,8.7,44,8.8,45.3,9c1.1,0.1,1.1-1.6,0-1.8c-1-0.1-2-0.2-2.8-0.6
+                  c-0.5-0.2-0.7-0.6-1-1.1c-0.4-0.7-0.7-1.4-1-2.1C40,2.3,38.4,3.2,38.9,4.2L38.9,4.2z"/>
+              </g>
+              <g class="instructions-star2">
+                <path class="inst3st0" d="M13.2,29.2l1.6,3.3c0.3,0.7,1,1.2,1.7,1.3l3.6,0.6c1.9,0.3,2.6,2.6,1.2,3.9l-2.7,2.6c-0.5,0.5-0.8,1.3-0.7,2
+                  l0.6,3.6c0.3,1.9-1.7,3.3-3.4,2.4L12,47.2c-0.7-0.4-1.5-0.4-2.1,0l-3.3,1.7c-1.7,0.9-3.6-0.6-3.3-2.4l0.7-3.6
+                  c0.1-0.7-0.1-1.5-0.6-2l-2.6-2.6c-1.4-1.3-0.6-3.6,1.3-3.9l3.7-0.5c0.7-0.1,1.4-0.6,1.7-1.2L9,29.2C9.9,27.5,12.3,27.5,13.2,29.2z
+                  "/>
+                <path class="inst3st1" d="M13.9,28.5l1.6,3.3c0.3,0.7,1,1.2,1.7,1.3l3.6,0.6c1.9,0.3,2.6,2.6,1.2,3.9l-2.7,2.6c-0.5,0.5-0.8,1.3-0.7,2
+                  l0.6,3.6c0.3,1.9-1.7,3.3-3.4,2.4l-3.3-1.7c-0.7-0.4-1.5-0.4-2.1,0l-3.3,1.7C5.6,49,3.6,47.6,4,45.7l0.7-3.6
+                  c0.1-0.7-0.1-1.5-0.6-2l-2.6-2.6c-1.4-1.3-0.6-3.6,1.3-3.9L6.3,33c0.7-0.1,1.4-0.6,1.7-1.2l1.7-3.3C10.6,26.8,13,26.8,13.9,28.5z"
+                  />
+                <path class="inst3st2" d="M12.1,31.4c0.6,1.3,1.2,3.2,2.6,3.9c1.2,0.6,2.5,0.7,3.7,0.9c1.1,0.1,1.1-1.6,0-1.8c-1-0.1-2-0.2-2.8-0.6
+                  c-0.5-0.2-0.7-0.6-1-1.1c-0.4-0.7-0.7-1.4-1-2.1C13.1,29.5,11.6,30.4,12.1,31.4L12.1,31.4z"/>
+              </g>
+              <g class="instructions-star3">
+                <path class="inst3st0" d="M66.1,28.5l1.6,3.3c0.3,0.7,1,1.2,1.7,1.3l3.6,0.6c1.9,0.3,2.6,2.6,1.2,3.9l-2.7,2.6c-0.5,0.5-0.8,1.3-0.7,2
+                  l0.6,3.6c0.3,1.9-1.7,3.3-3.4,2.4l-3.3-1.7c-0.7-0.4-1.5-0.4-2.1,0l-3.3,1.7c-1.7,0.9-3.6-0.6-3.3-2.4l0.7-3.6
+                  c0.1-0.7-0.1-1.5-0.6-2l-2.6-2.6c-1.4-1.3-0.6-3.6,1.3-3.9l3.7-0.5c0.7-0.1,1.4-0.6,1.7-1.2l1.7-3.3
+                  C62.8,26.8,65.3,26.8,66.1,28.5z"/>
+                <path class="inst3st1" d="M66.8,27.8l1.6,3.3c0.3,0.7,1,1.2,1.7,1.3l3.6,0.6c1.9,0.3,2.6,2.6,1.2,3.9l-2.7,2.6c-0.5,0.5-0.8,1.3-0.7,2
+                  l0.6,3.6c0.3,1.9-1.7,3.3-3.4,2.4l-3.3-1.7c-0.7-0.4-1.5-0.4-2.1,0l-3.3,1.7c-1.7,0.9-3.6-0.6-3.3-2.4l0.7-3.6
+                  c0.1-0.7-0.1-1.5-0.6-2l-2.6-2.6c-1.4-1.3-0.6-3.6,1.3-3.9l3.7-0.5c0.7-0.1,1.4-0.6,1.7-1.2l1.7-3.3C63.5,26.1,66,26.1,66.8,27.8z
+                  "/>
+                <path class="inst3st2" d="M65,30.7c0.6,1.3,1.2,3.2,2.6,3.9c1.2,0.6,2.5,0.7,3.7,0.9c1.1,0.1,1.1-1.6,0-1.8c-1-0.1-2-0.2-2.8-0.6
+                  c-0.5-0.2-0.7-0.6-1-1.1c-0.4-0.7-0.7-1.4-1-2.1C66.1,28.8,64.5,29.7,65,30.7L65,30.7z"/>
+              </g>
+            </g>
+            </svg>
+              
+              <p>Collect Christmas Facts!</p>
+            </div>
+          </div>
+     <button id="introModalBtn"><p>I'm ready for my training!</p></button>
+     <svg class="bubbleStroke" version="1.1"
+         x="0px" y="0px" width="300px" height="15px" viewBox="0 0 345.7 15" style="enable-background:new 0 0 345.7 15;"
+         xml:space="preserve">
+          <style type="text/css">
+            .op075{opacity:0.75;}
+            .bubbleline{fill:none;stroke:#FFFFFF;stroke-width:15;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
+          </style>
+          <g class="op075">
+            <line class="bubbleline" x1="52" y1="7.5" x2="338.2" y2="7.5"/>
+            <line class="bubbleline" x1="24.5" y1="7.5" x2="7.5" y2="7.5"/>
+          </g>
+        </svg>
+      </div>
+    </div>
+  </div>
+  
+  <div class="row">
+    <div id="helpModal" class="helpModal small-12 medium-8 large-8 small-centered columns">
+      <div class="small-12 large-7 small-centered columns infoModal-content">
+        <h3>Congratulations!</h3>
+        <p>For the very first time, Santa’s Factory is opening its doors to the public, and <span>YOU</span> are one of the lucky few to get an exclusive tour and a firsthand elf training!</p><p>
+Explore your surroundings as we unveil new rooms daily, and learn about the workings behind the jolliest time of the year. </p><p>
+We’ll see if you have what it takes to work for the one and only, Santa!</p>
+      
      <button id="introModalBtn"><p>I'm ready for my training!</p></button>
      <svg class="bubbleStroke" version="1.1"
          x="0px" y="0px" width="300px" height="15px" viewBox="0 0 345.7 15" style="enable-background:new 0 0 345.7 15;"
@@ -465,12 +641,6 @@ We’ll see if you have what it takes to work for the one and only, Santa!</p>
             <li><a><img class="dateBadge" data-day="2" src="assets/images/emptyBadge2.png"></a></li>
             <li><a><img class="dateBadge" data-day="3" src="assets/images/emptyBadge2.png"></a></li>
             <li><a><img class="dateBadge" data-day="4" src="assets/images/emptyBadge2.png"></a></li>
-            <li><a><img class="dateBadge" data-day="1" src="assets/images/emptyBadge2.png"></a></li>
-            <li><a><img class="dateBadge" data-day="2" src="assets/images/emptyBadge2.png"></a></li>
-            <li><a><img class="dateBadge" data-day="3" src="assets/images/emptyBadge2.png"></a></li>
-            <li><a><img class="dateBadge" data-day="4" src="assets/images/emptyBadge2.png"></a></li>
-            
-            <li><a><img class="dateBadge" data-day="1" src="assets/images/emptyBadge2.png"></a></li>
             
           </ul>
         </div>
@@ -498,6 +668,18 @@ We’ll see if you have what it takes to work for the one and only, Santa!</p>
   
   <!-- Main JS -->
   <script src="js/main.js"></script>
+  
+  
+  <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-84824251-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
 
 	
 	

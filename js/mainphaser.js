@@ -1,10 +1,12 @@
 var game = new Phaser.Game(window.innerWidth, window.innerHeight, Phaser.AUTO, '', { preload: preload, create: create, update: update });
 
+function introModalOpen(){};
+
 //Get Global Date
 var date = new Date();
     userDate = date.getDate();
-//document.getElementById("userDate").innerHTML = userDate;
-//console.log("Current date: December " + userDate);
+document.getElementById("userDate").innerHTML = userDate;
+console.log("Current date: December " + userDate);
 
 // Get saved score
 var starScore = localStorage.getItem('starScore');
@@ -13,6 +15,7 @@ var badgeScore = localStorage.getItem('badgeScore');
   if(starScore  === null) {
     localStorage.setItem('starScore', 0);    
     starScore = 0;
+    this[introModalOpen]();
   }
   if(badgeScore  === null) {
     localStorage.setItem('badgeScore', 0);    
@@ -38,7 +41,7 @@ function preload() {
 
   
   //BACKGROUND IMAGES
-  game.load.image('map', 'assets/images/baseMap/basemap_empty.png');
+  game.load.image('map', 'assets/images/basemap/basemap_empty.png');
   game.load.image('infoBtn', 'assets/images/infoButton.png');
   //game.load.image('map', 'assets/images/baseMap_start.png');
   game.load.image('star', 'assets/images/star.png');
@@ -215,29 +218,9 @@ function create() {
   
 }//***End create function
 
-var infoModal = document.getElementById('infoModal');
-var introModalBtn = document.getElementById('introModalBtn');
-//Open Intro Modal
-function introModalOpen() {
-  
-  var tlinfoModal = new TimelineMax({repeat:-1});
-  tlinfoModal.to(infoModal, 1, {scale:2})
-}
-//Close Intro Modal
-introModalBtn.onclick = function(infoModal) {
-  var introModaltl = new TimelineMax();
-    introModaltl
-      .fromTo(infoModal, .5, {
-        rotationX:0, 
-        toLocaleStringransformPerspective: 100,
-        transformStyle:"preserve-3d",
-        transformOrigin:"50% 100%",
-      },{
-        rotationX:90,
-        ease: Back.easeIn.config(.8)
-      }, "-=.5")
-  //library.style.display = "none";
-}
+
+
+
 
 //Info Button click
 function infoBtnModal() {
@@ -415,7 +398,7 @@ var hatrim= document.getElementsByClassName("hatrim");
 //Elf Icon Blink
 var tlblink = new TimelineMax({repeat:-1});
 tlblink.set(eyesClosed, {opacity: 0})
-tlblink.to(eyesOpen, .2, {opacity: 0}, 1.5)
+tlblink.to(eyesOpen, .2, {opacity: 0}, 3.5)
 tlblink.to(eyesOpen, .2, {opacity: 1})
 
 var tlmouthOpen = new TimelineMax();

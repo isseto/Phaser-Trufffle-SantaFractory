@@ -151,11 +151,34 @@ window.onclick = function(event) {
 
 
 
+//****** Intro Card ******//
+var infoModal = document.getElementById('infoModal');
+var introModalBtn = document.getElementById('introModalBtn');
+//Open Intro Modal
+window.onload = function() {
+  tlinfoModalOpen = new TimelineMax();
+  tlinfoModalOpen.fromTo(infoModal, 1.2, {
+    transformOrigin:"50% 50%",
+    scale:0,
+    y:500
+  }, {
+    scale:1,
+    y:0,
+    ease: Elastic.easeOut.config(1, 0.6),
+    delay:.5
+  })
+}
 
-
-/*Elf Icon*/
-
-
-
+//Close Intro Modal
+introModalBtn.onclick = function() {
+  var tlintroModalClose = new TimelineMax();
+  tlintroModalClose
+    .to(infoModal, .75, {
+      scale:0, 
+      ease: Back.easeIn.config(1.7), y: 500,
+      transformOrigin:"50% 50%"
+    });
+  //library.style.display = "none";  
+}
 
 
