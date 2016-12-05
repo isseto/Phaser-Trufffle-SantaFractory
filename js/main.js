@@ -69,6 +69,20 @@ modalSpan.onclick = function modalTrigger() {
         ease: Back.easeIn.config(.8)
       }, "-=.5")
   //modal.style.display = "none";
+  
+  // Check for Badges
+  if(starScore % 1 == 0) {
+    badgeScore += 1;   
+    
+    // Play badge win audio
+    iconBadgeWin(this);
+    newBadgeModalReveal(this);
+    var badgewinAudio = new Audio('assets/audio/badgewin.mp3');
+    badgewinAudio.play();
+    var jinglebellsAudio = new Audio('assets/audio/jinglebells.mp3');
+    jinglebellsAudio.play();
+    console.log('Holy! You got a new badge! You now have ' + badgeScore + ' badges.')
+  }
 }
 // When the user clicks anywhere outside of the modal, close it
 window.onclick = function(event) {
@@ -155,10 +169,13 @@ window.onclick = function(event) {
 var infoModal = document.getElementById('infoModal');
 var introModalBtn = document.getElementById('introModalBtn');
 //Open Intro Modal
-window.onload = function() {
+
+function infoModalOpen() {
+  document.getElementById("infoModal").style.display = "block";
   tlinfoModalOpen = new TimelineMax();
   tlinfoModalOpen.fromTo(infoModal, 1.2, {
     transformOrigin:"50% 50%",
+    opacity:1,
     scale:0,
     y:500
   }, {
@@ -179,6 +196,37 @@ introModalBtn.onclick = function() {
       transformOrigin:"50% 50%"
     });
   //library.style.display = "none";  
+}
+
+//****** Badge Win Card ******//
+var newBadgeModal = document.getElementById('newBadgeModal');
+document.getElementById("newBadgeModal").style.display = "none";
+//Open Intro Modal
+function newBadgeModalReveal() {
+  document.getElementById("newBadgeModal").style.display = "block";
+  tlnewBadgeModalOpen = new TimelineMax();
+  tlnewBadgeModalOpen.fromTo(newBadgeModal, 1.2, {
+    transformOrigin:"50% 50%",
+    opacity:1,
+    scale:0,
+    y:500
+  }, {
+    scale:1,
+    y:0,
+    ease: Elastic.easeOut.config(1, 0.6),
+    delay:.5
+  })
+}
+
+//Close Intro Modal
+newBadgeModal.onclick = function() {
+  var tlnewBadgeModalClose = new TimelineMax();
+  tlnewBadgeModalClose
+    .to(newBadgeModal, .75, {
+      scale:0, 
+      ease: Back.easeIn.config(1.7), y: 500,
+      transformOrigin:"50% 50%"
+    });
 }
 
 

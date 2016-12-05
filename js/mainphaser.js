@@ -15,7 +15,11 @@ var badgeScore = localStorage.getItem('badgeScore');
   if(starScore  === null) {
     localStorage.setItem('starScore', 0);    
     starScore = 0;
-    this[introModalOpen]();
+    
+    introModalOpen(this);//send request
+    document.getElementById("infoModal").style.display = "block";
+  } else {
+    document.getElementById("infoModal").style.display = "none";
   }
   if(badgeScore  === null) {
     localStorage.setItem('badgeScore', 0);    
@@ -23,7 +27,7 @@ var badgeScore = localStorage.getItem('badgeScore');
   }
 // Log saved score from local Storage
 console.log('Last Save // Stars('+ localStorage.getItem("starScore") + '), Badges(' + localStorage.getItem("badgeScore") + ')')
-localStorage.clear();
+localStorage.clear()
 starScore = 0;
 
 // BASEMAP Speed and Friction
@@ -66,8 +70,8 @@ function preload() {
   game.load.audio('blop', ['assets/audio/blop.mp3', 'assets/audio/blop.wav']);
   game.load.audio('lockwin', 'assets/audio/gamewin.mp3');
   game.load.audio('unlock', 'assets/audio/unlock.mp3');
-  game.load.audio('badgewin', 'assets/audio/badgewin.mp3');
-  game.load.audio('jinglebells', 'assets/audio/jinglebells.mp3');
+  //game.load.audio('badgewin', 'assets/audio/badgewin.mp3');
+  //game.load.audio('jinglebells', 'assets/audio/jinglebells.mp3');
   game.load.audio('woohoo', 'assets/audio/woohoo.mp3');
   game.load.audio('chime', 'assets/audio/chime.mp3');
 
@@ -212,14 +216,9 @@ function create() {
     //Animating single lock for now
     infoBtnTween = game.add.tween(infoBtn)
       infoBtnTween.to( {y:448}, 1200, Phaser.Easing.Out, true, 0, -1, true);
-  infoBtn.events.onInputDown.add(infoBtnModal, this);
-  infoBtn.events.onInputDown.add(displayModal, this);
-  
+  infoBtn.events.onInputDown.add(infoBtnModal, this);  
   
 }//***End create function
-
-
-
 
 
 //Info Button click
@@ -228,6 +227,18 @@ function infoBtnModal() {
   infoBtnTweenB = game.add.tween(infoBtn.scale).to( { x:1.2, y:1.2 }, 500, "Elastic.easeOut");
   infoBtnTweenA.chain(infoBtnTweenB);
   infoBtnTweenA.start();
+  
+  tlinfoModalOpen = new TimelineMax();
+  tlinfoModalOpen.fromTo(infoModal, 1.2, {
+    transformOrigin:"50% 50%",
+    scale:0,
+    y:500
+  }, {
+    scale:1,
+    y:0,
+    ease: Elastic.easeOut.config(1, 0.6),
+    delay:.5
+  })
 }
 
 //Unlock Event for daily Locks
@@ -267,7 +278,7 @@ function makeStarClick() {
   }, this);
   // Animate and destroy on star click
   starGroup.callAll('events.onInputDown.add', 'events.onInputDown', collectStar);
-  starGroup.callAll('events.onInputDown.add', 'events.onInputDown', iconCollectStar);
+  //starGroup.callAll('events.onInputDown.add', 'events.onInputDown', iconCollectStar);
   // Open modal on star click
   starGroup.callAll('events.onInputDown.add', 'events.onInputDown', displayModal);
 }
@@ -304,8 +315,11 @@ function collectStar (star) {
     
     // Play badge win audio
     //badgewin.play('',0,1);
-    //jinglebells.play('',0,1);
+    //this.jinglebells.play('',0,1);
+    iconBadgeWin(this);
     console.log('Holy! You got a new badge! You now have ' + badgeScore + ' badges.')
+  } else {
+    iconCollectStar(this);
   }
   
   // Update new score to localStorage
@@ -407,7 +421,6 @@ tlmouthOpen.set([mouthO, mouthOpen], {opacity:0})
 
 //Star Click Elf Icon Animation
 function iconCollectStar() {
-  tlblink.pause();
   
   var tliconCollectStar = new TimelineMax();
   //Set transform Origins
@@ -418,24 +431,24 @@ function iconCollectStar() {
   tliconCollectStar.to(eyesClosed, .01, {opacity: 1},'-=.1')
   
   //Move eyesClosed and mouthClosed down and scale down
-  tliconCollectStar.to([eyesClosed, mouthClosed, hatrim, elfHat], .5, {y:2, scale:.95})
+  tliconCollectStar.to([eyesClosed, mouthClosed, hatrim], .2, {y:2, scale:.95}, '-=.1')
   
   //Move eyesClosed and mouthOpen up and scale up
-  tliconCollectStar.to([eyesClosed, mouthClosed, mouthOpen, hatrim, elfHat], 1, {y:-5, scale:1})
+  tliconCollectStar.to([eyesClosed, mouthClosed, mouthOpen, hatrim], .5, {y:-5, scale:1})
   
   //Change from mouthClosed to mouthOpen
   tliconCollectStar.to(mouthClosed, .1, {opacity:0}, '-=1')
   tliconCollectStar.to(mouthOpen, .01, {opacity: 1, scaleY:0},'-=1')
-  tliconCollectStar.fromTo(mouthOpen, .5, {scaleY:0}, {scaleY:1}, '-=.8')
+  tliconCollectStar.fromTo(mouthOpen, .2, {scaleY:0}, {scaleY:1}, '-=.8')
   
   //Make openMouth laugh with scaleY
   tliconCollectStar.fromTo(mouthOpen, .2, {scaleY:1}, {scaleY:.9, yoyo:true, repeat:8}, '-=.2')
   
   //Close mouth as head goes back down a bit lower than original
-  tliconCollectStar.to([eyesClosed, mouthClosed, mouthOpen, hatrim, elfHat], .7, {y:1, scale:.98}, '-=.5')
+  tliconCollectStar.to([eyesClosed, mouthClosed, mouthOpen, hatrim], .5, {y:1, scale:.98}, '-=.5')
   
   //Open eyes back to original
-  tliconCollectStar.to([eyesClosed, mouthClosed, mouthOpen, hatrim, elfHat], .3, {y:0, scale:1})
+  tliconCollectStar.to([eyesClosed, mouthClosed, mouthOpen, hatrim], .3, {y:0, scale:1})
   tliconCollectStar.to(mouthClosed, .2, {opacity:1}, '-=.1')
   tliconCollectStar.to(mouthOpen, .2, {scaleY:0}, '-=.2')
   tliconCollectStar.to(mouthOpen, .01, {opacity: 0})
@@ -445,7 +458,44 @@ function iconCollectStar() {
   //Return to blink setting
 }
 
-
+//Badge Win Elf Icon Animation
+function iconBadgeWin() {
+  var tliconBadgeWin = new TimelineMax();
+  //Set transform Origins
+  tliconBadgeWin.set(mouthOpen, {transformOrigin:"50% 20%"})
+  tliconBadgeWin.set(mouthO, {transformOrigin:"50% 50%"})
+  tliconBadgeWin.set(eyesOpen, {transformOrigin:"50% 50%"})
+  
+  //Change to surprised mouth
+  tliconBadgeWin.to(mouthClosed, .2, {opacity:0})
+  tliconBadgeWin.to(mouthO, .01, {opacity: 1},'-=.1')
+  //Move eyesOpen and surprised mouth down and scale down
+  tliconBadgeWin.to([eyesOpen, mouthO, hatrim], .2, {y:2, scale:.95}, '-=.1')
+  //Move eyesOpen and mouthOpen up and scale up
+  tliconBadgeWin.to([eyesOpen, mouthO, mouthClosed, mouthOpen, hatrim], .5, {y:-5, scale:1})
+  //Scale eyes a lot more
+  tliconBadgeWin.to([eyesOpen], 1, {scale:1.2, ease: Elastic.easeInOut.config(1, 0.3)}, '-=.5')
+  tliconBadgeWin.to([eyesOpen], 1, {scale:1, ease: Elastic.easeInOut.config(1, 0.3)}, '+=2')
+  //Change to eyes closed and mouth open
+  tliconBadgeWin.to(eyesOpen, .2, {opacity:0}, '+=.5')
+  tliconBadgeWin.to(eyesClosed, .01, {opacity: 1},'-=.1')
+  tliconBadgeWin.to(mouthO, .2, {opacity:0})
+  tliconBadgeWin.to(mouthOpen, .01, {opacity: 1},'-=.1')
+  //Make mouth open laugh
+  tliconBadgeWin.fromTo(mouthOpen, .2, {scaleY:1}, {scaleY:.9, yoyo:true, repeat:8}, '-=.2')
+  //Move eyes closed and mouth down
+  tliconBadgeWin.to([eyesClosed, eyesOpen, mouthClosed, mouthO, mouthOpen, hatrim], .5, {y:1, scale:.98}, '-=.5')
+  //Change mouth open to original while going down
+  tliconBadgeWin.to(mouthOpen, .2, {opacity:0})
+  tliconBadgeWin.to(mouthClosed, .01, {opacity: 1},'-=.1')
+  //Open back eyes to original
+  tliconBadgeWin.to([eyesClosed, mouthClosed, mouthOpen, hatrim], .3, {y:0, scale:1})
+  tliconBadgeWin.to(mouthClosed, .2, {opacity:1}, '-=.1')
+  tliconBadgeWin.to(mouthOpen, .2, {scaleY:0}, '-=.2')
+  tliconBadgeWin.to(mouthOpen, .01, {opacity: 0})
+  tliconBadgeWin.to(eyesOpen, .2, {opacity:1}, '+=.3')
+  tliconBadgeWin.to(eyesClosed, .01, {opacity:0})
+}
 
 
 //*** Modals Animation
@@ -455,12 +505,6 @@ var modalContent = document.getElementsByClassName('modal-content');
 var modaltl = new TimelineMax();
 modaltl
   .set(modal, {
-    rotationX:90,
-    transformPerspective: 100,
-    transformStyle:"preserve-3d",
-    transformOrigin:"50% 100%",
-  })
-  .set(infoModal, {
     rotationX:90,
     transformPerspective: 100,
     transformStyle:"preserve-3d",
