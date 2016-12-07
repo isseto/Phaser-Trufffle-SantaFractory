@@ -64,7 +64,8 @@ function preload() {
   //Reception
   game.load.image('RoomReception', 'assets/images/rooms/reception/reception.png');
   //LetterRoom
-  game.load.image('RoomLetter', 'assets/images/rooms/letter/letterroom_withanimation.png');
+  game.load.image('RoomLetter', 'assets/images/rooms/letter/letterroom.png');
+  //game.load.image('RoomLetter', 'assets/images/rooms/letter/letterroom_withanimation.png');
   game.load.spritesheet('letterAnimMailbox', 'assets/images/rooms/letter/letterroom_mailbox_120120.png', 120, 120);
   game.load.image('letterPouchGroup', 'assets/images/rooms/letter/pouchgroup.png');
   game.load.image('letterpouch1', 'assets/images/rooms/letter/pouch1.png');
@@ -132,17 +133,17 @@ function create() {
   //*** LETTER ROOM
   //Add Letter room
   RoomLetter = game.add.sprite(350, 73, 'RoomLetter')
-    RoomLetter.alpha = 1;
+    RoomLetter.alpha = 0;
     scrollingMap.addChild(RoomLetter);
   // Clone bounds from letter room sprite
   roomBounds1 = Phaser.Rectangle.clone(RoomLetter);
   // LETTER ROOM ANIMATIONS
   //Mailbox Animations
-  letterAnimMailbox = game.add.sprite(378, 210, 'letterAnimMailbox');
+  letterAnimMailbox = game.add.sprite(30, 137, 'letterAnimMailbox');
   letterAnimMailbox.animations.add('letterAnimMailbox_anim');
   letterAnimMailbox.animations.play('letterAnimMailbox_anim', 25, true);  
-  scrollingMap.addChild(letterAnimMailbox);
-  letterPouchGroup = game.add.image(450, 300, 'letterPouchGroup')
+  RoomLetter.addChild(letterAnimMailbox);
+  letterPouchGroup = game.add.image(105, 225, 'letterPouchGroup')
     RoomLetter.addChild(letterPouchGroup);
   
   letterPouch1 = game.add.sprite(500, 290, 'letterpouch1')
