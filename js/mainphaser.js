@@ -71,6 +71,8 @@ function preload() {
   game.load.image('letterpouch2', 'assets/images/rooms/letter/pouch2.png');
   game.load.image('letterpouch3', 'assets/images/rooms/letter/pouch3.png');
   game.load.spritesheet('letterFire', 'assets/images/rooms/letter/letterroom_fire_2225.png', 22, 25);
+  game.load.spritesheet('letterScript', 'assets/images/rooms/letter/letterroom_script_11080.png', 110, 80);
+  game.load.spritesheet('letterThrow', 'assets/images/rooms/letter/letterroom_letterthrow_8080.png', 80, 80);
   
   //***** ELF SPRITESHEETS
   game.load.spritesheet('ms', 'assets/sprites/elfmotion2048.png', 170.7, 170.7, 100);
@@ -160,6 +162,16 @@ function create() {
     lettergeneralStanding.animations.add('lettergeneralStanding_anim');
     lettergeneralStanding.animations.play('lettergeneralStanding_anim', 25, true);  
     scrollingMap.addChild(lettergeneralStanding);
+  
+  letterScript = game.add.sprite(790, 400, 'letterScript');
+    letterScript.animations.add('letterScript_anim');
+    letterScript.animations.play('letterScript_anim', 25, true);  
+    scrollingMap.addChild(letterScript);
+  
+  letterThrow = game.add.sprite(585, 110, 'letterThrow');
+    letterThrow.animations.add('letterThrow_anim');
+    letterThrow.animations.play('letterThrow_anim', 25, true);  
+    scrollingMap.addChild(letterThrow);
   
   
   
