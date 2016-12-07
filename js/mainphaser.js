@@ -59,6 +59,9 @@ function preload() {
   //game.load.spritesheet('badgeWin', 'assets/sprites/elf_badgeWin200100.png', 200, 100);
   
   //***** ROOMS
+  //General
+  game.load.spritesheet('generalStanding', 'assets/images/rooms/general/general_standing_200200.png', 200, 200);
+  //Reception
   game.load.image('RoomReception', 'assets/images/rooms/reception/reception.png');
   //LetterRoom
   game.load.image('RoomLetter', 'assets/images/rooms/letter/letterroom_withanimation.png');
@@ -67,6 +70,7 @@ function preload() {
   game.load.image('letterpouch1', 'assets/images/rooms/letter/pouch1.png');
   game.load.image('letterpouch2', 'assets/images/rooms/letter/pouch2.png');
   game.load.image('letterpouch3', 'assets/images/rooms/letter/pouch3.png');
+  game.load.spritesheet('letterFire', 'assets/images/rooms/letter/letterroom_fire_2225.png', 22, 25);
   
   //***** ELF SPRITESHEETS
   game.load.spritesheet('ms', 'assets/sprites/elfmotion2048.png', 170.7, 170.7, 100);
@@ -134,8 +138,28 @@ function create() {
   //Mailbox Animations
   letterAnimMailbox = game.add.sprite(378, 210, 'letterAnimMailbox');
   letterAnimMailbox.animations.add('letterAnimMailbox_anim');
-  letterAnimMailbox.animations.play('letterAnimMailbox_anim', 25, true);
+  letterAnimMailbox.animations.play('letterAnimMailbox_anim', 25, true);  
   scrollingMap.addChild(letterAnimMailbox);
+  letterPouchGroup = game.add.image(450, 300, 'letterPouchGroup')
+    scrollingMap.addChild(letterPouchGroup);
+  
+  letterPouch1 = game.add.sprite(500, 290, 'letterpouch1')
+    scrollingMap.addChild(letterPouch1);
+    letterPouch1Tween = game.add.tween(letterPouch1)
+      letterPouch1Tween.to( {x:680, y:400}, 1200);
+      letterPouch1Tween.to( {x:700, y:420}, 1200);
+      letterPouch1Tween.repeatAll(-1);
+  
+  letterFire = game.add.sprite(911, 302, 'letterFire');
+    letterFire.animations.add('letterFire_anim');
+    letterFire.animations.play('letterFire_anim', 25, true);  
+    scrollingMap.addChild(letterFire);
+  
+  lettergeneralStanding = game.add.sprite(850, 200, 'generalStanding');
+    lettergeneralStanding.scale.setTo(-0.55, .55);
+    lettergeneralStanding.animations.add('lettergeneralStanding_anim');
+    lettergeneralStanding.animations.play('lettergeneralStanding_anim', 25, true);  
+    scrollingMap.addChild(lettergeneralStanding);
   
   
   
