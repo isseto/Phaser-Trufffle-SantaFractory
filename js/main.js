@@ -1,3 +1,5 @@
+
+
 ///******** Menu Button States ********///
 
 
@@ -9,6 +11,9 @@ function toggleSound() {
   else 
     audio.pause();
 }
+
+var blopAudio = new Audio('assets/audio/blop.mp3');
+    
 
 
 ///******** Cards Modals ********///
@@ -28,11 +33,10 @@ modaltl
   })
 
 // Get the button that opens the modal
-var modalBtn = document.getElementsByClassName("modalBtn")[0];
 // Get the <span> element that closes the modal
 var modalSpan = document.getElementById("modalSpan");
 // When the user clicks on the button, open the modal 
-modalBtn.onclick = function displayModal() {
+function displayModal() {
     modal.style.display = "block";
       modaltl
         .fromTo(modal, .5, {
@@ -45,18 +49,10 @@ modalBtn.onclick = function displayModal() {
           ease: Back.easeOut.config(.8)
         })
         .fromTo(modalContent, .4, {y:300}, {y:0}, '-=.3')
-
-    for (var i = 0; i < modalBtn.length; i++) {
-        var thismodalBtn = modalBtn[i];
-        thismodalBtn.addEventListener("click", function () {
-            var modal = document.getElementById(this.dataset.modal);
-            //modal.style.display = "block";
-            modal.addEventListener("click", function () { modal.style.display = "none"; modal.removeEventListener("click"); });
-        }, false);
-    }
 }
 // When the user clicks on <span> (x), close the modal
 modalSpan.onclick = function modalTrigger() {
+  blopAudio.play();
     modaltl
       .fromTo(modalContent, .3, {y:0}, {y:300})
       .fromTo(modal, .5, {
@@ -71,7 +67,7 @@ modalSpan.onclick = function modalTrigger() {
   //modal.style.display = "none";
   
   // Check for Badges
-  if(starScore % 1 == 0) {
+  if(starScore % 3 == 0) {
     badgeScore += 1;   
     
     // Play badge win audio
@@ -142,6 +138,7 @@ libraryBtn.onclick = function() {
 
 // When the user clicks on <span> (x), close the library
 librarySpan.onclick = function() {
+  blopAudio.play();
     librarytl
       .fromTo(libraryContent, .3, {y:0}, {y:300})
       .fromTo(library, .5, {
@@ -169,7 +166,6 @@ window.onclick = function(event) {
 var infoModal = document.getElementById('infoModal');
 var introModalBtn = document.getElementById('introModalBtn');
 //Open Intro Modal
-
 function infoModalOpen() {
   document.getElementById("infoModal").style.display = "block";
   tlinfoModalOpen = new TimelineMax();
@@ -185,9 +181,9 @@ function infoModalOpen() {
     delay:.5
   })
 }
-
 //Close Intro Modal
 introModalBtn.onclick = function() {
+  blopAudio.play();
   var tlintroModalClose = new TimelineMax();
   tlintroModalClose
     .to(infoModal, .75, {
@@ -197,6 +193,8 @@ introModalBtn.onclick = function() {
     });
   //library.style.display = "none";  
 }
+
+
 
 //****** Badge Win Card ******//
 var newBadgeModal = document.getElementById('newBadgeModal');
@@ -216,10 +214,11 @@ function newBadgeModalReveal() {
     ease: Elastic.easeOut.config(1, 0.6),
     delay:.5
   })
+  tlnewBadgeModalOpen.to(newBadgeModal, .8, {y:-7, yoyo:true, repeat:-1, ease:"easeOut"});
 }
-
 //Close Intro Modal
 newBadgeModal.onclick = function() {
+  blopAudio.play();
   var tlnewBadgeModalClose = new TimelineMax();
   tlnewBadgeModalClose
     .to(newBadgeModal, .75, {

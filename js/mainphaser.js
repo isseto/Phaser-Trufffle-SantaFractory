@@ -27,8 +27,10 @@ var badgeScore = localStorage.getItem('badgeScore');
   }
 // Log saved score from local Storage
 console.log('Last Save // Stars('+ localStorage.getItem("starScore") + '), Badges(' + localStorage.getItem("badgeScore") + ')')
-localStorage.clear()
-starScore = 0;
+
+//Clearing score
+//localStorage.clear()
+//starScore = 0;
 
 // BASEMAP Speed and Friction
 var speedMult = 0.7;
@@ -44,28 +46,34 @@ function preload() {
   //game.load.spritesheet('ms', 'assets/sprites/metalslug_mummy37x45.png', 37, 45, 18);
 
   
-  //BACKGROUND IMAGES
+  //***** BACKGROUND IMAGES
   game.load.image('map', 'assets/images/basemap/basemap_empty.png');
   game.load.image('infoBtn', 'assets/images/infoButton.png');
   //game.load.image('map', 'assets/images/baseMap_start.png');
   game.load.image('star', 'assets/images/star.png');
   game.load.image('emptybadge', 'assets/images/emptybadge.png');
   
-  //LOCKS
+  //***** LOCKS
   game.load.image('lockShadow', 'assets/images/locks/lockShadow.png');
   game.load.image('lockedLetter', 'assets/images/locks/locked_100x100.png');
   //game.load.spritesheet('badgeWin', 'assets/sprites/elf_badgeWin200100.png', 200, 100);
   
-  // ROOMS
+  //***** ROOMS
   game.load.image('RoomReception', 'assets/images/rooms/reception/reception.png');
-  game.load.image('RoomLetter', 'assets/images/rooms/letter/letterRoom.png');
+  //LetterRoom
+  game.load.image('RoomLetter', 'assets/images/rooms/letter/letterroom_withanimation.png');
+  game.load.spritesheet('letterAnimMailbox', 'assets/images/rooms/letter/letterroom_mailbox_120120.png', 120, 120);
+  game.load.image('letterPouchGroup', 'assets/images/rooms/letter/pouchgroup.png');
+  game.load.image('letterpouch1', 'assets/images/rooms/letter/pouch1.png');
+  game.load.image('letterpouch2', 'assets/images/rooms/letter/pouch2.png');
+  game.load.image('letterpouch3', 'assets/images/rooms/letter/pouch3.png');
   
-  //ELF SPRITESHEETS
+  //***** ELF SPRITESHEETS
   game.load.spritesheet('ms', 'assets/sprites/elfmotion2048.png', 170.7, 170.7, 100);
   //**Library
   game.load.spritesheet('desk', 'assets/sprites/rooms/library/LIBRARY_desk_200200.png', 200, 200);
   
-  //AUDIO
+  //***** AUDIO
   // game.load.audio('sfx', [ 'assets/audio/SoundEffects/fx_mixdown.mp3', 'assets/audio/SoundEffects/fx_mixdown.ogg' ]);
   game.load.audio('blop', ['assets/audio/blop.mp3', 'assets/audio/blop.wav']);
   game.load.audio('lockwin', 'assets/audio/gamewin.mp3');
@@ -114,17 +122,21 @@ function create() {
     }, this);
   
   
-  //*** Setting Rooms
+  //***** Setting Rooms
+  //*** LETTER ROOM
   //Add Letter room
   RoomLetter = game.add.sprite(350, 73, 'RoomLetter')
-    RoomLetter.alpha = 0;
+    RoomLetter.alpha = 1;
     scrollingMap.addChild(RoomLetter);
   // Clone bounds from letter room sprite
   roomBounds1 = Phaser.Rectangle.clone(RoomLetter);
+  // LETTER ROOM ANIMATIONS
+  //Mailbox Animations
+  letterAnimMailbox = game.add.sprite(378, 210, 'letterAnimMailbox');
+  letterAnimMailbox.animations.add('letterAnimMailbox_anim');
+  letterAnimMailbox.animations.play('letterAnimMailbox_anim', 25, true);
+  scrollingMap.addChild(letterAnimMailbox);
   
-  //var roomBounds1line = game.add.graphics(roomBounds1.x, roomBounds1.y);
-    //roomBounds1line.lineStyle(4, 0xffd900, 1);
-    //roomBounds1line.drawRect(0, 0, roomBounds1.width, roomBounds1.height);
   
   
   RoomReception = game.add.image(210, 232, 'RoomReception')
@@ -199,11 +211,11 @@ function create() {
   
   
   // Elf Spritesheets
-  library_desk_s = game.add.sprite(370, 130, 'desk');
-  library_desk_s.scale.setTo(0.55,0.55);
-  library_desk_s.animations.add('library_desk_anim');
-  library_desk_s.animations.play('library_desk_anim', 25, true);
-  scrollingMap.addChild(library_desk_s);
+  //library_desk_s = game.add.sprite(370, 130, 'desk');
+  //library_desk_s.scale.setTo(0.55,0.55);
+  //library_desk_s.animations.add('library_desk_anim');
+  //library_desk_s.animations.play('library_desk_anim', 25, true);
+  //scrollingMap.addChild(library_desk_s);
   
   //** Adding Info Button
   infoBtn = game.add.sprite(477,443, 'infoBtn');
@@ -308,19 +320,7 @@ function collectStar (star) {
   // Add new score to console
   console.log('+10 ! new Stars (' + starScore + ')')
   
-    
-  // Check for Badges
-  if(starScore % 3 == 0) {
-    badgeScore += 1;   
-    
-    // Play badge win audio
-    //badgewin.play('',0,1);
-    //this.jinglebells.play('',0,1);
-    iconBadgeWin(this);
-    console.log('Holy! You got a new badge! You now have ' + badgeScore + ' badges.')
-  } else {
-    iconCollectStar(this);
-  }
+  iconCollectStar(this);
   
   // Update new score to localStorage
   localStorage.setItem("starScore", JSON.stringify(starScore));
@@ -528,13 +528,4 @@ function displayModal() {
           delay:.1
         })
         .fromTo(modalContent, .4, {y:300}, {y:0}, '-=.3')
-
-    for (var i = 0; i < modalBtn.length; i++) {
-        var thismodalBtn = modalBtn[i];
-        thismodalBtn.addEventListener("click", function () {
-            var modal = document.getElementById(this.dataset.modal);
-            //modal.style.display = "block";
-            modal.addEventListener("click", function () { modal.style.display = "none"; modal.removeEventListener("click"); });
-        }, false);
-    }
 }
