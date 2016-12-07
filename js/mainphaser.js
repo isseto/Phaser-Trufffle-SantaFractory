@@ -143,35 +143,35 @@ function create() {
   letterAnimMailbox.animations.play('letterAnimMailbox_anim', 25, true);  
   scrollingMap.addChild(letterAnimMailbox);
   letterPouchGroup = game.add.image(450, 300, 'letterPouchGroup')
-    scrollingMap.addChild(letterPouchGroup);
+    RoomLetter.addChild(letterPouchGroup);
   
   letterPouch1 = game.add.sprite(500, 290, 'letterpouch1')
-    scrollingMap.addChild(letterPouch1);
+    RoomLetter.addChild(letterPouch1);
     letterPouch1Tween = game.add.tween(letterPouch1)
       letterPouch1Tween.to( {x:680, y:400}, 1200);
       letterPouch1Tween.to( {x:700, y:420}, 1200);
       letterPouch1Tween.repeatAll(-1);
   
-  letterFire = game.add.sprite(911, 302, 'letterFire');
+  letterFire = game.add.sprite(460, 350, 'letterFire');
     letterFire.animations.add('letterFire_anim');
     letterFire.animations.play('letterFire_anim', 25, true);  
-    scrollingMap.addChild(letterFire);
+    RoomLetter.addChild(letterFire);
   
-  lettergeneralStanding = game.add.sprite(850, 200, 'generalStanding');
+  lettergeneralStanding = game.add.sprite(500, 130, 'generalStanding');
     lettergeneralStanding.scale.setTo(-0.55, .55);
     lettergeneralStanding.animations.add('lettergeneralStanding_anim');
     lettergeneralStanding.animations.play('lettergeneralStanding_anim', 25, true);  
-    scrollingMap.addChild(lettergeneralStanding);
+    RoomLetter.addChild(lettergeneralStanding);
   
-  letterScript = game.add.sprite(790, 400, 'letterScript');
+  letterScript = game.add.sprite(440, 328, 'letterScript');
     letterScript.animations.add('letterScript_anim');
     letterScript.animations.play('letterScript_anim', 25, true);  
-    scrollingMap.addChild(letterScript);
+    RoomLetter.addChild(letterScript);
   
-  letterThrow = game.add.sprite(585, 110, 'letterThrow');
+  letterThrow = game.add.sprite(235, 35, 'letterThrow');
     letterThrow.animations.add('letterThrow_anim');
     letterThrow.animations.play('letterThrow_anim', 25, true);  
-    scrollingMap.addChild(letterThrow);
+    RoomLetter.addChild(letterThrow);
   
   
   
