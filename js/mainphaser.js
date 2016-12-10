@@ -575,7 +575,9 @@ function displayModal() {
 
     
     for (var i=0; i<1; i ++) {
-       //if (cardlibrary.cards[i].opened == 1) {
+      
+       if (cardlibrary.cards[i].opened == 0) {
+         
         cardContentHTML = '<h5>';
         cardContentHTML += cardlibrary.cards[i].category;
         cardContentHTML += '</h5><h3>';
@@ -583,7 +585,7 @@ function displayModal() {
         cardContentHTML += '</h3><p>';
         cardContentHTML += cardlibrary.cards[i].fact;
         cardContentHTML += '</p>';
-       //}
+       }
     }
       
 
