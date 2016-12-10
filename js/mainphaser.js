@@ -574,20 +574,21 @@ function displayModal() {
     var cardContentHTML;
 
     
-    for (var i=0; i<1; i ++) {
+    for (var i=0; i<cardlibrary.cards.length; i ++) {
       var currentScore = starScore / 10;
+      var cardNumber = currentScore - 1;
+      console.log('currentScore =' + currentScore)
       
-       if (cardlibrary.cards[i].cardNumber = currentScore) {
-        console.log('Card Number: ' + cardlibrary.cards[i].cardNumber)
+       if (cardlibrary.cards[i].cardNumber == currentScore) {
+        console.log('Card Number: ' + cardlibrary.cards[cardNumber].cardNumber)
         
         cardContentHTML = '<h5>';
-        cardContentHTML += cardlibrary.cards[i].category;
+        cardContentHTML += cardlibrary.cards[cardNumber].category;
         cardContentHTML += '</h5><h3>';
-        cardContentHTML += cardlibrary.cards[i].title;
+        cardContentHTML += cardlibrary.cards[cardNumber].title;
         cardContentHTML += '</h3><p>';
-        cardContentHTML += cardlibrary.cards[i].fact;
+        cardContentHTML += cardlibrary.cards[cardNumber].fact;
         cardContentHTML += '</p>';
-         
        }
     }
 
