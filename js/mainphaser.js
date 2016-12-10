@@ -29,8 +29,8 @@ var badgeScore = localStorage.getItem('badgeScore');
 console.log('Last Save // Stars('+ localStorage.getItem("starScore") + '), Badges(' + localStorage.getItem("badgeScore") + ')')
 
 //Clearing score
-//localStorage.clear()
-//starScore = 0;
+localStorage.clear()
+starScore = 0;
 
 //Saving Opened Rooms
 // Get saved data
@@ -575,9 +575,11 @@ function displayModal() {
 
     
     for (var i=0; i<1; i ++) {
+      var currentScore = starScore / 10;
       
-       if (cardlibrary.cards[i].opened == 0) {
-         
+       if (cardlibrary.cards[i].cardNumber = currentScore) {
+        console.log('Card Number: ' + cardlibrary.cards[i].cardNumber)
+        
         cardContentHTML = '<h5>';
         cardContentHTML += cardlibrary.cards[i].category;
         cardContentHTML += '</h5><h3>';
@@ -585,9 +587,9 @@ function displayModal() {
         cardContentHTML += '</h3><p>';
         cardContentHTML += cardlibrary.cards[i].fact;
         cardContentHTML += '</p>';
+         
        }
     }
-      
 
     document.getElementById('modalDataContent').innerHTML = cardContentHTML;
   }
