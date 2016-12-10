@@ -71,6 +71,15 @@ function preload() {
   //***** LOCKS
   game.load.image('lockShadow', 'assets/images/locks/lockShadow.png');
   game.load.image('lockedLetter', 'assets/images/locks/locked_100x100.png');
+  game.load.image('lockToy', 'assets/images/locks/lock_toy.png');
+  game.load.image('lockLibrary', 'assets/images/locks/lock_library.png');
+  game.load.image('lockLab', 'assets/images/locks/lock_lab.png');
+  game.load.image('lockCook', 'assets/images/locks/lock_cook.png');
+  game.load.image('lockStats', 'assets/images/locks/lock_stats.png');
+  game.load.image('lockWarehouse', 'assets/images/locks/lock_warehouse.png');
+  game.load.image('lockGreenhouse', 'assets/images/locks/lock_greenhouse.png');
+  game.load.image('lockReindeer', 'assets/images/locks/lock_reindeer.png');
+  game.load.image('lockLaunchpad', 'assets/images/locks/lock_launchpad.png');
   //game.load.spritesheet('badgeWin', 'assets/sprites/elf_badgeWin200100.png', 200, 100);
   
   //***** ROOMS
@@ -150,6 +159,53 @@ function create() {
          // set isBeingDragged property to false
          scrollingMap.isBeingDragged = false;
     }, this);
+  
+  
+  //***** Adding LOCKED Locks
+  lockToy = game.add.sprite(1000, 90, 'lockToy'); 
+    lockToy.anchor.set(0.5);
+    lockToy.scale.setTo(.6,.6);
+    scrollingMap.addChild(lockToy);
+  
+  lockLibrary = game.add.sprite(320, 110, 'lockLibrary'); 
+    lockLibrary.anchor.set(0.5);
+    lockLibrary.scale.setTo(.6,.6);
+    scrollingMap.addChild(lockLibrary);
+  
+  lockLab = game.add.sprite(1600, 280, 'lockLab'); 
+    lockLab.anchor.set(0.5);
+    lockLab.scale.setTo(.6,.6);
+    scrollingMap.addChild(lockLab);
+  
+  lockCook = game.add.sprite(1200, 520, 'lockCook'); 
+    lockCook.anchor.set(0.5);
+    lockCook.scale.setTo(.6,.6);
+    scrollingMap.addChild(lockCook);
+  
+  lockStats = game.add.sprite(590, -115, 'lockStats'); 
+    lockStats.anchor.set(0.5);
+    lockStats.scale.setTo(.6,.6);
+    scrollingMap.addChild(lockStats);
+  
+  lockGreenhouse = game.add.sprite(1950, 65, 'lockGreenhouse'); 
+    lockGreenhouse.anchor.set(0.5);
+    lockGreenhouse.scale.setTo(.6,.6);
+    scrollingMap.addChild(lockGreenhouse);
+  
+  lockWarehouse = game.add.sprite(1550, -165, 'lockWarehouse'); 
+    lockWarehouse.anchor.set(0.5);
+    lockWarehouse.scale.setTo(.6,.6);
+    scrollingMap.addChild(lockWarehouse);
+  
+  lockReindeer = game.add.sprite(1080, -350, 'lockReindeer'); 
+    lockReindeer.anchor.set(0.5);
+    lockReindeer.scale.setTo(.6,.6);
+    scrollingMap.addChild(lockReindeer);
+  
+  lockLaunchpad = game.add.sprite(1340, -500, 'lockLaunchpad'); 
+    lockLaunchpad.anchor.set(0.5);
+    lockLaunchpad.scale.setTo(.6,.6);
+    scrollingMap.addChild(lockLaunchpad);
   
   
   //***** Setting Rooms
