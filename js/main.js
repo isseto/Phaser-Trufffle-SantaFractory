@@ -1,5 +1,3 @@
-
-
 ///******** Menu Button States ********///
 
 
@@ -13,7 +11,7 @@ var source = audioContext.createBufferSource();
 // Create the XHR which will grab the audio contents
 var request = new XMLHttpRequest();
 // Set the audio file src here
-request.open('GET', 'assets/audio/christmas-waiting.mp3', true);
+request.open('GET', 'assets/audio/christmas-waiting.wav', true);
 // Setting the responseType to arraybuffer sets up the audio decoding
 request.responseType = 'arraybuffer';
 request.onload = function() {
@@ -90,7 +88,7 @@ modalSpan.onclick = function modalTrigger() {
     // Play badge win audio
     iconBadgeWin(this);
     newBadgeModalReveal(this);
-    var badgewinAudio = new Audio('assets/audio/badgewin.mp3');
+    var badgewinAudio = new Audio('assets/audio/badgewin.wav');
     badgewinAudio.play();
     var jinglebellsAudio = new Audio('assets/audio/jinglebells.mp3');
     jinglebellsAudio.play();
@@ -123,35 +121,35 @@ librarytl
   })
 
 // Get the button that opens the library
-var libraryBtn = document.getElementById("libraryBtn");
+//var libraryBtn = document.getElementById("libraryBtn");
 
 // Get the <span> element that closes the library
 var librarySpan = document.getElementById("librarySpan");
 
 // When the user clicks on the button, open the library 
-libraryBtn.onclick = function() {
-    library.style.display = "block";
-      librarytl
-        .fromTo(library, .5, {
-          rotationX:90,
-          transformPerspective: 100,
-          transformStyle:"preserve-3d",
-          transformOrigin:"50% 100%",
-        },{
-          rotationX:0, 
-          ease: Back.easeOut.config(.8)
-        })
-        .fromTo(libraryContent, .4, {y:300}, {y:0}, '-=.3')
+//libraryBtn.onclick = function() {
+    //library.style.display = "block";
+      //librarytl
+//        .fromTo(library, .5, {
+//          rotationX:90,
+ //         transformPerspective: 100,
+//          transformStyle:"preserve-3d",
+ //         transformOrigin:"50% 100%",
+ //       },{
+ //         rotationX:0, 
+ //         ease: Back.easeOut.config(.8)
+//        })
+ //       .fromTo(libraryContent, .4, {y:300}, {y:0}, '-=.3')
 
-    for (var i = 0; i < libraryBtn.length; i++) {
-        var thislibraryBtn = libraryBtn[i];
-        thislibraryBtn.addEventListener("click", function () {
-            var library = document.getElementById(this.dataset.library);
+ //   for (var i = 0; i < libraryBtn.length; i++) {
+ //       var thislibraryBtn = libraryBtn[i];
+ //       thislibraryBtn.addEventListener("click", function () {
+ //           var library = document.getElementById(this.dataset.library);
             //library.style.display = "block";
-            library.addEventListener("click", function () { library.style.display = "none"; library.removeEventListener("click"); });
-        }, false);
-    }
-}
+ //           library.addEventListener("click", function () { library.style.display = "none"; library.removeEventListener("click"); });
+  //      }, false);
+ //   }
+//}
 
 // When the user clicks on <span> (x), close the library
 librarySpan.onclick = function() {

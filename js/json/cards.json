@@ -2,49 +2,601 @@
 	"cards": [{
 			"day": 1,
       "cardNumber": 1,
-      "category": "Culture",
-			"title": "The I'm ONe",
-      "fact": "I am a new description look at me!!!! The people of the Netherlands, who celebrate the holiday on December 6th, await the arrival of Sinterklaas and his sidekick Black Pete to leave candy and nuts for good little boys and girls, who have filled their choes with hay and sugar for his horse.",
+      "category": "How Cultures Celebrate",
+			"title": "Ukiortaami Pilluarit!",
+      "fact": "That's 'Merry Christmas!' in Greenlandic. In far northern Greenland, where the sun never rises in the winter, a traditional and popular decoration is to put an illuminated star in windows in most homes and in all public buildings.",
 			"colour": "purple",
 			"opened": 0
 		}, {
 			"day": 1,
       "cardNumber": 2,
-      "category": "Culture",
-			"title": "France Two",
-      "fact": "France is the best in the world. The people of the Netherlands, who celebrate the holiday on December 6th, await the arrival of Sinterklaas and his sidekick Black Pete to leave candy and nuts for good little boys and girls, who have filled their choes with hay and sugar for his horse.",
+      "category": "Festive Foods",
+			"title": "Greenlandic Festive Feasts!",
+      "fact":  "There are some rather unusual foods, yet local delicacies eaten at Christmas time in Greenland. 'Mattak' is whale skin with a strip of blubber inside, which supposedly tastes like fresh coconut, but is often too tough to chew and is usually swallowed. Another Christmas food is 'kiviak', the raw flesh of little auks (a type of arctic bird) which have been buried whole in sealskin for several months until they have reached an advanced stage of decomposition. Other popular foods in Greenland include 'suaasat' which is a soup/stew, barbecued caribou, fish either as raw sushi or cooked. As for dessert, berries and apples with a crisp topping and lots of Danish pastries are most popular.",
 			"colour": "purple",
 			"opened": 0
 		}, {
 			"day": 1,
       "cardNumber": 3,
-      "category": "Culture",
-			"title": "Three",
-      "fact": "The people of the Netherlands, who celebrate the holiday on December 6th, await the arrival of Sinterklaas and his sidekick Black Pete to leave candy and nuts for good little boys and girls, who have filled their choes with hay and sugar for his horse.",
+      "category": "World Fact",
+			"title": "Where Does Santa Live?",
+      "fact": "The legend goes that a joyous, white-bearded figure, wearing a red coat, bringst gifts to homes of good children on the night before Christmas Day, with the help of elves who make the toys and flying reindeer who pull his sleigh. But the exact location of Santa's residence is in actuality highly controversial. France, Belgium, Switzerland and the United Kingdom believe Santa lives somewhere in the North Pole. While Canada, the United States, Finland, Norway and Sweden each argue Santa lives within their Northern territory. Still today, the secret remains a mystery.",
 			"colour": "purple",
 			"opened": 0
 		}, {
 			"day": 1,
       "cardNumber": 4,
-      "category": "Four",
-			"title": "The Netherlands",
-      "fact": "The people of the Netherlands, who celebrate the holiday on December 6th, await the arrival of Sinterklaas and his sidekick Black Pete to leave candy and nuts for good little boys and girls, who have filled their choes with hay and sugar for his horse.",
+      "category": "How Cultures Celebrate",
+			"title": "Gledelig Jul!",
+      "fact": "According to Norwegian ancient belief, witches and evil spirits would emerge on Christmas Eve to steal brooms to ride the skies. Thus, on Christmas Eve, all the brooms and similar cleaning implements are hidden and men would fire their shotguns outside their houses to frighten these witches away.",
 			"colour": "purple",
 			"opened": 0
 		}, {
 			"day": 1,
       "cardNumber": 5,
-      "category": "Five",
-			"title": "The Netherlands",
-      "fact": "The people of the Netherlands, who celebrate the holiday on December 6th, await the arrival of Sinterklaas and his sidekick Black Pete to leave candy and nuts for good little boys and girls, who have filled their choes with hay and sugar for his horse.",
+      "category": "Festive Foods",
+			"title": "A Norwegian Christmas",
+      "fact": "Many different types of cakes and biscuits are eaten over the Christmas period in Norway. One of the most popular is a special Norwegian Hole Cake called 'Julekake' that has raisins, candied peel and cardamom in it. Rice Porridge is eaten on Christmas Eve either as a meal at lunchtime (served with butter, sugar and cinnamon) or as a dessert to the main evening email (with whipped cream mixed in!). If you find an almond in your portion you're traditionally given a pink or white marzipan pig.",
 			"colour": "purple",
 			"opened": 0
 		}, {
 			"day": 1,
       "cardNumber": 6,
-      "category": "Culture",
-			"title": "The 6ix",
-      "fact": "The people of the Netherlands, who celebrate the holiday on December 6th, await the arrival of Sinterklaas and his sidekick Black Pete to leave candy and nuts for good little boys and girls, who have filled their choes with hay and sugar for his horse.",
+      "category": "World Fact",
+			"title": "The Very First Christmas",
+      "fact": "The first Christmas was celebrated on December 25, AD 336 in Rome. There was a public holiday celebrated around December 25th in the family home. A time for feasting, goodwill, generosity to the poor, the exchange of gifts and the decoration of trees. But it wasn’t Christmas - this was Saturnalia, the pagan Roman winter solstice festival. Saturnalia saw the inversion of social roles. The wealthy were expected to pay the month’s rent for those who couldn’t afford it, masters and slaves to swap clothes.",
+			"colour": "purple",
+			"opened": 0
+		}, {
+			"day": 1,
+      "cardNumber": 7,
+      "category": "How Cultures Celebrate",
+			"title": "Schastlivogo Rozhdestva!",
+      "fact": "In Russia and Urkaine, Christmas is celebrated on the 7th of January and not the 25th of December. The unusual date is because the Orthodox shurch uses the old 'Julian' calendar for religious celebration days. In the traditional Russian Christmas, special prayers are said and people fast, sometimes for 39 days, until January 6th (Christmas Eve), when the first evening star appears in the sky.",
+			"colour": "purple",
+			"opened": 0
+		}, {
+			"day": 1,
+      "cardNumber": 8,
+      "category": "Festive Foods",
+			"title": "A Norwegian Christmas",
+      "fact": "Ukrainians prepare a traditional twelve-course meal. A family’s youngest child watches through the window for the evening star to appear, a signal that the feast can begin. Desserts often comprise of fruit pies, gingerbread, honeybread cookies and fresh or dried fruit. 'Vzvar', as sweet drink made from dried fruit and honey, is often served at the end of the meal.",
+			"colour": "purple",
+			"opened": 0
+		}, {
+			"day": 1,
+      "cardNumber": 9,
+      "category": "World Fact",
+			"title": "The story behind Christmas markets?",
+      "fact": "In Europe in the Late Middle Ages, winter markets were usually held in front of churches and looked much different from the markets of today. These markets offered townspeople a chance to stock up on food and supplies to tide them over in the cold months. These small traders, mostly farmers, ensured townspeople with steady supply of goods, even in the most difficult times. With time, craftspeople began setting up stands at winter markets to sell baskets, toys and woodcarvings. There were also booths for almonds, nuts, roasted chestnuts, gingerbread and other baked goods. Still today, Christmas markets combine the festive atmosphere of heavenly choirs and succulent foods with gift shopping for such items as toys and other presents for children, crafts and gift items. Now you might want to visit your local Christmas market!",
+			"colour": "purple",
+			"opened": 0
+		}, {
+			"day": 1,
+      "cardNumber": 10,
+      "category": "How Cultures Celebrate",
+			"title": "Merīkurisumasu!",
+      "fact": "For many people in Japan, traditional Christmas dinner is KFC. It is so popular and well marketed you would have to make a reservation to eat at a KFC on Christmas in the country. ",
+			"colour": "purple",
+			"opened": 0
+		}, {
+			"day": 1,
+      "cardNumber": 11,
+      "category": "Festive Foods",
+			"title": "Japanese Christmas Cakes",
+      "fact": "The dessert is a type of sponge cake, covered with snow-white whipped cream and topped with perfectly shaped, ruby red strawberries. It's a beloved December-time treat on the island nation — and not just because it's delicious. In fact, Christmas cake is now a symbol of commercialism and prosperity. Its story intertwined with Japan's rise from ruins after its defeat in World War II. Being red, white and round, it even holds symbolic significance, where usually, anything white and round would normally be associated with shrines. These days, Christmas cake has become so ingrained in Japanese culture that you can even find some in your smartphone.",
+			"colour": "purple",
+			"opened": 0
+		}, {
+			"day": 1,
+      "cardNumber": 12,
+      "category": "World Fact",
+			"title": "The story behind Christmas lights",
+      "fact": "Christmas lights or fairy lights are lights used for decoration around Christmas. The custom goes back to the use of candles to decorate the Christmas tree to look like stars in upper-class homes in 18th-century Germany. The illuminated Christmas tree later became established in the United Kingdom during Queen Victoria's reign, and through emigration spread to North America and Australia. Christmas trees displayed publicly and illuminated with electric lights became popular in the early 20th century. Christmas lights were too expensive for the average person; as such, electric Christmas lights did not become the majority replacement for candles until 1930. In the United States, it became popular to outline private homes with such Christmas lights in tract housing beginning in the 1960s. By the late 20th century, the custom had also been adopted in non-western countries, notably in Japan and Hong Kong.",
+			"colour": "purple",
+			"opened": 0
+		}, {
+			"day": 1,
+      "cardNumber": 13,
+      "category": "How Cultures Celebrate",
+			"title": "The Birthplace of the Yule Logs",
+      "fact": "The ancient Norse used the Yule log in their celebration of the return of the sun at winter solstice. “Yule” came from the Norse word hweol, meaning wheel. The Norse believed that the sun was a great wheel of fire that rolled towards and then away from the earth. Ever wonder why the family fireplace is such a central part of the typical Christmas scene? This tradition dates back to the Norse Yule log. It is probably also responsible for the popularity of log-shaped cheese, cakes, and desserts during the holidays.",
+			"colour": "purple",
+			"opened": 0
+		}, {
+			"day": 1,
+      "cardNumber": 14,
+      "category": "Festive Foods",
+			"title": "Joyeux Noel!",
+      "fact": "Yule Logs made out of Cherry Wood are often burned in French homes. The log is carried into the home on Christmas Eve and is sprinkled with red wine to make the log smell nice when it is burning. There is a custom that the log and candles are left burning all night with some food and drinks left out in case Mary and the baby Jesus come past during the night. This is believed to keep the 'kallikantzaroi' (bad spirits) away. The kallikantzaroi are meant to appear only during the 12-day period from Christmas to Epiphany (January 6th). They are supposed to come from the middle of the earth and get into people's house through the chimney! The kallikantzaroi do things like putting out fires and making milk go off. Having a fire burning through the twelve days of Christmas is also meant to keep the kallikantzaroi away.",
+			"colour": "purple",
+			"opened": 0
+		}, {
+			"day": 1,
+      "cardNumber": 15,
+      "category": "World Fact",
+			"title": "Did Coca Cola really invent Santa's red suit?",
+      "fact": "While it is often said his trademark red suit is solely down to the soft drink's long-running advertising campaign, many historians believe the colours were inspired by the Bishop of Myra in the 4th Century. However, it is true that Coca‑Cola advertising played a big role in shaping the jolly, rotund character we know and love today. In 1931, Coca‑Cola commissioned Swedish-American artist Haddon Sundblom to paint Santa Claus for the company's Christmas adverts. Prior to this, Santa had been portrayed in a variety of ways throughout history: tall and gaunt; short and elfin; distinguished and intellectual; even downright frightening. Sundblom’s paintings for Coca‑Cola established Santa as a warm, happy character with human features such as rosy cheeks, a white beard, twinkling eyes and laughter lines. This grandfather-style Coca‑Cola Santa captivated the public and, as our adverts spread globally, the perception of the North Pole’s most-famous resident changed forever.",
+			"colour": "purple",
+			"opened": 0
+		}, {
+			"day": 1,
+      "cardNumber": 16,
+      "category": "How Cultures Celebrate",
+			"title": "Donald Duck",
+      "fact": "A popular and important habit for many Swedes on Christmas Eve afternoon is to watch Donald Duck on television. Every year, since 1959, at 3.00pm on Christmas Eve, the TV station TV1 shows the Disney special 'From All of Us to All of You'' or in Swedish it's 'Kalle Anka och hans vänner önskar God Jul' meaning 'Donald Duck and his friends wish you a Merry Christmas.' About 40 to 50% of the Swedish population stop to watch it!",
+			"colour": "purple",
+			"opened": 0
+		}, {
+			"day": 1,
+      "cardNumber": 17,
+      "category": "Festive Foods",
+			"title": " 'God Jul!' from Donald Duck",
+      "fact": "Many different types of cakes and biscuits are eaten over the Christmas period in Norway. One of the most popular is a special Norwegian Hole Cake called 'Julekake' that has raisins, candied peel and cardamom in it. Rice Porridge is eaten on Christmas Eve either as a meal at lunchtime (served with butter, sugar and cinnamon) or as a dessert to the main evening email (with whipped cream mixed in!). If you find an almond in your portion you're traditionally given a pink or white marzipan pig.",
+			"colour": "purple",
+			"opened": 0
+		}, {
+			"day": 1,
+      "cardNumber": 18,
+      "category": "World Fact",
+			"title": "You Can Rent a Santa Online",
+      "fact": "Each year there are approximately 20,000 “rent-a-Santas” across the United States. “Rent-a-Santas” usually undergo seasonal training on how to maintain a jolly attitude under pressure from the public. During their training, the Santas, as well as some Mrs. Clauses, receive instruction on makeup, wardrobe, sign language, reindeer care and communication. They also receive practical advice, such as not accepting money from parents while children are looking and avoiding garlic, onions, or beans for lunch. So yep, you can put that on a resume.",
+			"colour": "purple",
+			"opened": 0
+		}, {
+			"day": 1,
+      "cardNumber": 19,
+      "category": "How Cultures Celebrate",
+			"title": "GLEDELIG JUL!",
+      "fact": "According to Norwegian ancient belief, witches and evil spirits would emerge on Christmas Eve to steal brooms to ride the skies. Thus, on Christmas Eve, all the brooms and similar cleaning implements are hidden and men would fire their shotguns outside their houses to frighten these witches away.",
+			"colour": "purple",
+			"opened": 0
+		}, {
+			"day": 1,
+      "cardNumber": 20,
+      "category": "Festive Foods",
+			"title": "A Norwegian Christmas",
+      "fact": "Many different types of cakes and biscuits are eaten over the Christmas period in Norway. One of the most popular is a special Norwegian Hole Cake called 'Julekake' that has raisins, candied peel and cardamom in it. Rice Porridge is eaten on Christmas Eve either as a meal at lunchtime (served with butter, sugar and cinnamon) or as a dessert to the main evening email (with whipped cream mixed in!). If you find an almond in your portion you're traditionally given a pink or white marzipan pig.",
+			"colour": "purple",
+			"opened": 0
+		}, {
+			"day": 1,
+      "cardNumber": 21,
+      "category": "World Fact",
+			"title": "The Largest Christmas Gift Ever",
+      "fact": "The world's largest gift was the Statue of Liberty. The people of France gave it to the US in 1886. It's 151 feet, 1 inch (46.5 meters) high and weighs 225 tonnes.",
+			"colour": "purple",
+			"opened": 0
+		}, {
+			"day": 1,
+      "cardNumber": 22,
+      "category": "How Cultures Celebrate",
+			"title": "GLEDELIG JUL!",
+      "fact": "According to Norwegian ancient belief, witches and evil spirits would emerge on Christmas Eve to steal brooms to ride the skies. Thus, on Christmas Eve, all the brooms and similar cleaning implements are hidden and men would fire their shotguns outside their houses to frighten these witches away.",
+			"colour": "purple",
+			"opened": 0
+		}, {
+			"day": 1,
+      "cardNumber": 23,
+      "category": "Festive Foods",
+			"title": "A Norwegian Christmas",
+      "fact": "Many different types of cakes and biscuits are eaten over the Christmas period in Norway. One of the most popular is a special Norwegian Hole Cake called 'Julekake' that has raisins, candied peel and cardamom in it. Rice Porridge is eaten on Christmas Eve either as a meal at lunchtime (served with butter, sugar and cinnamon) or as a dessert to the main evening email (with whipped cream mixed in!). If you find an almond in your portion you're traditionally given a pink or white marzipan pig.",
+			"colour": "purple",
+			"opened": 0
+		}, {
+			"day": 1,
+      "cardNumber": 24,
+      "category": "World Fact",
+			"title": "Could Rudolph actually be a girl?",
+      "fact": "Did you know that Rudolph might actually be a girl? Most of Santa’s reindeer have male-sounding names, such as Blitzen, Comet, and Cupid. However, male reindeers shed their antlers around Christmas, so the reindeer pulling Santa’s sleigh are likely not male, but female. Indeed, only female reindeer keep their antlers throughout winter. By Christmas time most males have discarded their antlers and are saving their energy ready to grow a new pair in the spring. If all the sightings are to be believed, then it is the gals tugging pudgy Santa and the goods through the winter sky.",
+			"colour": "purple",
+			"opened": 0
+		}, {
+			"day": 1,
+      "cardNumber": 25,
+      "category": "How Cultures Celebrate",
+			"title": "GLEDELIG JUL!",
+      "fact": "According to Norwegian ancient belief, witches and evil spirits would emerge on Christmas Eve to steal brooms to ride the skies. Thus, on Christmas Eve, all the brooms and similar cleaning implements are hidden and men would fire their shotguns outside their houses to frighten these witches away.",
+			"colour": "purple",
+			"opened": 0
+		}, {
+			"day": 1,
+      "cardNumber": 26,
+      "category": "Festive Foods",
+			"title": "A Norwegian Christmas",
+      "fact": "Many different types of cakes and biscuits are eaten over the Christmas period in Norway. One of the most popular is a special Norwegian Hole Cake called 'Julekake' that has raisins, candied peel and cardamom in it. Rice Porridge is eaten on Christmas Eve either as a meal at lunchtime (served with butter, sugar and cinnamon) or as a dessert to the main evening email (with whipped cream mixed in!). If you find an almond in your portion you're traditionally given a pink or white marzipan pig.",
+			"colour": "purple",
+			"opened": 0
+		}, {
+			"day": 1,
+      "cardNumber": 27,
+      "category": "World Fact",
+			"title": "Where do Candy Canes come from?",
+      "fact": "Legend has it that candy canes were invented in 1670, when the choirmaster of the Cologne Cathedral commissioned candies shaped like a shepherd’s crook so they could be handed out to children attending the church’s crèche scene in order to keep them quiet. The stripes came later. Around 1920, Bob McCormack, from Georgia, USA, started making canes for his friends and family. They became more and more popular and he started his own business called Bob's Candies. Bob McCormack's brother-in-law, Gregory Harding Keller, who was a Catholic priest, invented the Keller Machine that made turning straight candy sticks into curved candy canes automatic! In 2005, Bob's Candies was bought by Farley and Sathers but they still make candy canes!",
+			"colour": "purple",
+			"opened": 0
+		}, {
+			"day": 1,
+      "cardNumber": 28,
+      "category": "How Cultures Celebrate",
+			"title": "GLEDELIG JUL!",
+      "fact": "According to Norwegian ancient belief, witches and evil spirits would emerge on Christmas Eve to steal brooms to ride the skies. Thus, on Christmas Eve, all the brooms and similar cleaning implements are hidden and men would fire their shotguns outside their houses to frighten these witches away.",
+			"colour": "purple",
+			"opened": 0
+		}, {
+			"day": 1,
+      "cardNumber": 29,
+      "category": "Festive Foods",
+			"title": "A Norwegian Christmas",
+      "fact": "Many different types of cakes and biscuits are eaten over the Christmas period in Norway. One of the most popular is a special Norwegian Hole Cake called 'Julekake' that has raisins, candied peel and cardamom in it. Rice Porridge is eaten on Christmas Eve either as a meal at lunchtime (served with butter, sugar and cinnamon) or as a dessert to the main evening email (with whipped cream mixed in!). If you find an almond in your portion you're traditionally given a pink or white marzipan pig.",
+			"colour": "purple",
+			"opened": 0
+		}, {
+			"day": 1,
+      "cardNumber": 30,
+      "category": "World Fact",
+			"title": "How fast is Santa?",
+      "fact": "Santa spends the night of December 24th circling the globe in a sleigh pulled by flying reindeer. It is estimated that 832 is the number of homes (and 6100 the number of children) Santa visits every second to deliver all his presents",
+			"colour": "purple",
+			"opened": 0
+		}, {
+			"day": 1,
+      "cardNumber": 31,
+      "category": "How Cultures Celebrate",
+			"title": "GLEDELIG JUL!",
+      "fact": "According to Norwegian ancient belief, witches and evil spirits would emerge on Christmas Eve to steal brooms to ride the skies. Thus, on Christmas Eve, all the brooms and similar cleaning implements are hidden and men would fire their shotguns outside their houses to frighten these witches away.",
+			"colour": "purple",
+			"opened": 0
+		}, {
+			"day": 1,
+      "cardNumber": 32,
+      "category": "Festive Foods",
+			"title": "A Norwegian Christmas",
+      "fact": "Many different types of cakes and biscuits are eaten over the Christmas period in Norway. One of the most popular is a special Norwegian Hole Cake called 'Julekake' that has raisins, candied peel and cardamom in it. Rice Porridge is eaten on Christmas Eve either as a meal at lunchtime (served with butter, sugar and cinnamon) or as a dessert to the main evening email (with whipped cream mixed in!). If you find an almond in your portion you're traditionally given a pink or white marzipan pig.",
+			"colour": "purple",
+			"opened": 0
+		}, {
+			"day": 1,
+      "cardNumber": 33,
+      "category": "World Fact",
+			"title": "The Very First Christmas",
+      "fact": "The first Christmas was celebrated on December 25, AD 336 in Rome. There was a public holiday celebrated around December 25th in the family home. A time for feasting, goodwill, generosity to the poor, the exchange of gifts and the decoration of trees. But it wasn’t Christmas - this was Saturnalia, the pagan Roman winter solstice festival. Saturnalia saw the inversion of social roles. The wealthy were expected to pay the month’s rent for those who couldn’t afford it, masters and slaves to swap clothes.",
+			"colour": "purple",
+			"opened": 0
+		}, {
+			"day": 1,
+      "cardNumber": 34,
+      "category": "How Cultures Celebrate",
+			"title": "GLEDELIG JUL!",
+      "fact": "According to Norwegian ancient belief, witches and evil spirits would emerge on Christmas Eve to steal brooms to ride the skies. Thus, on Christmas Eve, all the brooms and similar cleaning implements are hidden and men would fire their shotguns outside their houses to frighten these witches away.",
+			"colour": "purple",
+			"opened": 0
+		}, {
+			"day": 1,
+      "cardNumber": 35,
+      "category": "Festive Foods",
+			"title": "The Story Behind the Mistletoe",
+      "fact": "From the earliest times mistletoe has been one of the most magical, mysterious, and sacred plants of European folklore. Ancient peoples, such as the Celtic Druids, considered mistletoe sacred because it remains green and bears fruit during the winter when all other plants appear to die. Druids would cut the plant with golden sickles and never let it touch the ground. The Greeks also thought that it had mystical powers and down through the centuries it became associated with many folklore customs. In the Middle Ages and later, branches of mistletoe were hung from ceilings to ward off evil spirits. In Europe they were placed over house and stable doors to prevent the entrance of witches.",
+			"colour": "purple",
+			"opened": 0
+		}, {
+			"day": 1,
+      "cardNumber": 36,
+      "category": "World Fact",
+			"title": "Kissing Under the Mistletoe",
+      "fact": "Kissing under the mistletoe is first found associated with the Greek festival of Saturnalia and later with primitive marriage rites. They probably originated from the belief that it has power to bestow fertility and would also possess 'life giving' power. In Scandinavia, mistletoe was considered a plant of peace, under which enemies could declare a truce or warring spouses kiss and make-up.",
+			"colour": "purple",
+			"opened": 0
+		}, {
+			"day": 1,
+      "cardNumber": 37,
+      "category": "How Cultures Celebrate",
+			"title": "GLEDELIG JUL!",
+      "fact": "According to Norwegian ancient belief, witches and evil spirits would emerge on Christmas Eve to steal brooms to ride the skies. Thus, on Christmas Eve, all the brooms and similar cleaning implements are hidden and men would fire their shotguns outside their houses to frighten these witches away.",
+			"colour": "purple",
+			"opened": 0
+		}, {
+			"day": 1,
+      "cardNumber": 38,
+      "category": "Festive Foods",
+			"title": "Home of the Christmas Trees",
+      "fact": "1,500,000 is the number of fresh-cut trees exported from Canada alone to the rest of the world. With more than 2000 Christmas tree farms, half of which are grown in the province of Quebec, Canada stands as the world's #1 exporter of fresh-cut Christmas trees. Funnily enough, Canada still imports almost double that amount in artificial Christmas trees, 98% of which are produced in the Pearl River delta area of China, the largest exporter of artificial Christmas trees.",
+			"colour": "purple",
+			"opened": 0
+		}, {
+			"day": 1,
+      "cardNumber": 39,
+      "category": "World Fact",
+			"title": "An Eco-Christmas",
+      "fact": "Fresh-cut evergreens take up to 4-15 years to grow, emitting fresh oxygen, protecting water supplies and providing wildlife habitat during that time. 1 million acres of Christmas trees can produce oxygen for 18 million people every day.",
+			"colour": "purple",
+			"opened": 0
+		}, {
+			"day": 1,
+      "cardNumber": 40,
+      "category": "How Cultures Celebrate",
+			"title": "GLEDELIG JUL!",
+      "fact": "According to Norwegian ancient belief, witches and evil spirits would emerge on Christmas Eve to steal brooms to ride the skies. Thus, on Christmas Eve, all the brooms and similar cleaning implements are hidden and men would fire their shotguns outside their houses to frighten these witches away.",
+			"colour": "purple",
+			"opened": 0
+		}, {
+			"day": 1,
+      "cardNumber": 41,
+      "category": "Festive Foods",
+			"title": "A Norwegian Christmas",
+      "fact": "Many different types of cakes and biscuits are eaten over the Christmas period in Norway. One of the most popular is a special Norwegian Hole Cake called 'Julekake' that has raisins, candied peel and cardamom in it. Rice Porridge is eaten on Christmas Eve either as a meal at lunchtime (served with butter, sugar and cinnamon) or as a dessert to the main evening email (with whipped cream mixed in!). If you find an almond in your portion you're traditionally given a pink or white marzipan pig.",
+			"colour": "purple",
+			"opened": 0
+		}, {
+			"day": 1,
+      "cardNumber": 42,
+      "category": "World Fact",
+			"title": "66%",
+      "fact": "There are no official estimates as to exactly how many people celebrate Christmas globally. And seeing as the Christmas season has become much more than just a religious holiday, Christmas celebration aren’t just limited to Christians. Still, 2.5 billion people live in countries that don’t officially celebrate Christmas. A total of 15 countries worldwide, including Afghanistan, Bhutan and North Korea don’t recognise Christmas as a public holiday. However, other countries, such as China, Japan, Iran and Turkey, don’t recognise it as a public holiday, but do give it observance. It is safe to say that 66% of the world’s population live in a country that does celebrate Christmas.",
+			"colour": "purple",
+			"opened": 0
+		}, {
+			"day": 1,
+      "cardNumber": 43,
+      "category": "How Cultures Celebrate",
+			"title": "GLEDELIG JUL!",
+      "fact": "According to Norwegian ancient belief, witches and evil spirits would emerge on Christmas Eve to steal brooms to ride the skies. Thus, on Christmas Eve, all the brooms and similar cleaning implements are hidden and men would fire their shotguns outside their houses to frighten these witches away.",
+			"colour": "purple",
+			"opened": 0
+		}, {
+			"day": 1,
+      "cardNumber": 44,
+      "category": "Festive Foods",
+			"title": "A Norwegian Christmas",
+      "fact": "Many different types of cakes and biscuits are eaten over the Christmas period in Norway. One of the most popular is a special Norwegian Hole Cake called 'Julekake' that has raisins, candied peel and cardamom in it. Rice Porridge is eaten on Christmas Eve either as a meal at lunchtime (served with butter, sugar and cinnamon) or as a dessert to the main evening email (with whipped cream mixed in!). If you find an almond in your portion you're traditionally given a pink or white marzipan pig.",
+			"colour": "purple",
+			"opened": 0
+		}, {
+			"day": 1,
+      "cardNumber": 45,
+      "category": "World Fact",
+			"title": "The Very First Christmas",
+      "fact": "The first Christmas was celebrated on December 25, AD 336 in Rome. There was a public holiday celebrated around December 25th in the family home. A time for feasting, goodwill, generosity to the poor, the exchange of gifts and the decoration of trees. But it wasn’t Christmas - this was Saturnalia, the pagan Roman winter solstice festival. Saturnalia saw the inversion of social roles. The wealthy were expected to pay the month’s rent for those who couldn’t afford it, masters and slaves to swap clothes.",
+			"colour": "purple",
+			"opened": 0
+		}, {
+			"day": 1,
+      "cardNumber": 46,
+      "category": "How Cultures Celebrate",
+			"title": "GLEDELIG JUL!",
+      "fact": "According to Norwegian ancient belief, witches and evil spirits would emerge on Christmas Eve to steal brooms to ride the skies. Thus, on Christmas Eve, all the brooms and similar cleaning implements are hidden and men would fire their shotguns outside their houses to frighten these witches away.",
+			"colour": "purple",
+			"opened": 0
+		}, {
+			"day": 1,
+      "cardNumber": 47,
+      "category": "Festive Foods",
+			"title": "A Norwegian Christmas",
+      "fact": "Many different types of cakes and biscuits are eaten over the Christmas period in Norway. One of the most popular is a special Norwegian Hole Cake called 'Julekake' that has raisins, candied peel and cardamom in it. Rice Porridge is eaten on Christmas Eve either as a meal at lunchtime (served with butter, sugar and cinnamon) or as a dessert to the main evening email (with whipped cream mixed in!). If you find an almond in your portion you're traditionally given a pink or white marzipan pig.",
+			"colour": "purple",
+			"opened": 0
+		}, {
+			"day": 1,
+      "cardNumber": 48,
+      "category": "World Fact",
+			"title": "The Very First Christmas",
+      "fact": "The first Christmas was celebrated on December 25, AD 336 in Rome. There was a public holiday celebrated around December 25th in the family home. A time for feasting, goodwill, generosity to the poor, the exchange of gifts and the decoration of trees. But it wasn’t Christmas - this was Saturnalia, the pagan Roman winter solstice festival. Saturnalia saw the inversion of social roles. The wealthy were expected to pay the month’s rent for those who couldn’t afford it, masters and slaves to swap clothes.",
+			"colour": "purple",
+			"opened": 0
+		}, {
+			"day": 1,
+      "cardNumber": 49,
+      "category": "How Cultures Celebrate",
+			"title": "GLEDELIG JUL!",
+      "fact": "According to Norwegian ancient belief, witches and evil spirits would emerge on Christmas Eve to steal brooms to ride the skies. Thus, on Christmas Eve, all the brooms and similar cleaning implements are hidden and men would fire their shotguns outside their houses to frighten these witches away.",
+			"colour": "purple",
+			"opened": 0
+		}, {
+			"day": 1,
+      "cardNumber": 50,
+      "category": "Festive Foods",
+			"title": "A Norwegian Christmas",
+      "fact": "Many different types of cakes and biscuits are eaten over the Christmas period in Norway. One of the most popular is a special Norwegian Hole Cake called 'Julekake' that has raisins, candied peel and cardamom in it. Rice Porridge is eaten on Christmas Eve either as a meal at lunchtime (served with butter, sugar and cinnamon) or as a dessert to the main evening email (with whipped cream mixed in!). If you find an almond in your portion you're traditionally given a pink or white marzipan pig.",
+			"colour": "purple",
+			"opened": 0
+		}, {
+			"day": 1,
+      "cardNumber": 51,
+      "category": "World Fact",
+			"title": "The Very First Christmas",
+      "fact": "The first Christmas was celebrated on December 25, AD 336 in Rome. There was a public holiday celebrated around December 25th in the family home. A time for feasting, goodwill, generosity to the poor, the exchange of gifts and the decoration of trees. But it wasn’t Christmas - this was Saturnalia, the pagan Roman winter solstice festival. Saturnalia saw the inversion of social roles. The wealthy were expected to pay the month’s rent for those who couldn’t afford it, masters and slaves to swap clothes.",
+			"colour": "purple",
+			"opened": 0
+		}, {
+			"day": 1,
+      "cardNumber": 52,
+      "category": "How Cultures Celebrate",
+			"title": "GLEDELIG JUL!",
+      "fact": "According to Norwegian ancient belief, witches and evil spirits would emerge on Christmas Eve to steal brooms to ride the skies. Thus, on Christmas Eve, all the brooms and similar cleaning implements are hidden and men would fire their shotguns outside their houses to frighten these witches away.",
+			"colour": "purple",
+			"opened": 0
+		}, {
+			"day": 1,
+      "cardNumber": 53,
+      "category": "Festive Foods",
+			"title": "A Norwegian Christmas",
+      "fact": "Many different types of cakes and biscuits are eaten over the Christmas period in Norway. One of the most popular is a special Norwegian Hole Cake called 'Julekake' that has raisins, candied peel and cardamom in it. Rice Porridge is eaten on Christmas Eve either as a meal at lunchtime (served with butter, sugar and cinnamon) or as a dessert to the main evening email (with whipped cream mixed in!). If you find an almond in your portion you're traditionally given a pink or white marzipan pig.",
+			"colour": "purple",
+			"opened": 0
+		}, {
+			"day": 1,
+      "cardNumber": 54,
+      "category": "World Fact",
+			"title": "The Very First Christmas",
+      "fact": "The first Christmas was celebrated on December 25, AD 336 in Rome. There was a public holiday celebrated around December 25th in the family home. A time for feasting, goodwill, generosity to the poor, the exchange of gifts and the decoration of trees. But it wasn’t Christmas - this was Saturnalia, the pagan Roman winter solstice festival. Saturnalia saw the inversion of social roles. The wealthy were expected to pay the month’s rent for those who couldn’t afford it, masters and slaves to swap clothes.",
+			"colour": "purple",
+			"opened": 0
+		}, {
+			"day": 1,
+      "cardNumber": 55,
+      "category": "How Cultures Celebrate",
+			"title": "GLEDELIG JUL!",
+      "fact": "According to Norwegian ancient belief, witches and evil spirits would emerge on Christmas Eve to steal brooms to ride the skies. Thus, on Christmas Eve, all the brooms and similar cleaning implements are hidden and men would fire their shotguns outside their houses to frighten these witches away.",
+			"colour": "purple",
+			"opened": 0
+		}, {
+			"day": 1,
+      "cardNumber": 56,
+      "category": "Festive Foods",
+			"title": "A Norwegian Christmas",
+      "fact": "Many different types of cakes and biscuits are eaten over the Christmas period in Norway. One of the most popular is a special Norwegian Hole Cake called 'Julekake' that has raisins, candied peel and cardamom in it. Rice Porridge is eaten on Christmas Eve either as a meal at lunchtime (served with butter, sugar and cinnamon) or as a dessert to the main evening email (with whipped cream mixed in!). If you find an almond in your portion you're traditionally given a pink or white marzipan pig.",
+			"colour": "purple",
+			"opened": 0
+		}, {
+			"day": 1,
+      "cardNumber": 57,
+      "category": "World Fact",
+			"title": "The Very First Christmas",
+      "fact": "The first Christmas was celebrated on December 25, AD 336 in Rome. There was a public holiday celebrated around December 25th in the family home. A time for feasting, goodwill, generosity to the poor, the exchange of gifts and the decoration of trees. But it wasn’t Christmas - this was Saturnalia, the pagan Roman winter solstice festival. Saturnalia saw the inversion of social roles. The wealthy were expected to pay the month’s rent for those who couldn’t afford it, masters and slaves to swap clothes.",
+			"colour": "purple",
+			"opened": 0
+		}, {
+			"day": 1,
+      "cardNumber": 58,
+      "category": "How Cultures Celebrate",
+			"title": "GLEDELIG JUL!",
+      "fact": "According to Norwegian ancient belief, witches and evil spirits would emerge on Christmas Eve to steal brooms to ride the skies. Thus, on Christmas Eve, all the brooms and similar cleaning implements are hidden and men would fire their shotguns outside their houses to frighten these witches away.",
+			"colour": "purple",
+			"opened": 0
+		}, {
+			"day": 1,
+      "cardNumber": 59,
+      "category": "Festive Foods",
+			"title": "A Norwegian Christmas",
+      "fact": "Many different types of cakes and biscuits are eaten over the Christmas period in Norway. One of the most popular is a special Norwegian Hole Cake called 'Julekake' that has raisins, candied peel and cardamom in it. Rice Porridge is eaten on Christmas Eve either as a meal at lunchtime (served with butter, sugar and cinnamon) or as a dessert to the main evening email (with whipped cream mixed in!). If you find an almond in your portion you're traditionally given a pink or white marzipan pig.",
+			"colour": "purple",
+			"opened": 0
+		}, {
+			"day": 1,
+      "cardNumber": 60,
+      "category": "World Fact",
+			"title": "The Very First Christmas",
+      "fact": "The first Christmas was celebrated on December 25, AD 336 in Rome. There was a public holiday celebrated around December 25th in the family home. A time for feasting, goodwill, generosity to the poor, the exchange of gifts and the decoration of trees. But it wasn’t Christmas - this was Saturnalia, the pagan Roman winter solstice festival. Saturnalia saw the inversion of social roles. The wealthy were expected to pay the month’s rent for those who couldn’t afford it, masters and slaves to swap clothes.",
+			"colour": "purple",
+			"opened": 0
+		}, {
+			"day": 1,
+      "cardNumber": 61,
+      "category": "How Cultures Celebrate",
+			"title": "GLEDELIG JUL!",
+      "fact": "According to Norwegian ancient belief, witches and evil spirits would emerge on Christmas Eve to steal brooms to ride the skies. Thus, on Christmas Eve, all the brooms and similar cleaning implements are hidden and men would fire their shotguns outside their houses to frighten these witches away.",
+			"colour": "purple",
+			"opened": 0
+		}, {
+			"day": 1,
+      "cardNumber": 62,
+      "category": "Festive Foods",
+			"title": "A Norwegian Christmas",
+      "fact": "Many different types of cakes and biscuits are eaten over the Christmas period in Norway. One of the most popular is a special Norwegian Hole Cake called 'Julekake' that has raisins, candied peel and cardamom in it. Rice Porridge is eaten on Christmas Eve either as a meal at lunchtime (served with butter, sugar and cinnamon) or as a dessert to the main evening email (with whipped cream mixed in!). If you find an almond in your portion you're traditionally given a pink or white marzipan pig.",
+			"colour": "purple",
+			"opened": 0
+		}, {
+			"day": 1,
+      "cardNumber": 63,
+      "category": "World Fact",
+			"title": "The Very First Christmas",
+      "fact": "The first Christmas was celebrated on December 25, AD 336 in Rome. There was a public holiday celebrated around December 25th in the family home. A time for feasting, goodwill, generosity to the poor, the exchange of gifts and the decoration of trees. But it wasn’t Christmas - this was Saturnalia, the pagan Roman winter solstice festival. Saturnalia saw the inversion of social roles. The wealthy were expected to pay the month’s rent for those who couldn’t afford it, masters and slaves to swap clothes.",
+			"colour": "purple",
+			"opened": 0
+		}, {
+			"day": 1,
+      "cardNumber": 64,
+      "category": "How Cultures Celebrate",
+			"title": "GLEDELIG JUL!",
+      "fact": "According to Norwegian ancient belief, witches and evil spirits would emerge on Christmas Eve to steal brooms to ride the skies. Thus, on Christmas Eve, all the brooms and similar cleaning implements are hidden and men would fire their shotguns outside their houses to frighten these witches away.",
+			"colour": "purple",
+			"opened": 0
+		}, {
+			"day": 1,
+      "cardNumber": 65,
+      "category": "Festive Foods",
+			"title": "A Norwegian Christmas",
+      "fact": "Many different types of cakes and biscuits are eaten over the Christmas period in Norway. One of the most popular is a special Norwegian Hole Cake called 'Julekake' that has raisins, candied peel and cardamom in it. Rice Porridge is eaten on Christmas Eve either as a meal at lunchtime (served with butter, sugar and cinnamon) or as a dessert to the main evening email (with whipped cream mixed in!). If you find an almond in your portion you're traditionally given a pink or white marzipan pig.",
+			"colour": "purple",
+			"opened": 0
+		}, {
+			"day": 1,
+      "cardNumber": 66,
+      "category": "World Fact",
+			"title": "The Very First Christmas",
+      "fact": "The first Christmas was celebrated on December 25, AD 336 in Rome. There was a public holiday celebrated around December 25th in the family home. A time for feasting, goodwill, generosity to the poor, the exchange of gifts and the decoration of trees. But it wasn’t Christmas - this was Saturnalia, the pagan Roman winter solstice festival. Saturnalia saw the inversion of social roles. The wealthy were expected to pay the month’s rent for those who couldn’t afford it, masters and slaves to swap clothes.",
+			"colour": "purple",
+			"opened": 0
+		}, {
+			"day": 1,
+      "cardNumber": 67,
+      "category": "How Cultures Celebrate",
+			"title": "GLEDELIG JUL!",
+      "fact": "According to Norwegian ancient belief, witches and evil spirits would emerge on Christmas Eve to steal brooms to ride the skies. Thus, on Christmas Eve, all the brooms and similar cleaning implements are hidden and men would fire their shotguns outside their houses to frighten these witches away.",
+			"colour": "purple",
+			"opened": 0
+		}, {
+			"day": 1,
+      "cardNumber": 68,
+      "category": "Festive Foods",
+			"title": "A Norwegian Christmas",
+      "fact": "Many different types of cakes and biscuits are eaten over the Christmas period in Norway. One of the most popular is a special Norwegian Hole Cake called 'Julekake' that has raisins, candied peel and cardamom in it. Rice Porridge is eaten on Christmas Eve either as a meal at lunchtime (served with butter, sugar and cinnamon) or as a dessert to the main evening email (with whipped cream mixed in!). If you find an almond in your portion you're traditionally given a pink or white marzipan pig.",
+			"colour": "purple",
+			"opened": 0
+		}, {
+			"day": 1,
+      "cardNumber": 69,
+      "category": "World Fact",
+			"title": "The Very First Christmas",
+      "fact": "The first Christmas was celebrated on December 25, AD 336 in Rome. There was a public holiday celebrated around December 25th in the family home. A time for feasting, goodwill, generosity to the poor, the exchange of gifts and the decoration of trees. But it wasn’t Christmas - this was Saturnalia, the pagan Roman winter solstice festival. Saturnalia saw the inversion of social roles. The wealthy were expected to pay the month’s rent for those who couldn’t afford it, masters and slaves to swap clothes.",
+			"colour": "purple",
+			"opened": 0
+		}, {
+			"day": 1,
+      "cardNumber": 70,
+      "category": "How Cultures Celebrate",
+			"title": "GLEDELIG JUL!",
+      "fact": "According to Norwegian ancient belief, witches and evil spirits would emerge on Christmas Eve to steal brooms to ride the skies. Thus, on Christmas Eve, all the brooms and similar cleaning implements are hidden and men would fire their shotguns outside their houses to frighten these witches away.",
+			"colour": "purple",
+			"opened": 0
+		}, {
+			"day": 1,
+      "cardNumber": 71,
+      "category": "Festive Foods",
+			"title": "A Norwegian Christmas",
+      "fact": "Many different types of cakes and biscuits are eaten over the Christmas period in Norway. One of the most popular is a special Norwegian Hole Cake called 'Julekake' that has raisins, candied peel and cardamom in it. Rice Porridge is eaten on Christmas Eve either as a meal at lunchtime (served with butter, sugar and cinnamon) or as a dessert to the main evening email (with whipped cream mixed in!). If you find an almond in your portion you're traditionally given a pink or white marzipan pig.",
+			"colour": "purple",
+			"opened": 0
+		}, {
+			"day": 1,
+      "cardNumber": 72,
+      "category": "World Fact",
+			"title": "The Very First Christmas",
+      "fact": "The first Christmas was celebrated on December 25, AD 336 in Rome. There was a public holiday celebrated around December 25th in the family home. A time for feasting, goodwill, generosity to the poor, the exchange of gifts and the decoration of trees. But it wasn’t Christmas - this was Saturnalia, the pagan Roman winter solstice festival. Saturnalia saw the inversion of social roles. The wealthy were expected to pay the month’s rent for those who couldn’t afford it, masters and slaves to swap clothes.",
+			"colour": "purple",
+			"opened": 0
+		}, {
+			"day": 1,
+      "cardNumber": 73,
+      "category": "How Cultures Celebrate",
+			"title": "GLEDELIG JUL!",
+      "fact": "According to Norwegian ancient belief, witches and evil spirits would emerge on Christmas Eve to steal brooms to ride the skies. Thus, on Christmas Eve, all the brooms and similar cleaning implements are hidden and men would fire their shotguns outside their houses to frighten these witches away.",
+			"colour": "purple",
+			"opened": 0
+		}, {
+			"day": 1,
+      "cardNumber": 74,
+      "category": "Festive Foods",
+			"title": "A Norwegian Christmas",
+      "fact": "Many different types of cakes and biscuits are eaten over the Christmas period in Norway. One of the most popular is a special Norwegian Hole Cake called 'Julekake' that has raisins, candied peel and cardamom in it. Rice Porridge is eaten on Christmas Eve either as a meal at lunchtime (served with butter, sugar and cinnamon) or as a dessert to the main evening email (with whipped cream mixed in!). If you find an almond in your portion you're traditionally given a pink or white marzipan pig.",
+			"colour": "purple",
+			"opened": 0
+		}, {
+			"day": 1,
+      "cardNumber": 75,
+      "category": "World Fact",
+			"title": "The Very First Christmas",
+      "fact": "The first Christmas was celebrated on December 25, AD 336 in Rome. There was a public holiday celebrated around December 25th in the family home. A time for feasting, goodwill, generosity to the poor, the exchange of gifts and the decoration of trees. But it wasn’t Christmas - this was Saturnalia, the pagan Roman winter solstice festival. Saturnalia saw the inversion of social roles. The wealthy were expected to pay the month’s rent for those who couldn’t afford it, masters and slaves to swap clothes.",
 			"colour": "purple",
 			"opened": 0
 		}

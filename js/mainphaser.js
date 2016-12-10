@@ -29,8 +29,8 @@ var badgeScore = localStorage.getItem('badgeScore');
 console.log('Last Save // Stars('+ localStorage.getItem("starScore") + '), Badges(' + localStorage.getItem("badgeScore") + ')')
 
 //Clearing score
-localStorage.clear()
-starScore = 0;
+//localStorage.clear()
+//starScore = 20;
 
 //Saving Opened Rooms
 // Get saved data
@@ -76,8 +76,12 @@ function preload() {
   //***** ROOMS
   //General
   game.load.spritesheet('generalStanding', 'assets/images/rooms/general/general_standing_200200.png', 200, 200);
+  game.load.spritesheet('generalBack', 'assets/images/rooms/general/general_back_7045.png', 70, 45);
   //Reception
   game.load.image('RoomReception', 'assets/images/rooms/reception/reception.png');
+  game.load.spritesheet('receptionBlackboard', 'assets/images/rooms/reception/reception_blackboard_7045.png', 70, 45);
+  game.load.spritesheet('receptionSchoolChair1', 'assets/images/rooms/reception/reception_schoolChair1_5545.png', 55, 45);
+  game.load.spritesheet('receptionSchoolChair2', 'assets/images/rooms/reception/reception_schoolChair1_5545.png', 55, 45);
   //LetterRoom
   game.load.image('RoomLetter', 'assets/images/rooms/letter/letterroom.png');
   //game.load.image('RoomLetter', 'assets/images/rooms/letter/letterroom_withanimation.png');
@@ -89,6 +93,10 @@ function preload() {
   game.load.spritesheet('letterFire', 'assets/images/rooms/letter/letterroom_fire_2225.png', 22, 25);
   game.load.spritesheet('letterScript', 'assets/images/rooms/letter/letterroom_script_11080.png', 110, 80);
   game.load.spritesheet('letterThrow', 'assets/images/rooms/letter/letterroom_letterthrow_8080.png', 80, 80);
+  game.load.spritesheet('letterFloor', 'assets/images/rooms/letter/letterroom_floorletters_8050.png', 80, 50);
+  game.load.spritesheet('letterGrab', 'assets/images/rooms/letter/letterroom_lettergrab_5050.png', 50, 50);
+  game.load.spritesheet('letterSorting', 'assets/images/rooms/letter/letterroom_sortingtable_130100.png', 130, 100);
+  game.load.spritesheet('santaChair', 'assets/images/rooms/letter/letterroom_santachair_7070.png', 70, 70);
   
   //***** ELF SPRITESHEETS
   game.load.spritesheet('ms', 'assets/sprites/elfmotion2048.png', 170.7, 170.7, 100);
@@ -98,12 +106,12 @@ function preload() {
   //***** AUDIO
   // game.load.audio('sfx', [ 'assets/audio/SoundEffects/fx_mixdown.mp3', 'assets/audio/SoundEffects/fx_mixdown.ogg' ]);
   game.load.audio('blop', ['assets/audio/blop.mp3', 'assets/audio/blop.wav']);
-  game.load.audio('lockwin', 'assets/audio/gamewin.mp3');
+  game.load.audio('lockwin', 'assets/audio/gamewin.wav');
   game.load.audio('unlock', 'assets/audio/unlock.mp3');
   //game.load.audio('badgewin', 'assets/audio/badgewin.mp3');
   //game.load.audio('jinglebells', 'assets/audio/jinglebells.mp3');
   game.load.audio('woohoo', 'assets/audio/woohoo.mp3');
-  game.load.audio('chime', 'assets/audio/chime.mp3');
+  game.load.audio('chime', 'assets/audio/chimes.mp3');
 
 
 }//***End preload function
@@ -148,7 +156,7 @@ function create() {
   //*** LETTER ROOM
   //Add Letter room
   RoomLetter = game.add.sprite(350, 73, 'RoomLetter')
-    RoomLetter.alpha = 1;
+    RoomLetter.alpha = 0;
     scrollingMap.addChild(RoomLetter);
   // Clone bounds from letter room sprite
   roomBounds1 = Phaser.Rectangle.clone(RoomLetter);
@@ -161,12 +169,7 @@ function create() {
   letterPouchGroup = game.add.image(105, 225, 'letterPouchGroup')
     RoomLetter.addChild(letterPouchGroup);
   
-  letterPouch1 = game.add.sprite(0, 0, 'letterpouch1')
-    RoomLetter.addChild(letterPouch1);
-    letterPouch1Tween = game.add.tween(letterPouch1)
-      letterPouch1Tween.to( {x:680, y:400}, 1200);
-      letterPouch1Tween.to( {x:700, y:420}, 1200);
-      letterPouch1Tween.repeatAll(-1);
+  
   
   letterFire = game.add.sprite(563, 230, 'letterFire');
     letterFire.animations.add('letterFire_anim');
@@ -189,16 +192,64 @@ function create() {
     letterThrow.animations.play('letterThrow_anim', 25, true);  
     RoomLetter.addChild(letterThrow);
   
+  letterGrab = game.add.sprite(420, 295, 'letterGrab');
+    letterGrab.animations.add('letterGrab_anim');
+    letterGrab.animations.play('letterGrab_anim', 25, true);  
+    RoomLetter.addChild(letterGrab);
+  
+  letterSorting = game.add.sprite(350, 354, 'letterSorting');
+    letterSorting.animations.add('letterSorting_anim');
+    letterSorting.animations.play('letterSorting_anim', 25, true);  
+    RoomLetter.addChild(letterSorting);
+  
+  letterFloor = game.add.sprite(200, 300, 'letterFloor');
+    letterFloor.animations.add('letterFloor_anim');
+    letterFloor.animations.play('letterFloor_anim', 25, true);  
+    RoomLetter.addChild(letterFloor);
+  
+  santaChair = game.add.sprite(513, 253, 'santaChair');
+    santaChair.animations.add('santaChair_anim');
+    santaChair.animations.play('santaChair_anim', 25, true);  
+    RoomLetter.addChild(santaChair);
+  
   
   
   RoomReception = game.add.image(210, 232, 'RoomReception')
     scrollingMap.addChild(RoomReception);
-  // Make bounds from polygon around letter room
-  //polyLetter = new Phaser.Polygon([ new Phaser.Point(625, 140), new Phaser.Point(1055, 390), new Phaser.Point(780, 550), new Phaser.Point(350, 300) ]);
-   // boundsLetter = game.add.graphics(0,0);
-    //boundsLetter.lineStyle(4, 0xffd900, 1);
-    //boundsLetter.drawPolygon(polyLetter.points);
-    //scrollingMap.addChild(boundsLetter);
+  receptionBlackboard = game.add.sprite(420, 252, 'receptionBlackboard');
+    receptionBlackboard.animations.add('receptionBlackboard_anim');
+    receptionBlackboard.animations.play('receptionBlackboard_anim', 25, true);  
+    RoomReception.addChild(receptionBlackboard);
+  
+  receptionSchoolChair11 = game.add.sprite(370, 265, 'receptionSchoolChair1');
+    receptionSchoolChair11.animations.add('receptionSchoolChair11_anim');
+    receptionSchoolChair11.animations.play('receptionSchoolChair11_anim', 25, true);  
+    RoomReception.addChild(receptionSchoolChair11);
+  
+  receptionSchoolChair12 = game.add.sprite(418, 295, 'receptionSchoolChair1');
+    receptionSchoolChair12.animations.add('receptionSchoolChair12_anim');
+    receptionSchoolChair12.animations.play('receptionSchoolChair12_anim', 25, true);  
+    RoomReception.addChild(receptionSchoolChair12);
+  
+  receptionSchoolChair3 = game.add.sprite(420, 330, 'receptionSchoolChair2');
+    receptionSchoolChair3.animations.add('receptionSchoolChair3_anim');
+    receptionSchoolChair3.animations.play('receptionSchoolChair3_anim', 25, true);  
+    RoomReception.addChild(receptionSchoolChair3);
+  
+  receptionSchoolChair4 = game.add.sprite(350, 300, 'receptionSchoolChair2');
+    receptionSchoolChair4.animations.add('receptionSchoolChair4_anim');
+    receptionSchoolChair4.animations.play('receptionSchoolChair4_anim', 25, true);  
+    RoomReception.addChild(receptionSchoolChair4);
+  
+  receptionBack1 = game.add.sprite(160, 90, 'generalBack');
+    receptionBack1.animations.add('receptionBack1_anim');
+    receptionBack1.animations.play('receptionBack1_anim', 25, true);  
+    RoomReception.addChild(receptionBack1);
+  
+  receptionBack2 = game.add.sprite(270, 245, 'generalBack');
+    receptionBack2.animations.add('receptionBack2_anim');
+    receptionBack2.animations.play('receptionBack2_anim', 25, true);  
+    RoomReception.addChild(receptionBack2);
   
   
   //*** Creating Lock Group

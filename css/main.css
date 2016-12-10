@@ -207,12 +207,21 @@ body {
 .badgeLibrary li {
   float: left;
   background: ;
+  position: relative;
 }
 .badgeLibrary li a {
   display: block;
   text-align: center;
   padding: .2em;
-  text-decoration: none;
+  position: relative;
+}
+
+.badgeLibrary li .badgeClick {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  z-index: 99999999;
+  background: red;
 }
 
 
