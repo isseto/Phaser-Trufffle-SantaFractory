@@ -4,15 +4,34 @@
 
 
 ///******** Audio Control ********///
-function toggleSound() {
-  var audio = document.getElementById('audio');
-  if (audio.paused)
-    audio.play();
-  else 
-    audio.pause();
-}
-
 var blopAudio = new Audio('assets/audio/blop.mp3');
+
+// Create an AudioContext instance for this sound
+var audioContext = new (window.AudioContext || window.webkitAudioContext)();
+// Create a buffer for the incoming sound content
+var source = audioContext.createBufferSource();
+// Create the XHR which will grab the audio contents
+var request = new XMLHttpRequest();
+// Set the audio file src here
+request.open('GET', 'assets/audio/christmas-waiting.mp3', true);
+// Setting the responseType to arraybuffer sets up the audio decoding
+request.responseType = 'arraybuffer';
+request.onload = function() {
+  // Decode the audio once the require is complete
+  audioContext.decodeAudioData(request.response, function(buffer) {
+    source.buffer = buffer;
+    // Connect the audio to source (multiple audio buffers can be connected!)
+    source.connect(audioContext.destination);
+    // Simple setting for the buffer
+    source.loop = true;
+    // Play the sound!
+    source.start(0);
+  }, function(e) {
+    console.log('Audio error! ', e);
+  });
+}
+// Send the request which kicks off 
+request.send();
     
 
 
@@ -36,20 +55,7 @@ modaltl
 // Get the <span> element that closes the modal
 var modalSpan = document.getElementById("modalSpan");
 // When the user clicks on the button, open the modal 
-function displayModal() {
-    modal.style.display = "block";
-      modaltl
-        .fromTo(modal, .5, {
-          rotationX:90,
-          transformPerspective: 100,
-          transformStyle:"preserve-3d",
-          transformOrigin:"50% 100%",
-        },{
-          rotationX:0, 
-          ease: Back.easeOut.config(.8)
-        })
-        .fromTo(modalContent, .4, {y:300}, {y:0}, '-=.3')
-}
+
 // When the user clicks on <span> (x), close the modal
 modalSpan.onclick = function modalTrigger() {
   blopAudio.play();
@@ -68,7 +74,18 @@ modalSpan.onclick = function modalTrigger() {
   
   // Check for Badges
   if(starScore % 3 == 0) {
-    badgeScore += 1;   
+    badgeScore = JSON.parse(localStorage.getItem('badgeScore'));
+    badgeScore += 1;
+    
+    localStorage.setItem("badgeScore", JSON.stringify(badgeScore));
+    // Console log new stored score
+    console.log('Holy! You got a new badge! You now have ' + badgeScore + ' badges.')
+    console.log(
+      'Saved Stars (' 
+      + localStorage.getItem("starScore") 
+      + '), Badges (' 
+      + localStorage.getItem("badgeScore") 
+      + ') !')
     
     // Play badge win audio
     iconBadgeWin(this);
@@ -77,7 +94,7 @@ modalSpan.onclick = function modalTrigger() {
     badgewinAudio.play();
     var jinglebellsAudio = new Audio('assets/audio/jinglebells.mp3');
     jinglebellsAudio.play();
-    console.log('Holy! You got a new badge! You now have ' + badgeScore + ' badges.')
+    
   }
 }
 // When the user clicks anywhere outside of the modal, close it

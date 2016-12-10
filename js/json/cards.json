@@ -3,49 +3,44 @@
 			"day": 1,
       "category": "Culture",
 			"title": "The Netherlands",
-      "fact": "The peopleof the Netherlands, who celebrate the holiday on December 6th, await the arrival of Sinterklaas and his sidekick Black Pete to leave candy and nuts for good little boys and girls, who have filled their choes with hay and sugar for his horse.",
+      "fact": "The people of the Netherlands, who celebrate the holiday on December 6th, await the arrival of Sinterklaas and his sidekick Black Pete to leave candy and nuts for good little boys and girls, who have filled their choes with hay and sugar for his horse.",
 			"colour": "purple",
-			"opened": true
+			"opened": 0
 		}, {
 			"day": 1,
       "category": "Culture",
-			"title": "Germany",
-      "fact": "It is Nikolaustag, St. Claus day. Children leave out a shoe or boot outside their the eve of that day, and the next morning candies and/or small toys appear in them for those who have been good.",
-			"colour": "yellow",
-			"opened": true
-    }, {
+			"title": "The Netherlands",
+      "fact": "The people of the Netherlands, who celebrate the holiday on December 6th, await the arrival of Sinterklaas and his sidekick Black Pete to leave candy and nuts for good little boys and girls, who have filled their choes with hay and sugar for his horse.",
+			"colour": "purple",
+			"opened": 0
+		}, {
 			"day": 1,
-			"title": "What are elves?",
-			"colour": "yellow",
-			"opened": true
-		}, {
-			"day": 2,
       "category": "Culture",
 			"title": "The Netherlands",
-      "fact": "The peopleof the Netherlands, who celebrate the holiday on December 6th, await the arrival of Sinterklaas and his sidekick Black Pete to leave candy and nuts for good little boys and girls, who have filled their choes with hay and sugar for his horse.",
+      "fact": "The people of the Netherlands, who celebrate the holiday on December 6th, await the arrival of Sinterklaas and his sidekick Black Pete to leave candy and nuts for good little boys and girls, who have filled their choes with hay and sugar for his horse.",
 			"colour": "purple",
-			"opened": true
+			"opened": 0
 		}, {
-      "day": 2,
+			"day": 1,
       "category": "Culture",
 			"title": "The Netherlands",
-      "fact": "The peopleof the Netherlands, who celebrate the holiday on December 6th, await the arrival of Sinterklaas and his sidekick Black Pete to leave candy and nuts for good little boys and girls, who have filled their choes with hay and sugar for his horse.",
+      "fact": "The people of the Netherlands, who celebrate the holiday on December 6th, await the arrival of Sinterklaas and his sidekick Black Pete to leave candy and nuts for good little boys and girls, who have filled their choes with hay and sugar for his horse.",
 			"colour": "purple",
-			"opened": true
+			"opened": 0
 		}, {
-      "day": 2,
+			"day": 1,
       "category": "Culture",
 			"title": "The Netherlands",
-      "fact": "The peopleof the Netherlands, who celebrate the holiday on December 6th, await the arrival of Sinterklaas and his sidekick Black Pete to leave candy and nuts for good little boys and girls, who have filled their choes with hay and sugar for his horse.",
+      "fact": "The people of the Netherlands, who celebrate the holiday on December 6th, await the arrival of Sinterklaas and his sidekick Black Pete to leave candy and nuts for good little boys and girls, who have filled their choes with hay and sugar for his horse.",
 			"colour": "purple",
-			"opened": true
+			"opened": 0
 		}, {
-      "day": 2,
+			"day": 1,
       "category": "Culture",
 			"title": "The Netherlands",
-      "fact": "The peopleof the Netherlands, who celebrate the holiday on December 6th, await the arrival of Sinterklaas and his sidekick Black Pete to leave candy and nuts for good little boys and girls, who have filled their choes with hay and sugar for his horse.",
+      "fact": "The people of the Netherlands, who celebrate the holiday on December 6th, await the arrival of Sinterklaas and his sidekick Black Pete to leave candy and nuts for good little boys and girls, who have filled their choes with hay and sugar for his horse.",
 			"colour": "purple",
-			"opened": true
+			"opened": 0
 		}
 	]
 }

@@ -32,6 +32,21 @@ console.log('Last Save // Stars('+ localStorage.getItem("starScore") + '), Badge
 //localStorage.clear()
 //starScore = 0;
 
+//Saving Opened Rooms
+// Get saved data
+var openRoomLetter = localStorage.getItem('openRoomLetter');
+// If there is previous data 
+  if(openRoomLetter  === null) {
+    localStorage.setItem('openRoomLetter', 0);    
+    openRoomLetter = 0;
+    
+    //get function
+    //introModalOpen(this);
+  } else {}
+console.log('Last Rooms You Saved // '+ localStorage.getItem("openRoomLetter"))
+
+
+
 // BASEMAP Speed and Friction
 var speedMult = 0.7;
 var friction = 0.99;
@@ -133,7 +148,7 @@ function create() {
   //*** LETTER ROOM
   //Add Letter room
   RoomLetter = game.add.sprite(350, 73, 'RoomLetter')
-    RoomLetter.alpha = 0;
+    RoomLetter.alpha = 1;
     scrollingMap.addChild(RoomLetter);
   // Clone bounds from letter room sprite
   roomBounds1 = Phaser.Rectangle.clone(RoomLetter);
@@ -146,14 +161,14 @@ function create() {
   letterPouchGroup = game.add.image(105, 225, 'letterPouchGroup')
     RoomLetter.addChild(letterPouchGroup);
   
-  letterPouch1 = game.add.sprite(500, 290, 'letterpouch1')
+  letterPouch1 = game.add.sprite(0, 0, 'letterpouch1')
     RoomLetter.addChild(letterPouch1);
     letterPouch1Tween = game.add.tween(letterPouch1)
       letterPouch1Tween.to( {x:680, y:400}, 1200);
       letterPouch1Tween.to( {x:700, y:420}, 1200);
       letterPouch1Tween.repeatAll(-1);
   
-  letterFire = game.add.sprite(460, 350, 'letterFire');
+  letterFire = game.add.sprite(563, 230, 'letterFire');
     letterFire.animations.add('letterFire_anim');
     letterFire.animations.play('letterFire_anim', 25, true);  
     RoomLetter.addChild(letterFire);
@@ -356,7 +371,7 @@ function collectStar (star) {
   starScore += 10;
   // Add new score to console
   console.log('+10 ! new Stars (' + starScore + ')')
-  
+  //Animate elf icon
   iconCollectStar(this);
   
   // Update new score to localStorage
@@ -551,18 +566,46 @@ modaltl
     y:300
   })
 
-function displayModal() {
-    modal.style.display = "block";
-      modaltl
-        .fromTo(modal, .5, {
-          rotationX:90,
-          transformPerspective: 100,
-          transformStyle:"preserve-3d",
-          transformOrigin:"50% 100%",
-        },{
-          rotationX:0, 
-          ease: Back.easeOut.config(.8),
-          delay:.1
-        })
-        .fromTo(modalContent, .4, {y:300}, {y:0}, '-=.3')
+function displayModal() {  
+  var cardxhr = new XMLHttpRequest();
+  cardxhr.onreadystatechange = function () {
+  if(cardxhr.readyState === 4 && cardxhr.status === 200) {
+    var cardlibrary = JSON.parse(cardxhr.responseText);
+    var cardContentHTML;
+
+    
+    for (var i=0; i<1; i ++) {
+       //if (cardlibrary.cards[i].opened == 1) {
+        cardContentHTML = '<h5>';
+        cardContentHTML += cardlibrary.cards[i].category;
+        cardContentHTML += '</h5><h3>';
+        cardContentHTML += cardlibrary.cards[i].title;
+        cardContentHTML += '</h3><p>';
+        cardContentHTML += cardlibrary.cards[i].fact;
+        cardContentHTML += '</p>';
+       //}
+    }
+      
+
+    document.getElementById('modalDataContent').innerHTML = cardContentHTML;
+  }
+  };
+  cardxhr.open('GET', 'js/json/cards.json');
+  cardxhr.send();
+  
+  
+  //Display the modal
+  modal.style.display = "block";
+  //Animate modal on display
+  modaltl
+    .fromTo(modal, .5, {
+      rotationX:90,
+      transformPerspective: 100,
+      transformStyle:"preserve-3d",
+      transformOrigin:"50% 100%",},{
+      rotationX:0, 
+      ease: Back.easeOut.config(.8),
+      delay:.1
+    })
+    .fromTo(modalContent, .4, {y:300}, {y:0}, '-=.3') 
 }

@@ -1,3 +1,4 @@
+//JSON for Displaying Cards in Library
 document.getElementsByClassName('badgeLibrary')[0].onclick = function(e){
   var target = e.target;
   //if (target.tagName == 'A') {
@@ -41,5 +42,3 @@ function obtainData(dataDay){
   xhr.open('GET', 'js/json/cards.json');
   xhr.send();
 }
-
-

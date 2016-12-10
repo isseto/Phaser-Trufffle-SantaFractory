@@ -60,14 +60,10 @@
     </g>
     </svg>
     <div class="small-11 large-5 small-centered columns menuContent">
-      
-        <!-- First Button Alpha -->
+        <!-- First Button -->
         <div class="small-4 columns menuDate ">
             <h4>Dec. <span id="userDate"></span></h4>
         </div>
-        <!-- Second Button Alpha -->
-        
-        
         <!-- Elf Icon -->
         <div>
           <svg id="libraryBtn" class="elficon" version="1.1"
@@ -292,17 +288,10 @@
 
           </svg>
         </div>
-        
         <!-- Volume Button -->
         <div class="small-4 columns menuButton">
-           <audio id="audio" preload="auto" volume="0.1"  loop>
-             <source src="assets/audio/christmas-waiting.mp3" type="audio/mp3" />
-             <source src="assets/audio/christmas-game-theme.mp3" type="audio/mp3" />
-             <p>Your browser does not support the <code>audio</code> element.</p>
-            </audio>
           <button onclick="toggleSound()"><img src="img/button4.png"></button>
         </div>
-        
       </div><!-- End menuContent -->
     </div>
   </div>
@@ -314,15 +303,7 @@
     <div id="modalCard" class="modal small-12 medium-8 large-5 small-centered columns">
       <div class="modal-content">
         <div id="modalSpan" class="close">x</div>
-        <h5>~ Geography</h5>
-        <h3>Where does Santa live?</h3>
-        <p>Article description on the use of Christmas of this special 
-thing either its culture or history value and how different it 
-is today and how it shaped Christmas today.
-Here is the follow up to the description which would only 
-show once on hover. By now we should be getting to the 
-end of the description until it ends soon once it reaches 
-the last line of the paragraph.</p>
+        <div id="modalDataContent"></div>
       </div>
     </div>
   </div>
@@ -543,10 +524,6 @@ the last line of the paragraph.</p>
     </div>
   </div>
   
-  
-  
-  
-  
   <!-- Menu Content: Library -->
   <div class="row">
     <div id="library" class="libraryContainer small-12 large-5 small-centered columns">
@@ -588,8 +565,8 @@ the last line of the paragraph.</p>
       <div class="library-content">
         <div id="librarySpan" class="close">x</div>
         <div class="library-title">
-          <h3>Daily Cards Library</h3>
-          <p>Find out all the cards you've collected!</p>
+          <h3>My Elf Journey</h3>
+          <p>Find all the cards you've collected!</p>
         </div>
         
         <!-- Card Library List -->
@@ -618,12 +595,6 @@ the last line of the paragraph.</p>
             <li><a><img class="dateBadge" data-day="1" src="assets/images/emptyBadge2.png"></a></li>
             <li><a><img class="dateBadge" data-day="2" src="assets/images/emptyBadge2.png"></a></li>
             <li><a><img class="dateBadge" data-day="3" src="assets/images/emptyBadge2.png"></a></li>
-            <li><a><img class="dateBadge" data-day="4" src="assets/images/emptyBadge2.png"></a></li>
-            
-            <li><a><img class="dateBadge" data-day="1" src="assets/images/emptyBadge2.png"></a></li>
-            <li><a><img class="dateBadge" data-day="2" src="assets/images/emptyBadge2.png"></a></li>
-            <li><a><img class="dateBadge" data-day="3" src="assets/images/emptyBadge2.png"></a></li>
-            <li><a><img class="dateBadge" data-day="4" src="assets/images/emptyBadge2.png"></a></li>
             
           </ul>
         </div>
@@ -631,10 +602,11 @@ the last line of the paragraph.</p>
     </div>
   </div>
 
+
+
   <!-- ***** SCRIPTS *****-->
   <!-- Greensock -->
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.0/TweenMax.min.js"></script>
-
 	
   <!-- PHASER -->
   <script src="js/phaser.min.js"></script>
@@ -643,8 +615,6 @@ the last line of the paragraph.</p>
 	<!-- Foundation -->
   <script src="js/vendor/jquery.js"></script>
 	<script src="js/vendor/foundation.js"></script>
-	
-	
 	
 	<!-- JSON Card Library -->
   <script src="js/cardslibrary.js"></script>
