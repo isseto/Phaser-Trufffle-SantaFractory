@@ -22,9 +22,9 @@
 			"title": "Where Does Santa Live?",
       "fact": "The legend goes that a joyous, white-bearded figure, wearing a red coat, bringst gifts to homes of good children on the night before Christmas Day, with the help of elves who make the toys and flying reindeer who pull his sleigh. But the exact location of Santa's residence is in actuality highly controversial. France, Belgium, Switzerland and the United Kingdom believe Santa lives somewhere in the North Pole. While Canada, the United States, Finland, Norway and Sweden each argue Santa lives within their Northern territory. Still today, the secret remains a mystery.",
 			"colour": "purple",
-			"opened": 0
+			"badgeimg": "assets/images/badges/badge_3.png"
 		}, {
-			"day": 1,
+			"day": 2,
       "cardNumber": 4,
       "category": "How Cultures Celebrate",
 			"title": "Gledelig Jul!",
@@ -32,7 +32,7 @@
 			"colour": "purple",
 			"opened": 0
 		}, {
-			"day": 1,
+			"day": 2,
       "cardNumber": 5,
       "category": "Festive Foods",
 			"title": "A Norwegian Christmas",
@@ -40,7 +40,7 @@
 			"colour": "purple",
 			"opened": 0
 		}, {
-			"day": 1,
+			"day": 2,
       "cardNumber": 6,
       "category": "World Fact",
 			"title": "The Very First Christmas",
@@ -59,7 +59,7 @@
 			"day": 1,
       "cardNumber": 8,
       "category": "Festive Foods",
-			"title": "A Norwegian Christmas",
+			"title": "Ukrainian Celebrations",
       "fact": "Ukrainians prepare a traditional twelve-course meal. A family’s youngest child watches through the window for the evening star to appear, a signal that the feast can begin. Desserts often comprise of fruit pies, gingerbread, honeybread cookies and fresh or dried fruit. 'Vzvar', as sweet drink made from dried fruit and honey, is often served at the end of the meal.",
 			"colour": "purple",
 			"opened": 0
@@ -92,7 +92,7 @@
       "cardNumber": 12,
       "category": "World Fact",
 			"title": "The story behind Christmas lights",
-      "fact": "Christmas lights or fairy lights are lights used for decoration around Christmas. The custom goes back to the use of candles to decorate the Christmas tree to look like stars in upper-class homes in 18th-century Germany. The illuminated Christmas tree later became established in the United Kingdom during Queen Victoria's reign, and through emigration spread to North America and Australia. Christmas trees displayed publicly and illuminated with electric lights became popular in the early 20th century. Christmas lights were too expensive for the average person; as such, electric Christmas lights did not become the majority replacement for candles until 1930. In the United States, it became popular to outline private homes with such Christmas lights in tract housing beginning in the 1960s. By the late 20th century, the custom had also been adopted in non-western countries, notably in Japan and Hong Kong.",
+      "fact": "Christmas lights or fairy lights are lights used for decoration around Christmas. The custom goes back to the use of candles to decorate the Christmas tree to look like stars in upper-class homes in 18th-century Germany. Christmas trees displayed publicly and illuminated with electric lights became popular in the early 20th century. Christmas lights were too expensive for the average person; as such, electric Christmas lights did not become the majority replacement for candles until 1930. In the United States, it became popular to outline private homes with such Christmas lights in tract housing beginning in the 1960s. By the late 20th century, the custom had also been adopted in non-western countries, notably in Japan and Hong Kong.",
 			"colour": "purple",
 			"opened": 0
 		}, {
@@ -100,7 +100,7 @@
       "cardNumber": 13,
       "category": "How Cultures Celebrate",
 			"title": "The Birthplace of the Yule Logs",
-      "fact": "The ancient Norse used the Yule log in their celebration of the return of the sun at winter solstice. “Yule” came from the Norse word hweol, meaning wheel. The Norse believed that the sun was a great wheel of fire that rolled towards and then away from the earth. Ever wonder why the family fireplace is such a central part of the typical Christmas scene? This tradition dates back to the Norse Yule log. It is probably also responsible for the popularity of log-shaped cheese, cakes, and desserts during the holidays.",
+      "fact": "The ancient Norse used the Yule log in their celebration of the return of the sun at winter solstice. “Yule” came from the Norse word hweol, meaning wheel. The Norse believed that the sun was a great wheel of fire that rolled towards and then away from the earth.",
 			"colour": "purple",
 			"opened": 0
 		}, {
@@ -108,7 +108,7 @@
       "cardNumber": 14,
       "category": "Festive Foods",
 			"title": "Joyeux Noel!",
-      "fact": "Yule Logs made out of Cherry Wood are often burned in French homes. The log is carried into the home on Christmas Eve and is sprinkled with red wine to make the log smell nice when it is burning. There is a custom that the log and candles are left burning all night with some food and drinks left out in case Mary and the baby Jesus come past during the night. This is believed to keep the 'kallikantzaroi' (bad spirits) away. The kallikantzaroi are meant to appear only during the 12-day period from Christmas to Epiphany (January 6th). They are supposed to come from the middle of the earth and get into people's house through the chimney! The kallikantzaroi do things like putting out fires and making milk go off. Having a fire burning through the twelve days of Christmas is also meant to keep the kallikantzaroi away.",
+      "fact": "Yule Logs made out of Cherry Wood are often burned in French homes. The log is carried into the home on Christmas Eve and is sprinkled with red wine to make the log smell nice when it is burning. There is a custom that the log and candles are left burning all night with some food and drinks left out in case Mary and the baby Jesus come past during the night.",
 			"colour": "purple",
 			"opened": 0
 		}, {
@@ -131,7 +131,7 @@
 			"day": 1,
       "cardNumber": 17,
       "category": "Festive Foods",
-			"title": " 'God Jul!' from Donald Duck",
+			"title": "Norwegian Cakes",
       "fact": "Many different types of cakes and biscuits are eaten over the Christmas period in Norway. One of the most popular is a special Norwegian Hole Cake called 'Julekake' that has raisins, candied peel and cardamom in it. Rice Porridge is eaten on Christmas Eve either as a meal at lunchtime (served with butter, sugar and cinnamon) or as a dessert to the main evening email (with whipped cream mixed in!). If you find an almond in your portion you're traditionally given a pink or white marzipan pig.",
 			"colour": "purple",
 			"opened": 0
@@ -147,7 +147,7 @@
 			"day": 1,
       "cardNumber": 19,
       "category": "How Cultures Celebrate",
-			"title": "GLEDELIG JUL!",
+			"title": "Norwegian !",
       "fact": "According to Norwegian ancient belief, witches and evil spirits would emerge on Christmas Eve to steal brooms to ride the skies. Thus, on Christmas Eve, all the brooms and similar cleaning implements are hidden and men would fire their shotguns outside their houses to frighten these witches away.",
 			"colour": "purple",
 			"opened": 0

@@ -6,6 +6,7 @@ document.getElementsByClassName('badgeLibrary')[0].onclick = function(e){
   if (target.classList.contains('dateBadge')) {
     var dataDay = target.getAttribute('data-day');
     obtainData(dataDay);//send request
+    displaySavedBadges();//send request
   }
 }
 
@@ -48,29 +49,18 @@ function displaySavedBadges(){
   xhr.onreadystatechange = function () {
   if(xhr.readyState === 4 && xhr.status === 200) {
     var cardlibrary = JSON.parse(xhr.responseText);
-    var displayBadgesHTML = '<ul>';
+    var displayBadgesHTML;
 
-    for (var i=0; i<cardlibrary.cards.length; i ++) {
+    console.log('Library Badge Score' + badgescore)
+    for (var i=0; i<badgeScore; i ++) {
 
-      //If selected card data is equal to a data attribute 
-      if (cardlibrary.cards[i].day == dataDay) {
-        statusHTML += '<li class="small-12 small-centered columns libraryCard libraryCard-purple">';
-        statusHTML += '<p>';
-        statusHTML += cardlibrary.cards[i].category;
-        statusHTML += '</p><h3>';
-        statusHTML += cardlibrary.cards[i].title;
-        statusHTML += '</h3><p>';
-        statusHTML += cardlibrary.cards[i].date;
-        statusHTML += ' / ';
-        statusHTML += cardlibrary.cards[i].fact;
-        statusHTML += '</p>';
-      } 
+        displayBadgesHTML += '<img src="';
+        displayBadgesHTML += cardlibrary.cards[i].badgeimg;
+        displayBadgesHTML += '">';
 
     } // end for loop
 
-
-    statusHTML += '</ul>';
-    document.getElementById('libraryList').innerHTML = statusHTML;
+    document.getElementsByClassName('dateBadge').innerHTML = displayBadgesHTML;
   }
   };
   xhr.open('GET', 'js/json/cards.json');

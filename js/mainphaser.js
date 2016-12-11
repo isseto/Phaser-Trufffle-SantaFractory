@@ -40,18 +40,29 @@ var openRoomLetter = localStorage.getItem('openRoomLetter');
     localStorage.setItem('openRoomLetter', 0);    
     openRoomLetter = 0;
     
-    //get function
-    //introModalOpen(this);
-  } else {}
+    RoomLetterHidden(this);
+  } else (
+    RoomLetterShown(this)
+  )
 console.log('Last Rooms You Saved // '+ localStorage.getItem("openRoomLetter"))
 
+var openRoomLibrary = localStorage.getItem('openRoomLibrary');
+// If there is previous data 
+  if(openRoomLibrary  === null) {
+    localStorage.setItem('openRoomLibrary', 0);    
+    openRoomLibrary = 0;
+    
+    RoomLibraryHidden(this);
+  } else (
+    RoomLibraryShown(this)
+  )
+console.log('Last Rooms You Saved // '+ localStorage.getItem("openRoomLibrary"))
 
 
 // BASEMAP Speed and Friction
 var speedMult = 0.7;
 var friction = 0.99;
 
-var roomBounds1;
 
 function preload() {
   //Spritesheet Guide
@@ -70,7 +81,7 @@ function preload() {
   
   //***** LOCKS
   game.load.image('lockShadow', 'assets/images/locks/lockShadow.png');
-  game.load.image('lockedLetter', 'assets/images/locks/locked_100x100.png');
+  //Locked
   game.load.image('lockToy', 'assets/images/locks/lock_toy.png');
   game.load.image('lockLibrary', 'assets/images/locks/lock_library.png');
   game.load.image('lockLab', 'assets/images/locks/lock_lab.png');
@@ -80,7 +91,9 @@ function preload() {
   game.load.image('lockGreenhouse', 'assets/images/locks/lock_greenhouse.png');
   game.load.image('lockReindeer', 'assets/images/locks/lock_reindeer.png');
   game.load.image('lockLaunchpad', 'assets/images/locks/lock_launchpad.png');
-  //game.load.spritesheet('badgeWin', 'assets/sprites/elf_badgeWin200100.png', 200, 100);
+  //Unlocked
+  game.load.image('lockedLetter', 'assets/images/locks/locked_100x100.png');
+  game.load.image('unlockedLibrary', 'assets/images/locks/unlocked_library.png');
   
   //***** ROOMS
   //General
@@ -106,6 +119,12 @@ function preload() {
   game.load.spritesheet('letterGrab', 'assets/images/rooms/letter/letterroom_lettergrab_5050.png', 50, 50);
   game.load.spritesheet('letterSorting', 'assets/images/rooms/letter/letterroom_sortingtable_130100.png', 130, 100);
   game.load.spritesheet('santaChair', 'assets/images/rooms/letter/letterroom_santachair_7070.png', 70, 70);
+  //Library
+  game.load.image('RoomLibrary', 'assets/images/rooms/library/library.png');
+  game.load.spritesheet('librarySorting', 'assets/images/rooms/library/library_desk_200200.png', 200, 200);
+  game.load.spritesheet('libraryShelf', 'assets/images/rooms/library/library_shelfbook_200200.png', 200, 200);
+  game.load.spritesheet('libraryGlobe', 'assets/images/rooms/library/library_globe_200200.png', 200, 200);
+  game.load.spritesheet('libraryBigBook', 'assets/images/rooms/library/library_bigbook_200200.png', 200, 200);
   
   //***** ELF SPRITESHEETS
   game.load.spritesheet('ms', 'assets/sprites/elfmotion2048.png', 170.7, 170.7, 100);
@@ -124,9 +143,6 @@ function preload() {
 
 
 }//***End preload function
-
-
-
 
 function create() {
 
@@ -167,10 +183,10 @@ function create() {
     lockToy.scale.setTo(.6,.6);
     scrollingMap.addChild(lockToy);
   
-  lockLibrary = game.add.sprite(320, 110, 'lockLibrary'); 
-    lockLibrary.anchor.set(0.5);
-    lockLibrary.scale.setTo(.6,.6);
-    scrollingMap.addChild(lockLibrary);
+  //lockLibrary = game.add.sprite(320, 110, 'lockLibrary'); 
+    //lockLibrary.anchor.set(0.5);
+    //lockLibrary.scale.setTo(.6,.6);
+    //scrollingMap.addChild(lockLibrary);
   
   lockLab = game.add.sprite(1600, 280, 'lockLab'); 
     lockLab.anchor.set(0.5);
@@ -209,11 +225,43 @@ function create() {
   
   
   //***** Setting Rooms
-  //*** LETTER ROOM
-  //Add Letter room
+  //Library
+  RoomLibrary = game.add.sprite(-8, -300, 'RoomLibrary')
+    scrollingMap.addChild(RoomLibrary);
+  roomBoundsLibrary = Phaser.Rectangle.clone(RoomLibrary);
+  
+  librarySorting = game.add.sprite(380, 440, 'librarySorting');
+    librarySorting.scale.setTo(0.5, 0.5);
+    librarySorting.animations.add('librarySorting_anim');
+    librarySorting.animations.play('librarySorting_anim', 25, true);  
+    RoomLibrary.addChild(librarySorting);
+  
+  libraryShelf = game.add.sprite(163, 258, 'libraryShelf');
+    libraryShelf.scale.setTo(0.5, 0.5);
+    libraryShelf.animations.add('libraryShelf_anim');
+    libraryShelf.animations.play('libraryShelf_anim', 25, true);  
+    RoomLibrary.addChild(libraryShelf);
+  
+  libraryGlobe = game.add.sprite(315, 470, 'libraryGlobe');
+    libraryGlobe.scale.setTo(0.5, 0.5);
+    libraryGlobe.animations.add('libraryGlobe_anim');
+    libraryGlobe.animations.play('libraryGlobe_anim', 25, true);  
+    RoomLibrary.addChild(libraryGlobe);
+  
+  libraryBack = game.add.sprite(275, 380, 'generalBack');
+    libraryBack.animations.add('libraryBack_anim');
+    libraryBack.animations.play('libraryBack_anim', 25, true);  
+    RoomLibrary.addChild(libraryBack);
+  
+  libraryBigBook = game.add.sprite(410, 290, 'libraryBigBook');
+    libraryBigBook.scale.setTo(0.5, 0.5);
+    libraryBigBook.animations.add('libraryBigBook_anim');
+    libraryBigBook.animations.play('libraryBigBook_anim', 25, true);  
+    RoomLibrary.addChild(libraryBigBook);
+  
+  //****
   RoomLetter = game.add.sprite(350, 73, 'RoomLetter')
-    RoomLetter.alpha = 0;
-    scrollingMap.addChild(RoomLetter);
+  scrollingMap.addChild(RoomLetter);
   // Clone bounds from letter room sprite
   roomBounds1 = Phaser.Rectangle.clone(RoomLetter);
   // LETTER ROOM ANIMATIONS
@@ -224,8 +272,6 @@ function create() {
   RoomLetter.addChild(letterAnimMailbox);
   letterPouchGroup = game.add.image(105, 225, 'letterPouchGroup')
     RoomLetter.addChild(letterPouchGroup);
-  
-  
   
   letterFire = game.add.sprite(563, 230, 'letterFire');
     letterFire.animations.add('letterFire_anim');
@@ -269,7 +315,6 @@ function create() {
     RoomLetter.addChild(santaChair);
   
   
-  
   RoomReception = game.add.image(210, 232, 'RoomReception')
     scrollingMap.addChild(RoomReception);
   receptionBlackboard = game.add.sprite(420, 252, 'receptionBlackboard');
@@ -307,6 +352,7 @@ function create() {
     receptionBack2.animations.play('receptionBack2_anim', 25, true);  
     RoomReception.addChild(receptionBack2);
   
+
   
   //*** Creating Lock Group
   var lockGroup = game.add.group();
@@ -316,11 +362,6 @@ function create() {
   lockGroup.setAll('inputEnabled', true);
   lockGroup.setAll('input.useHandCursor', true);
   // Animate each Lock to pulse scale
-  
-  //Creating 10 locks one by one
-  //lockShadow = game.add.sprite(695,368, 'lockShadow');
-    //lockShadow.anchor.set(0.5);
-    //lockShadow.scale.setTo(.7);
   locked_one = game.add.sprite(695,350, 'lockedLetter');
     locked_one.anchor.set(0.5, 1);
     locked_one.scale.setTo(.6,.6);
@@ -328,18 +369,29 @@ function create() {
     lockGroup.addChild(locked_one);
     locked_one.inputEnabled = true;
     locked_one.input.useHandCursor = true;
+    locked_one.events.onInputDown.add(unlockEvent, this);
     //locked_one.events.onInputDown.add(openBadge, this);
     //Animating single lock for now
     lockedTween = game.add.tween(locked_one)
       lockedTween.to( {y:360}, 600, Phaser.Easing.Out, true, 0, -1, true);
-    //lockShadowTween = game.add.tween(lockShadow.scale)
-      //lockShadowTween.to( {x:.9}, 600, Phaser.Easing.Out, true, 0, -1, true);
+
+  unlockedLibrary = game.add.sprite(320,140, 'unlockedLibrary');
+    unlockedLibrary.anchor.set(0.5, 1);
+    unlockedLibrary.scale.setTo(.6,.6);
+    //Add locked_one to lockGroup  
+    lockGroup.addChild(unlockedLibrary);
+    unlockedLibrary.inputEnabled = true;
+    unlockedLibrary.input.useHandCursor = true;
+    unlockedLibrary.events.onInputDown.add(unlockEventLibrary, this);
+    //Animating single lock for now
+    unlockedLibraryTween = game.add.tween(unlockedLibrary)
+      unlockedLibraryTween.to( {y:150}, 600, Phaser.Easing.Out, true, 0, -1, true);
   
   //Preparing unlock sound
   unlockSound = game.add.audio('unlock');
   winSound = game.add.audio('lockwin');
   //On Click event 
-  lockGroup.callAll('events.onInputDown.add', 'events.onInputDown', unlockEvent);
+  //lockGroup.callAll('events.onInputDown.add', 'events.onInputDown', unlockEvent);
   
   
   //*** Creating Stars
@@ -412,11 +464,28 @@ function infoBtnModal() {
   })
 }
 
+//Appearing Rooms
+function RoomLetterHidden() {  
+  RoomLetter.alpha = 0;
+}
+function RoomLetterShown() {
+  RoomLetter.alpha = 1;
+}
+
+function RoomLibraryHidden() {  
+  RoomLibrary.alpha = 0;
+}
+function RoomLibraryShown() {
+  RoomLibrary.alpha = 1;
+}
+  
+
 //Unlock Event for daily Locks
+//Unlock Letter Room
 function unlockEvent(locked_one) {
   // Play star pop sound
-  this.unlockSound.play('',0,1);
-  this.winSound.play('',0,1);
+  unlockSound.play('',0,1);
+  winSound.play('',0,1);
   
   //Stop bouncing tween
   unlockTweenA = game.add.tween(locked_one.scale).to( { x:.5, y:.5 }, 500, "Elastic.easeOut");
@@ -436,7 +505,49 @@ function unlockEvent(locked_one) {
   for (var i = 0; i < 3; i++)
   {starGroup.create( roomBounds1.randomX, roomBounds1.randomY, 'star');}
   starGroup.forEach(makeStarClick);
+  
+  //Update Data
+  openRoomLetter = JSON.parse(localStorage.getItem('openRoomLetter'));
+  // Add 1 to openRoomLetter
+  openRoomLetter += 1;
+  // Add new score to console
+  console.log('+1 ! new Room Unlocked!')
+  // Update new score to localStorage
+  localStorage.setItem("openRoomLetter", JSON.stringify(openRoomLetter));
 }
+//Unlock Library
+function unlockEventLibrary(unlockedLibrary) {
+  // Play star pop sound
+  unlockSound.play('',0,1);
+  winSound.play('',0,1);
+  
+  //Stop bouncing tween
+  unlockTweenA = game.add.tween(unlockedLibrary.scale).to( { x:.5, y:.5 }, 500, "Elastic.easeOut");
+  unlockTweenB = game.add.tween(unlockedLibrary.scale).to( { x:1.2, y:1.2 }, 800, "Elastic.easeOut");
+  unlockTweenC = game.add.tween(unlockedLibrary.scale).to( { x:0, y:0 }, 800, "Elastic");
+  unlockTweenA.chain(unlockTweenB, unlockTweenC);
+  unlockTweenA.start();
+  // Add a timer before destroying star
+  game.time.events.add(2000, unlockedLibrary.destroy, unlockedLibrary);
+  
+  // Room drop down animation tween
+  RoomLibrary.alpha = 1;
+  roomDropTweenA = game.add.tween(RoomLibrary).from( { y:10 }, 1100, "Elastic.easeOut");
+  roomDropTweenA.start();
+  
+  //  And add 3 sprites to it
+  for (var i = 0; i < 3; i++)
+  {starGroup.create( roomBoundsLibrary.randomX, roomBoundsLibrary.randomY, 'star');}
+  starGroup.forEach(makeStarClick);
+  
+  //Update Data
+  openRoomLibrary = JSON.parse(localStorage.getItem('openRoomLibrary'));
+  openRoomLibrary += 1;
+  console.log('room update:' + openRoomLibrary)
+  // Update new score to localStorage
+  localStorage.setItem("openRoomLibrary", JSON.stringify(openRoomLibrary));
+}
+
 
 //Make stars clickable and animated
 function makeStarClick() {
