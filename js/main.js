@@ -127,29 +127,29 @@ var libraryBtn = document.getElementById("libraryBtn");
 var librarySpan = document.getElementById("librarySpan");
 
 // When the user clicks on the button, open the library 
-libraryBtn.onclick = function() {
-    library.style.display = "block";
-      librarytl
-        .fromTo(library, .5, {
-          rotationX:90,
-          transformPerspective: 100,
-          transformStyle:"preserve-3d",
-          transformOrigin:"50% 100%",
-        },{
-          rotationX:0, 
-          ease: Back.easeOut.config(.8)
-        })
-        .fromTo(libraryContent, .4, {y:300}, {y:0}, '-=.3')
+//libraryBtn.onclick = function() {
+//    library.style.display = "block";
+//      librarytl
+//        .fromTo(library, .5, {
+//          rotationX:90,
+//          transformPerspective: 100,
+//          transformStyle:"preserve-3d",
+//          transformOrigin:"50% 100%",
+//        },{
+//          rotationX:0, 
+//          ease: Back.easeOut.config(.8)
+//        })
+//        .fromTo(libraryContent, .4, {y:300}, {y:0}, '-=.3')
 
-    for (var i = 0; i < libraryBtn.length; i++) {
-        var thislibraryBtn = libraryBtn[i];
-        thislibraryBtn.addEventListener("click", function () {
-            var library = document.getElementById(this.dataset.library);
+//    for (var i = 0; i < libraryBtn.length; i++) {
+//        var thislibraryBtn = libraryBtn[i];
+//        thislibraryBtn.addEventListener("click", function () {
+//            var library = document.getElementById(this.dataset.library);
             //library.style.display = "block";
-            library.addEventListener("click", function () { library.style.display = "none"; library.removeEventListener("click"); });
-        }, false);
-    }
-}
+//            library.addEventListener("click", function () { library.style.display = "none"; library.removeEventListener("click"); });
+//        }, false);
+//    }
+//}
 
 // When the user clicks on <span> (x), close the library
 librarySpan.onclick = function() {
@@ -198,6 +198,7 @@ function infoModalOpen() {
 }
 //Close Intro Modal
 introModalBtn.onclick = function() {
+  
   blopAudio.play();
   var tlintroModalClose = new TimelineMax();
   tlintroModalClose

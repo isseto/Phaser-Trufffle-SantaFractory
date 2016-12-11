@@ -39,11 +39,7 @@ var openRoomLetter = localStorage.getItem('openRoomLetter');
   if(openRoomLetter  === null) {
     localStorage.setItem('openRoomLetter', 0);    
     openRoomLetter = 0;
-    
-    RoomLetterHidden(this);
-  } else (
-    RoomLetterShown(this)
-  )
+  }
 console.log('Last Rooms You Saved // '+ localStorage.getItem("openRoomLetter"))
 
 var openRoomLibrary = localStorage.getItem('openRoomLibrary');
@@ -51,11 +47,7 @@ var openRoomLibrary = localStorage.getItem('openRoomLibrary');
   if(openRoomLibrary  === null) {
     localStorage.setItem('openRoomLibrary', 0);    
     openRoomLibrary = 0;
-    
-    RoomLibraryHidden(this);
-  } else (
-    RoomLibraryShown(this)
-  )
+  }
 console.log('Last Rooms You Saved // '+ localStorage.getItem("openRoomLibrary"))
 
 
@@ -228,6 +220,12 @@ function create() {
   //Library
   RoomLibrary = game.add.sprite(-8, -300, 'RoomLibrary')
     scrollingMap.addChild(RoomLibrary);
+    openRoomLibrary = localStorage.getItem('openRoomLibrary');
+      if(openRoomLibrary == 0) {
+        RoomLibrary.alpha = 0;
+      } else (
+        RoomLibrary.alpha = 1
+      )
   roomBoundsLibrary = Phaser.Rectangle.clone(RoomLibrary);
   
   librarySorting = game.add.sprite(380, 440, 'librarySorting');
@@ -262,6 +260,12 @@ function create() {
   //****
   RoomLetter = game.add.sprite(350, 73, 'RoomLetter')
   scrollingMap.addChild(RoomLetter);
+  openRoomLetter = localStorage.getItem('openRoomLetter');
+      if(openRoomLetter == 0) {
+        RoomLetter.alpha = 0;
+      } else (
+        RoomLetter.alpha = 1
+      )
   // Clone bounds from letter room sprite
   roomBounds1 = Phaser.Rectangle.clone(RoomLetter);
   // LETTER ROOM ANIMATIONS
@@ -366,7 +370,7 @@ function create() {
     locked_one.anchor.set(0.5, 1);
     locked_one.scale.setTo(.6,.6);
     openRoomLetter = localStorage.getItem('openRoomLetter');
-    if(openRoomLetter  === null) {
+    if(openRoomLetter  == 0) {
       locked_one.alpha = 1;
     } else (
       locked_one.alpha = 0
@@ -385,7 +389,7 @@ function create() {
     unlockedLibrary.anchor.set(0.5, 1);
     unlockedLibrary.scale.setTo(.6,.6);
     openRoomLibrary = localStorage.getItem('openRoomLibrary');
-    if(openRoomLibrary  === null) {
+    if(openRoomLibrary  == 0) {
       unlockedLibrary.alpha = 1;
     } else (
       unlockedLibrary.alpha = 0
