@@ -365,6 +365,12 @@ function create() {
   locked_one = game.add.sprite(695,350, 'lockedLetter');
     locked_one.anchor.set(0.5, 1);
     locked_one.scale.setTo(.6,.6);
+    openRoomLetter = localStorage.getItem('openRoomLetter');
+    if(openRoomLetter  === null) {
+      locked_one.alpha = 1;
+    } else (
+      locked_one.alpha = 0
+    )
     //Add locked_one to lockGroup  
     lockGroup.addChild(locked_one);
     locked_one.inputEnabled = true;
@@ -378,6 +384,12 @@ function create() {
   unlockedLibrary = game.add.sprite(320,140, 'unlockedLibrary');
     unlockedLibrary.anchor.set(0.5, 1);
     unlockedLibrary.scale.setTo(.6,.6);
+    openRoomLibrary = localStorage.getItem('openRoomLibrary');
+    if(openRoomLibrary  === null) {
+      unlockedLibrary.alpha = 1;
+    } else (
+      unlockedLibrary.alpha = 0
+    )
     //Add locked_one to lockGroup  
     lockGroup.addChild(unlockedLibrary);
     unlockedLibrary.inputEnabled = true;
@@ -470,6 +482,9 @@ function RoomLetterHidden() {
 }
 function RoomLetterShown() {
   RoomLetter.alpha = 1;
+  unlocked_one.alpha = 0;
+  unlocked_one.destroy;
+  unlocked_one.destroy()
 }
 
 function RoomLibraryHidden() {  
@@ -477,6 +492,8 @@ function RoomLibraryHidden() {
 }
 function RoomLibraryShown() {
   RoomLibrary.alpha = 1;
+  unlockedLibrary.alpha = 0;
+  game.time.events.add(1, unlockedLibrary.destroy, unlockedLibrary);
 }
   
 
