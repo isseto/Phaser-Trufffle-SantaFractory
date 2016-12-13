@@ -50,6 +50,14 @@ var openRoomLibrary = localStorage.getItem('openRoomLibrary');
   }
 console.log('Last Rooms You Saved // '+ localStorage.getItem("openRoomLibrary"))
 
+var openRoomStatistics = localStorage.getItem('openRoomStatistics');
+// If there is previous data 
+  if(openRoomStatistics  === null) {
+    localStorage.setItem('openRoomStatistics', 0);    
+    openRoomStatistics = 0;
+  }
+console.log('Last Rooms You Saved // '+ localStorage.getItem("openRoomStatistics"))
+
 
 // BASEMAP Speed and Friction
 var speedMult = 0.7;
@@ -57,13 +65,6 @@ var friction = 0.99;
 
 
 function preload() {
-  //Spritesheet Guide
-  //  37x45 is the size of each frame
-  //  There are 18 frames in the PNG - you can leave this value blank if the frames fill up the entire PNG, 
-  //  but in this case there are some blank frames at the end, so we tell the loader how many to load
-  //game.load.spritesheet('ms', 'assets/sprites/metalslug_mummy37x45.png', 37, 45, 18);
-
-  
   //***** BACKGROUND IMAGES
   game.load.image('map', 'assets/images/basemap/basemap_empty.png');
   game.load.image('infoBtn', 'assets/images/infoButton.png');
@@ -86,6 +87,7 @@ function preload() {
   //Unlocked
   game.load.image('lockedLetter', 'assets/images/locks/locked_100x100.png');
   game.load.image('unlockedLibrary', 'assets/images/locks/unlocked_library.png');
+  game.load.image('unlockedStatistics', 'assets/images/locks/unlocked_stats.png');
   
   //***** ROOMS
   //General
@@ -117,6 +119,11 @@ function preload() {
   game.load.spritesheet('libraryShelf', 'assets/images/rooms/library/library_shelfbook_200200.png', 200, 200);
   game.load.spritesheet('libraryGlobe', 'assets/images/rooms/library/library_globe_200200.png', 200, 200);
   game.load.spritesheet('libraryBigBook', 'assets/images/rooms/library/library_bigbook_200200.png', 200, 200);
+  //Stats
+  game.load.image('RoomStatistics', 'assets/images/rooms/stats/statistics.png');
+  game.load.spritesheet('statsClipboard', 'assets/images/rooms/stats/stats_clipboard_5050.png', 50, 50);
+  game.load.spritesheet('statsComputer', 'assets/images/rooms/stats/stats_computer_6050.png', 60, 50);
+  game.load.spritesheet('statsComputer2', 'assets/images/rooms/stats/stats_computer2_6050.png', 60, 50);
   
   //***** ELF SPRITESHEETS
   game.load.spritesheet('ms', 'assets/sprites/elfmotion2048.png', 170.7, 170.7, 100);
@@ -190,10 +197,10 @@ function create() {
     lockCook.scale.setTo(.6,.6);
     scrollingMap.addChild(lockCook);
   
-  lockStats = game.add.sprite(590, -115, 'lockStats'); 
-    lockStats.anchor.set(0.5);
-    lockStats.scale.setTo(.6,.6);
-    scrollingMap.addChild(lockStats);
+  //lockStats = game.add.sprite(590, -115, 'lockStats'); 
+    //lockStats.anchor.set(0.5);
+    //lockStats.scale.setTo(.6,.6);
+    //scrollingMap.addChild(lockStats);
   
   lockGreenhouse = game.add.sprite(1950, 65, 'lockGreenhouse'); 
     lockGreenhouse.anchor.set(0.5);
@@ -217,6 +224,102 @@ function create() {
   
   
   //***** Setting Rooms
+  //Statistics
+  RoomStatistics = game.add.sprite(270, -471, 'RoomStatistics')
+    scrollingMap.addChild(RoomStatistics);
+    openRoomStatistics = localStorage.getItem('openRoomStatistics');
+      if(openRoomStatistics == 0) {
+        RoomStatistics.alpha = 0;
+      } else (
+        RoomStatistics.alpha = 1
+      )
+  roomBoundsStatistics = Phaser.Rectangle.clone(RoomStatistics);
+  
+  statsClipboard = game.add.sprite(410, 160, 'statsClipboard');
+    statsClipboard.animations.add('statsClipboard_anim');
+    statsClipboard.animations.play('statsClipboard_anim', 25, true);  
+    RoomStatistics.addChild(statsClipboard);
+  
+  statsBack = game.add.sprite(390, 275, 'generalBack');
+    statsBack.animations.add('statsBack_anim');
+    statsBack.animations.play('statsBack_anim', 25, true);  
+    RoomStatistics.addChild(statsBack);
+  
+  statsComputer = game.add.sprite(262, 292, 'statsComputer');
+    statsComputer.animations.add('statsComputer_anim');
+    statsComputer.animations.play('statsComputer_anim', 25, true);  
+    RoomStatistics.addChild(statsComputer);
+  statsComputer = game.add.sprite(232, 308, 'statsComputer2');
+    statsComputer.animations.add('statsComputer_anim');
+    statsComputer.animations.play('statsComputer_anim', 25, true);  
+    RoomStatistics.addChild(statsComputer);
+  statsComputer = game.add.sprite(202, 324, 'statsComputer');
+    statsComputer.animations.add('statsComputer_anim');
+    statsComputer.animations.play('statsComputer_anim', 25, true);  
+    RoomStatistics.addChild(statsComputer);
+  statsComputer = game.add.sprite(172, 340, 'statsComputer2');
+    statsComputer.animations.add('statsComputer_anim');
+    statsComputer.animations.play('statsComputer_anim', 25, true);  
+    RoomStatistics.addChild(statsComputer);
+  statsComputer = game.add.sprite(146, 356, 'statsComputer');
+    statsComputer.animations.add('statsComputer_anim');
+    statsComputer.animations.play('statsComputer_anim', 25, true);  
+    RoomStatistics.addChild(statsComputer);
+  statsComputer = game.add.sprite(124, 372, 'statsComputer2');
+    statsComputer.animations.add('statsComputer_anim');
+    statsComputer.animations.play('statsComputer_anim', 25, true);  
+    RoomStatistics.addChild(statsComputer);
+  
+  statsComputer = game.add.sprite(310, 325, 'statsComputer');
+    statsComputer.animations.add('statsComputer_anim');
+    statsComputer.animations.play('statsComputer_anim', 25, true);  
+    RoomStatistics.addChild(statsComputer);
+  statsComputer = game.add.sprite(280, 345, 'statsComputer');
+    statsComputer.animations.add('statsComputer_anim');
+    statsComputer.animations.play('statsComputer_anim', 25, true);  
+    RoomStatistics.addChild(statsComputer);
+  statsComputer = game.add.sprite(250, 360, 'statsComputer');
+    statsComputer.animations.add('statsComputer_anim');
+    statsComputer.animations.play('statsComputer_anim', 25, true);  
+    RoomStatistics.addChild(statsComputer);
+  statsComputer = game.add.sprite(220, 380, 'statsComputer');
+    statsComputer.animations.add('statsComputer_anim');
+    statsComputer.animations.play('statsComputer_anim', 25, true);  
+    RoomStatistics.addChild(statsComputer);
+  statsComputer = game.add.sprite(195, 390, 'statsComputer');
+    statsComputer.animations.add('statsComputer_anim');
+    statsComputer.animations.play('statsComputer_anim', 25, true);  
+    RoomStatistics.addChild(statsComputer);
+  statsComputer = game.add.sprite(168, 405, 'statsComputer');
+    statsComputer.animations.add('statsComputer_anim');
+    statsComputer.animations.play('statsComputer_anim', 25, true);  
+    RoomStatistics.addChild(statsComputer);
+  
+  statsComputer = game.add.sprite(365, 350, 'statsComputer');
+    statsComputer.animations.add('statsComputer_anim');
+    statsComputer.animations.play('statsComputer_anim', 25, true);  
+    RoomStatistics.addChild(statsComputer);
+  statsComputer = game.add.sprite(335, 366, 'statsComputer');
+    statsComputer.animations.add('statsComputer_anim');
+    statsComputer.animations.play('statsComputer_anim', 25, true);  
+    RoomStatistics.addChild(statsComputer);
+  statsComputer = game.add.sprite(305, 382, 'statsComputer');
+    statsComputer.animations.add('statsComputer_anim');
+    statsComputer.animations.play('statsComputer_anim', 25, true);  
+    RoomStatistics.addChild(statsComputer);
+  statsComputer = game.add.sprite(275, 398, 'statsComputer');
+    statsComputer.animations.add('statsComputer_anim');
+    statsComputer.animations.play('statsComputer_anim', 25, true);  
+    RoomStatistics.addChild(statsComputer);
+  statsComputer = game.add.sprite(250, 414, 'statsComputer');
+    statsComputer.animations.add('statsComputer_anim');
+    statsComputer.animations.play('statsComputer_anim', 25, true);  
+    RoomStatistics.addChild(statsComputer);
+  statsComputer = game.add.sprite(223, 430, 'statsComputer');
+    statsComputer.animations.add('statsComputer_anim');
+    statsComputer.animations.play('statsComputer_anim', 25, true);  
+    RoomStatistics.addChild(statsComputer);
+  
   //Library
   RoomLibrary = game.add.sprite(-8, -300, 'RoomLibrary')
     scrollingMap.addChild(RoomLibrary);
@@ -403,6 +506,24 @@ function create() {
     unlockedLibraryTween = game.add.tween(unlockedLibrary)
       unlockedLibraryTween.to( {y:150}, 600, Phaser.Easing.Out, true, 0, -1, true);
   
+  unlockedStatistics = game.add.sprite(580,-100, 'unlockedStatistics');
+    unlockedStatistics.anchor.set(0.5, 1);
+    unlockedStatistics.scale.setTo(.6,.6);
+    openRoomStatistics = localStorage.getItem('openRoomStatistics');
+    if(openRoomStatistics  == 0) {
+      unlockedStatistics.alpha = 1;
+    } else (
+      unlockedStatistics.alpha = 0
+    )
+    //Add locked_one to lockGroup  
+    lockGroup.addChild(unlockedStatistics);
+    unlockedStatistics.inputEnabled = true;
+    unlockedStatistics.input.useHandCursor = true;
+    unlockedStatistics.events.onInputDown.add(unlockEventStatistics, this);
+    //Animating single lock for now
+    unlockedStatsTween = game.add.tween(unlockedStatistics)
+      unlockedStatsTween.to( {y:-90}, 600, Phaser.Easing.Out, true, 0, -1, true);
+  
   //Preparing unlock sound
   unlockSound = game.add.audio('unlock');
   winSound = game.add.audio('lockwin');
@@ -479,26 +600,6 @@ function infoBtnModal() {
     delay:.5
   })
 }
-
-//Appearing Rooms
-function RoomLetterHidden() {  
-  RoomLetter.alpha = 0;
-}
-function RoomLetterShown() {
-  RoomLetter.alpha = 1;
-  unlocked_one.alpha = 0;
-  unlocked_one.destroy;
-  unlocked_one.destroy()
-}
-
-function RoomLibraryHidden() {  
-  RoomLibrary.alpha = 0;
-}
-function RoomLibraryShown() {
-  RoomLibrary.alpha = 1;
-  unlockedLibrary.alpha = 0;
-  game.time.events.add(1, unlockedLibrary.destroy, unlockedLibrary);
-}
   
 
 //Unlock Event for daily Locks
@@ -567,6 +668,39 @@ function unlockEventLibrary(unlockedLibrary) {
   console.log('room update:' + openRoomLibrary)
   // Update new score to localStorage
   localStorage.setItem("openRoomLibrary", JSON.stringify(openRoomLibrary));
+}
+
+//Unlock Statistics
+function unlockEventStatistics(unlockedStatistics) {
+  // Play star pop sound
+  unlockSound.play('',0,1);
+  winSound.play('',0,1);
+  
+  //Stop bouncing tween
+  unlockTweenA = game.add.tween(unlockedStatistics.scale).to( { x:.5, y:.5 }, 500, "Elastic.easeOut");
+  unlockTweenB = game.add.tween(unlockedStatistics.scale).to( { x:1.2, y:1.2 }, 800, "Elastic.easeOut");
+  unlockTweenC = game.add.tween(unlockedStatistics.scale).to( { x:0, y:0 }, 800, "Elastic");
+  unlockTweenA.chain(unlockTweenB, unlockTweenC);
+  unlockTweenA.start();
+  // Add a timer before destroying star
+  game.time.events.add(2000, unlockedStatistics.destroy, unlockedStatistics);
+  
+  // Room drop down animation tween
+  RoomStatistics.alpha = 1;
+  roomDropTweenA = game.add.tween(RoomStatistics).from( { y:10 }, 1100, "Elastic.easeOut");
+  roomDropTweenA.start();
+  
+  //  And add 3 sprites to it
+  for (var i = 0; i < 3; i++)
+  {starGroup.create( roomBoundsStatistics.randomX, roomBoundsStatistics.randomY, 'star');}
+  starGroup.forEach(makeStarClick);
+  
+  //Update Data
+  openRoomStatistics = JSON.parse(localStorage.getItem('openRoomStatistics'));
+  openRoomStatistics += 1;
+  console.log('room update:' + openRoomStatistics)
+  // Update new score to localStorage
+  localStorage.setItem("openRoomStatistics", JSON.stringify(openRoomStatistics));
 }
 
 
